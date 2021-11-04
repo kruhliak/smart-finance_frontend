@@ -1,0 +1,47 @@
+:root {
+  --accent-color: #ff751d;
+  --primary-text-color: #52555f;
+  --black-text-color: #000000;
+  --white-text-color: #ffffff;
+}
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  color: var(--primary-text-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.17;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: inline-block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
