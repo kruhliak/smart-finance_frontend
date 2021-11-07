@@ -5,7 +5,8 @@ export const Wrapper = styled.div`
   max-width: 102px;
   cursor: pointer;
   /* margin-bottom: 40px; */
-  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
 `;
 
 export const Text = styled.p`
