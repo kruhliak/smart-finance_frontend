@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const CustomButton = styled.button`
   width: 125px;
@@ -8,7 +8,6 @@ export const CustomButton = styled.button`
 
   font-weight: bold;
   font-size: 12px;
-  line-height: 1.33;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   
@@ -23,9 +22,24 @@ export const CustomButton = styled.button`
     background-color: var(--white-text-color);
     color: var(--primary-text-color);
     border: 2px solid #F6F7FC;
-  `}
+  `};
+
+  ${({googleBtn}) =>
+    googleBtn &&
+    `
+    width: 122px;
+    height: 40px;
+    background-color: #F6F7FB;
+    border-radius: 26px;
+    color: var(--black-text-color);
+    text-transform: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+  `};
+
     &:focus,
-  &:hover {
+    &:hover {
     box-shadow: 2px 4px 4px 0px rgb(0 0 0 / 30%), -1px 0px 0px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
     transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
-`;
+`
