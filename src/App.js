@@ -7,6 +7,10 @@ const HomePage = lazy(() =>
   import('views/HomePage' /* webpackChunkName: "home-page" */),
 );
 
+const LoginPage = lazy(() =>
+  import('views/LoginPage/LoginPage' /* webpackChunkName: "login-page" */),
+);
+
 const ReportPage = lazy(() =>
   import('views/ReportPage' /* webpackChunkName: "report-page" */),
 );
@@ -23,6 +27,10 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             <HomePage />
+          </Route>
+
+          <Route exact path="/login">
+            <LoginPage />
           </Route>
 
           <Route exact path="/report">
