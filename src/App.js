@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import './index.css';
 
 import Loader from 'react-loader-spinner';
 // import PrivateRoute from 'components/PrivateRoute';

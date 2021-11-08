@@ -36,10 +36,12 @@ export const CustomButton = styled.button`
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
+    margin: 0 auto;
   `};
 
     &:focus,
     &:hover {
     box-shadow: 2px 4px 4px 0px rgb(0 0 0 / 30%), -1px 0px 0px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
     transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 `
