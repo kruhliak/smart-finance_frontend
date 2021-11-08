@@ -83,12 +83,12 @@ function Reportlist() {
               <Reportcard
                 icon={'icon-salary'}
                 sum={'1000'}
-                name={'Продукты'}
+                name={'ЗП'}
               ></Reportcard>
               <Reportcard
                 icon={'icon-income'}
                 sum={'1000'}
-                name={'Алкоголь'}
+                name={'Доп. доход'}
               ></Reportcard>
             </Wrapper>
           </>
