@@ -1,10 +1,17 @@
 import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import './index.css';
 
 import Loader from 'react-loader-spinner';
+// import PrivateRoute from 'components/PrivateRoute';
+// import PublicRoute from 'components/PublicRoute';
 
 const HomePage = lazy(() =>
   import('views/HomePage' /* webpackChunkName: "home-page" */),
+);
+
+const LoginPage = lazy(() =>
+  import('views/LoginPage/LoginPage' /* webpackChunkName: "login-page" */),
 );
 
 const ReportPage = lazy(() =>
@@ -29,6 +36,10 @@ export default function App() {
             <HomePage />
           </Route>
 
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+
           <Route exact path="/report">
             <ReportPage />
           </Route>
@@ -36,6 +47,18 @@ export default function App() {
           <Route path="/test">
             <TestPage />
           </Route>
+
+          {/* <PrivateRoute exact path="/" redirectTo="/login">
+            <HomePage />
+          </PrivateRoute>
+
+          <PublicRoute path="/login" restricted redirectTo="/">
+            <LoginPage />
+          </PublicRoute>
+
+          <PrivateRoute path="/report" restricted redirectTo="/">
+            <ReportPage />
+          </PrivateRoute> */}
 
           <Route>
             <NotFoundPage />

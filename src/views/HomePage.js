@@ -6,6 +6,11 @@ export default function HomePage() {
     <Chart/>
     <div>
       <p>HomePage</p>
+      <Modal text="Вы действительно хотите выйти?">
+        {/* <CustomBtnStyled text="Да, ёпта"/>
+        <CustomBtnStyled backBtn text="Пардон" /> */}
+        <CustomBtnStyled googleBtn text="Google"/>
+      </Modal>
       
       </div>
       </>
