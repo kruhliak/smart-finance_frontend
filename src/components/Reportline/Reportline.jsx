@@ -6,7 +6,7 @@ import {
   Stripe,
   Income,
   Expenses,
-} from './Reportline.styled';
+} from './ReportLine.styled';
 
 function Reportline() {
   const [income, setIncome] = useState('');

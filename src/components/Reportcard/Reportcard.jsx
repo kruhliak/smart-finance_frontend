@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Icon } from 'hooks/Icon';
 
-import { Wrapper, Text } from './Reportcard.styled';
+import { Wrapper, Text } from './ReportCard.styled';
 
 function Reportcard({ sum, name, icon }) {
   const [isShown, setIsShown] = useState(false);

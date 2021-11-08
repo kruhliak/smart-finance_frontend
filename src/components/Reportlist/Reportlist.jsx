@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { Wrapper, Container, Categories } from './Reportlist.styled';
+import { Wrapper, Container, Categories } from './ReportList.styled';
 
-import Reportcard from '../Reportcard/Reportcard';
+import Reportcard from '../ReportCard/ReportCard';
 
 function Reportlist() {
   const [category, setCategory] = useState(true);

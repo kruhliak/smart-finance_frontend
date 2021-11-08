@@ -1,5 +1,5 @@
-import Reportline from 'components/Reportline/Reportline';
-import Reportlist from 'components/Reportlist/Reportlist';
+import Reportline from 'components/ReportLine/ReportLine';
+import Reportlist from 'components/ReportList/ReportList';
 
 export default function ReportPage() {
   return (
