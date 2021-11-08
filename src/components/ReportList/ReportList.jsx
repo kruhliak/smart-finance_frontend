@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Wrapper, Container, Categories } from './ReportList.styled';
 
-import Reportcard from '../ReportCard/ReportCard';
+import ReportCard from '../ReportCard/ReportCard';
 
 function Reportlist() {
   const [category, setCategory] = useState(true);
@@ -15,62 +15,62 @@ function Reportlist() {
             РАСХОДЫ
           </Categories>
           <Wrapper>
-            <Reportcard
+            <ReportCard
               icon={'icon-food'}
               sum={'1000'}
               name={'Продукты'}
-            ></Reportcard>
-            <Reportcard
+            ></ReportCard>
+            <ReportCard
               icon={'icon-alco'}
               sum={'1000'}
               name={'Алкоголь'}
-            ></Reportcard>
-            <Reportcard
+            ></ReportCard>
+            <ReportCard
               icon={'icon-entertainment'}
               sum={'1000'}
               name={'Развлечение'}
-            ></Reportcard>
-            <Reportcard
+            ></ReportCard>
+            <ReportCard
               icon={'icon-health'}
               sum={'1000'}
               name={'Здоровье'}
-            ></Reportcard>
-            <Reportcard
+            ></ReportCard>
+            <ReportCard
               icon={'icon-car'}
               sum={'1000'}
               name={'Транспорт'}
-            ></Reportcard>
-            <Reportcard
+            ></ReportCard>
+            <ReportCard
               icon={'icon-home'}
               sum={'1000'}
               name={'все для дома'}
-            ></Reportcard>
-            <Reportcard
+            ></ReportCard>
+            <ReportCard
               icon={'icon-electronics'}
               sum={'1000'}
               name={'техника'}
-            ></Reportcard>
-            <Reportcard
+            ></ReportCard>
+            <ReportCard
               icon={'icon-communal'}
               sum={'1000'}
               name={`коммуналка,
 связь`}
-            ></Reportcard>
-            <Reportcard
+            ></ReportCard>
+            <ReportCard
               icon={'icon-hobby'}
               sum={'1000'}
               name={'спорт, хобби'}
-            ></Reportcard>
-            <Reportcard
+            ></ReportCard>
+            <ReportCard
               icon={'icon-education'}
               sum={'1000'}
               name={'образование'}
-            ></Reportcard>
-            <Reportcard
+            ></ReportCard>
+            <ReportCard
               icon={'icon-other'}
               sum={'1000'}
               name={'прочее'}
-            ></Reportcard>
+            ></ReportCard>
           </Wrapper>
         </>
       ) : (
@@ -80,16 +80,16 @@ function Reportlist() {
               ДОХОДЫ
             </Categories>
             <Wrapper>
-              <Reportcard
+              <ReportCard
                 icon={'icon-salary'}
                 sum={'1000'}
                 name={'ЗП'}
-              ></Reportcard>
-              <Reportcard
+              ></ReportCard>
+              <ReportCard
                 icon={'icon-income'}
                 sum={'1000'}
                 name={'Доп. доход'}
-              ></Reportcard>
+              ></ReportCard>
             </Wrapper>
           </>
         </>

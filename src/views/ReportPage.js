@@ -1,12 +1,12 @@
-import Reportline from 'components/ReportLine/ReportLine';
-import Reportlist from 'components/ReportList/ReportList';
+import ReportLine from 'components/ReportLine/ReportLine';
+import ReportList from 'components/ReportList/ReportList';
 
 export default function ReportPage() {
   return (
     <div>
       <p>ReportPage</p>
-      <Reportline></Reportline>
-      <Reportlist></Reportlist>
+      <ReportLine></ReportLine>
+      <ReportList></ReportList>
     </div>
   );
 }
