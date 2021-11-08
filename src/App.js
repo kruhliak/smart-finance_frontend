@@ -2,6 +2,8 @@ import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Loader from 'react-loader-spinner';
+// import PrivateRoute from 'components/PrivateRoute';
+// import PublicRoute from 'components/PublicRoute';
 
 const HomePage = lazy(() =>
   import('views/HomePage' /* webpackChunkName: "home-page" */),
@@ -36,6 +38,18 @@ export default function App() {
           <Route exact path="/report">
             <ReportPage />
           </Route>
+
+          {/* <PrivateRoute exact path="/" redirectTo="/login">
+            <HomePage />
+          </PrivateRoute>
+
+          <PublicRoute path="/login" restricted redirectTo="/">
+            <LoginPage />
+          </PublicRoute>
+
+          <PrivateRoute path="/report" restricted redirectTo="/">
+            <ReportPage />
+          </PrivateRoute> */}
 
           <Route>
             <NotFoundPage />
