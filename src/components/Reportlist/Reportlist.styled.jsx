@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   width: 613px;
   row-gap: 40px;
+  column-gap: 10px;
 `;
 
 export const Container = styled.div`

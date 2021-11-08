@@ -2,11 +2,8 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   text-align: center;
-  max-width: 102px;
+  width: 90px;
   cursor: pointer;
-  /* margin-bottom: 40px; */
-  padding-left: 8px;
-  padding-right: 8px;
 `;
 
 export const Text = styled.p`
