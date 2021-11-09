@@ -53,8 +53,7 @@ function ReportList() {
             <ReportCard
               icon={'icon-communal'}
               sum={'1000'}
-              name={`коммуналка,
-связь`}
+              name={`коммуналка`}
             ></ReportCard>
             <ReportCard
               icon={'icon-hobby'}
