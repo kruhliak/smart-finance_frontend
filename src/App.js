@@ -10,6 +10,12 @@ const HomePage = lazy(() =>
   import('views/HomePage' /* webpackChunkName: "home-page" */),
 );
 
+const RegisterPage = lazy(() =>
+  import(
+    'views/RegisterPage/RegisterPage' /* webpackChunkName: "register-page" */
+  ),
+);
+
 const LoginPage = lazy(() =>
   import('views/LoginPage/LoginPage' /* webpackChunkName: "login-page" */),
 );
@@ -32,14 +38,16 @@ export default function App() {
             <HomePage />
           </Route>
 
+          <Route path="/register">
+            <RegisterPage />
+          </Route>
+
           <Route exact path="/login">
             <LoginPage />
           </Route>
-
           <Route exact path="/report">
             <ReportPage />
           </Route>
-
           {/* <PrivateRoute exact path="/" redirectTo="/login">
             <HomePage />
           </PrivateRoute>
@@ -51,7 +59,6 @@ export default function App() {
           <PrivateRoute path="/report" restricted redirectTo="/">
             <ReportPage />
           </PrivateRoute> */}
-
           <Route>
             <NotFoundPage />
           </Route>

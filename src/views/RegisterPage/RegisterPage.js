@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import {
   Wrapper,
   Form,
@@ -10,10 +10,10 @@ import {
   ErrorMessage,
   StarErr,
   ButtonWrapper,
-} from './LoginPage.styled';
-import styled from '@emotion/styled';
+} from './RegisterPage.styled';
 import Button from '../../components/Buttons/CustomButton';
-import { userLogin } from '../../redux/operations/auth-operation';
+import { userSignup } from '../../redux/operations/auth-operation';
+import styled from '@emotion/styled';
 
 const Link = styled(NavLink)`
   text-decoration: none;
@@ -44,7 +44,8 @@ const Link = styled(NavLink)`
     transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
-const LoginPage = () => {
+
+const RegisterPage = () => {
   const {
     register,
     handleSubmit,
@@ -56,7 +57,7 @@ const LoginPage = () => {
 
   const onSubmit = data => {
     console.log(data);
-    dispatch(userLogin(data));
+    dispatch(userSignup(data));
   };
 
   // console.log(watch('password')); // watch input value by passing the name of it
@@ -64,7 +65,7 @@ const LoginPage = () => {
   return (
     <Wrapper>
       <p>Вы можете авторизоваться с помощью Google Account:</p>
-      <Button googleBtn text="Google"></Button>
+      <Button googleBtn text="Google" className="m-auto"></Button>
       <p>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </p>
@@ -121,9 +122,9 @@ const LoginPage = () => {
           </ErrorMessage>
         )}
         <ButtonWrapper>
-          <Button text="Войти" type="submit" />
-          <Link to="/register" exact>
-            Регистрация
+          <Button text="Регистрация" type="submit" />
+          <Link to="/login" exact>
+            Войти
           </Link>
         </ButtonWrapper>
       </Form>
@@ -131,4 +132,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
