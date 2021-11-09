@@ -3,7 +3,7 @@ import { Icon } from 'hooks/Icon';
 
 import { Wrapper, Text } from './ReportCard.styled';
 
-function Reportcard({ sum, name, icon }) {
+function ReportCard({ sum, name, icon }) {
   const [isShown, setIsShown] = useState(false);
 
   const showGraph = () => {
@@ -24,4 +24,4 @@ function Reportcard({ sum, name, icon }) {
   );
 }
 
-export default Reportcard;
+export default ReportCard;

@@ -8,7 +8,7 @@ import {
   Expenses,
 } from './ReportLine.styled';
 
-function Reportline() {
+function ReportLine() {
   const [income, setIncome] = useState('');
   const [expenses, setExpenses] = useState('');
 
@@ -28,4 +28,4 @@ function Reportline() {
   );
 }
 
-export default Reportline;
+export default ReportLine;

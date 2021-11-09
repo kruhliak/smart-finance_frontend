@@ -4,7 +4,7 @@ import { Wrapper, Container, Categories } from './ReportList.styled';
 
 import ReportCard from '../ReportCard/ReportCard';
 
-function Reportlist() {
+function ReportList() {
   const [category, setCategory] = useState(true);
 
   return (
@@ -98,4 +98,4 @@ function Reportlist() {
   );
 }
 
-export default Reportlist;
+export default ReportList;
