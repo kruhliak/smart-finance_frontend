@@ -1,9 +1,11 @@
 import Chart from '../components/Charts/IncomeChart';
+import Modal from 'components/Modal';
+import CustomBtnStyled from 'components/Buttons/CustomButton';
 
 export default function HomePage() {
   return (
     <>
-    <Chart/>
+    {/* <Chart/> */}
     <div>
       <p>HomePage</p>
       <Modal text="Вы действительно хотите выйти?">

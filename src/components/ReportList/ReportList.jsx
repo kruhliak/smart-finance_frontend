@@ -4,7 +4,7 @@ import { Wrapper, Container, Categories } from './ReportList.styled';
 
 import ReportCard from '../ReportCard/ReportCard';
 
-function Reportlist() {
+function ReportList() {
   const [category, setCategory] = useState(true);
 
   return (
@@ -53,8 +53,7 @@ function Reportlist() {
             <ReportCard
               icon={'icon-communal'}
               sum={'1000'}
-              name={`коммуналка,
-связь`}
+              name={`коммуналка`}
             ></ReportCard>
             <ReportCard
               icon={'icon-hobby'}
@@ -98,4 +97,4 @@ function Reportlist() {
   );
 }
 
-export default Reportlist;
+export default ReportList;
