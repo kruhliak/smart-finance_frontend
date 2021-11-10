@@ -28,6 +28,7 @@ export const CustomButton = styled.button`
   ${({ googleBtn }) =>
     googleBtn &&
     `
+    display: block;
     width: 122px;
     height: 40px;
     background-color: #F6F7FB;
@@ -37,7 +38,7 @@ export const CustomButton = styled.button`
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
   `};
 
   &:focus,
