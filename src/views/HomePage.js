@@ -1,4 +1,4 @@
-import Chart from '../components/Charts/IncomeChart';
+import Chart from '../components/Charts/MobileChart';
 import Modal from 'components/Modal';
 import CustomBtnStyled from 'components/Buttons/CustomButton';
 
