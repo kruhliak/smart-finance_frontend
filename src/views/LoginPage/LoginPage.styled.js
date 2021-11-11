@@ -1,16 +1,28 @@
 import styled from '@emotion/styled';
+import { device } from '../../components/options/device';
 
 export const Wrapper = styled.div`
   border: 1px solid tomato;
-  box-sizing: border-box;
   width: 300px;
   padding: 50px 18px;
-  background-color: #ffffff;
-  @media (min-width: 768px) {
+  background-color: var(--white-text-color);
+  @media ${device.tablet} {
     width: 436px;
     padding: 50px 85px;
   }
 `;
+
+export const Text = styled.p`
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+  color: var(--primary-text-color);
+  @media ${device.tablet} {
+    margin-bottom: 20px;
+  }
+`;
+
 export const Form = styled.form`
   box-sizing: border-box;
   display: flex;
@@ -18,7 +30,6 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  box-sizing: border-box;
   width: 265px;
   height: 52px;
   background: #f6f7fb;
@@ -27,15 +38,13 @@ export const Input = styled.input`
   padding: 17px 20px;
   border: none;
   margin-bottom: 4px;
-
-  /* position: relative; */
 `;
 
 export const Label = styled.label`
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.04em;
-  color: #000000;
+  color: var(--black-text-color);
   margin-bottom: 10px;
 `;
 
