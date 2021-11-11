@@ -10,12 +10,15 @@ export const Wrapper = styled.div`
   column-gap: 10px;
   @media (min-width: 320px) {
     max-width: 320px;
+    /* display: none; */
   }
   @media (min-width: 768px) {
-    max-width: 666px;
+    max-width: 635px;
+    width: 100%;
   }
   @media (min-width: 1280px) {
-    max-width: 613px;
+    max-width: 758px;
+    width: 100%;
   }
 `;
 

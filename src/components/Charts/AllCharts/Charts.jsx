@@ -7,9 +7,9 @@ const Charts = () => {
 
   return (
     <Container>
-          {/* <Wrapper> */}
+          <Wrapper>
             <DesktopChart/>
-          {/* </Wrapper> */}
+          </Wrapper>
     </Container>
   );
 }
