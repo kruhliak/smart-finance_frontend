@@ -27,6 +27,10 @@ const NotFoundPage = lazy(() =>
   import('views/NotFoundPage' /* webpackChunkName: "not-found-page" */),
 );
 
+const TestPage = lazy(() =>
+  import('views/TestPage' /* webpackChunkName: "test-page" */),
+);
+
 export default function App() {
   return (
     <div id="container">
@@ -48,6 +52,11 @@ export default function App() {
           <Route exact path="/report">
             <ReportPage />
           </Route>
+
+          <Route path="/test">
+            <TestPage />
+          </Route>
+
           {/* <PrivateRoute exact path="/" redirectTo="/login">
             <HomePage />
           </PrivateRoute>
