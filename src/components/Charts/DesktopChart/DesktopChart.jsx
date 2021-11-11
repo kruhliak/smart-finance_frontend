@@ -1,5 +1,7 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, Cell, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Cell, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
+
+import { Toolpit } from './DesktopChart.styled';
 
 const data = [
   {
@@ -82,6 +84,20 @@ const data = [
 //   return null;
 // };
 
+function CustomTooltip({ active, payload}) {
+  if ( active ) {
+    // console.log("data inside", payload[0].payload.name)
+    return (
+      <Toolpit>
+        <p>{`${payload[0].value} грн`}</p>
+          <h4 className="mb-1">{`${payload[0].payload.name}`}</h4>
+      </Toolpit>
+    );
+  }
+  return null;
+};
+
+
 const DesktopChart = () => {
 
   const renderCustomizedLabel = props => {
@@ -94,7 +110,7 @@ const DesktopChart = () => {
         dy={-10}
         textAnchor="middle"
         fontSize={12}
-      >{`${value}грн`}</text>
+      >{`${value} грн`}</text>
     );
   };
 
@@ -112,7 +128,7 @@ const DesktopChart = () => {
         }}
       >
         
-        <XAxis dataKey="name" axisLine={false} tickLine={false}/>
+        <XAxis dataKey="name" axisLine={false} tickLine={false} padding={{ left: 10, right: 10 }}/>
 
         <YAxis axisLine={false}
           tickLine={false}
@@ -120,9 +136,11 @@ const DesktopChart = () => {
           tickFormatter={( num ) => `${num.toString().slice( 0, -50 )}`}
         />
 
+        <Tooltip cursor={false} content={<CustomTooltip/>}/>
+
         <CartesianGrid opacity={0.6} vertical={false} />
         
-        <Bar dataKey="pv" radius={[10, 10, 0, 0]} barSize={38} /*fill={'#ff751d'}*/ label={renderCustomizedLabel}>
+        <Bar dataKey="pv" radius={[10, 10, 0, 0]} barSize={38} label={renderCustomizedLabel}>
 
           {data?.map((el, index) => (
             <Cell fill={index % 3 ? '#FFDAC0' : '#ff751d'} key={`cell-${index}`}/>

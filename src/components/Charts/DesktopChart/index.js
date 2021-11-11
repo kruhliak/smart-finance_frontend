@@ -1,1 +1,1 @@
-export {default} from './DesktopChart.styled';
+export {default} from './DesktopChart';

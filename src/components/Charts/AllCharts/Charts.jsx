@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Wrapper, Container} from './Charts.styled';
-import DesktopChart from '../DesktopChart/DesktopChart';
+import DesktopChart from '../DesktopChart/';
+import MobileChart from '../MobileChart';
 
 const Charts = () => {
   const [category, setCategory] = useState(true);
@@ -8,7 +9,8 @@ const Charts = () => {
   return (
     <Container>
           <Wrapper>
-            <DesktopChart/>
+        <DesktopChart />
+        <MobileChart/>
           </Wrapper>
     </Container>
   );
