@@ -10,6 +10,7 @@ import {
   StarErr,
   ButtonWrapper,
 } from './LoginPage.styled';
+import GoogleRegister from '../../components/FormElems/GoogleRegister/GoogleRegister';
 import Button from '../../components/Buttons/CustomButton';
 import ButtonNav from '../../components/FormElems/ButtonNav/ButtonNav';
 import ErrorMessage from '../../components/FormElems/ErrorMessage/ErrorMessage';
@@ -33,8 +34,7 @@ const LoginPage = () => {
 
   return (
     <Wrapper>
-      <Text>Вы можете авторизоваться с помощью Google Account:</Text>
-      <Button googleBtn text="Google"></Button>
+      <GoogleRegister />
       <Text>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </Text>
