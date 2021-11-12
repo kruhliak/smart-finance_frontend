@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
 import { useDispatch } from 'react-redux';
 import {
   Wrapper,
@@ -11,6 +10,7 @@ import {
   StarErr,
   ButtonWrapper,
 } from './RegisterPage.styled';
+import GoogleRegister from '../../components/FormElems/GoogleRegister/GoogleRegister';
 import Button from '../../components/Buttons/CustomButton';
 import ErrorMessage from '../../components/FormElems/ErrorMessage/ErrorMessage';
 import ButtonNav from '../../components/FormElems/ButtonNav/ButtonNav';
@@ -34,8 +34,7 @@ const RegisterPage = () => {
 
   return (
     <Wrapper>
-      <Text>Вы можете авторизоваться с помощью Google Account:</Text>
-      <Button googleBtn text="Google"></Button>
+      <GoogleRegister />
       <Text>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </Text>

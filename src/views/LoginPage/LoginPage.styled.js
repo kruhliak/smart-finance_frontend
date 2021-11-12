@@ -19,6 +19,8 @@ export const Text = styled.p`
   margin-bottom: 24px;
   color: var(--primary-text-color);
   @media ${device.tablet} {
+    font-size: 12px;
+    line-height: 14px;
     margin-bottom: 20px;
   }
 `;
@@ -41,11 +43,15 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 10px;
+  line-height: 12px;
   letter-spacing: 0.04em;
   color: var(--black-text-color);
   margin-bottom: 10px;
+  @media ${device.tablet} {
+    font-size: 12px;
+    line-height: 14px;
+  }
 `;
 
 export const ErrorMessage = styled.span`
