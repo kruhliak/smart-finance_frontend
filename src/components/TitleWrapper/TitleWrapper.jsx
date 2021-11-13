@@ -1,7 +1,8 @@
 // import PropTypes from 'prop-types';
+import { Div } from './TitleWrapper.styled'
 
 const TitleWrapper = ({ children }) => {
-  return <div>{children}</div>;
+  return <Div>{children}</Div>;
 };
 
 // Title.propTypes = {

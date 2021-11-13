@@ -5,10 +5,17 @@ export const Wrapper = styled.div`
   border: 1px solid tomato;
   width: 300px;
   padding: 50px 18px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 76px;
   background-color: var(--white-text-color);
   @media ${device.tablet} {
     width: 436px;
     padding: 50px 85px;
+    margin-bottom: 198px;
+  }
+  @media ${device.desktop} {
+    margin-bottom: 0;
   }
 `;
 
@@ -57,8 +64,22 @@ export const Label = styled.label`
 export const StarErr = styled.span`
   color: #eb5757;
 `;
+
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
+`;
+
+export const LoginPageWrap = styled.div`
+  /* margin: 0 auto; */
+  /* width: 100%; */
+
+  @media ${device.desktop} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 117px;
+    margin-bottom: 142px;
+  }
 `;

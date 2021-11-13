@@ -1,8 +1,8 @@
 import styled from '@emotion/styled/macro';
+import { device } from 'components/options/device';
 
 export const H2 = styled.h2`
-  margin-left: 50px;
-  margin-bottom: 50px;
+  margin-left: 11px;
   font-size: 0.8125rem;
   line-height: 0.9375rem;
   font-weight: 900;
@@ -10,14 +10,13 @@ export const H2 = styled.h2`
   text-transform: uppercase;
   color: var(--primary-text-color);
 
-  @media screen and (min-width: 768px) {
-    margin-left: 172px;
+  @media ${device.tablet} {
+    margin-left: 53px;
     font-size: 1rem;
     line-height: 1.1875rem;
     letter-spacing: 0.18em;
   }
-  @media screen and (min-width: 1280px) {
-    margin-left: 192px;
-    margin-bottom: 0;
+  @media ${device.desktop} {
+    margin-left: 72px;
   }
 `;
