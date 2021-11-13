@@ -13,7 +13,7 @@ const data = [
   {
     name: 'Круглое красное',
     uv: 3000,
-    pv: 1398,
+    pv: 4398,
     amt: 2210,
   },
   {
@@ -47,42 +47,6 @@ const data = [
     amt: 2100,
   },
 ];
-
-// const getIntroOfPage = (label) => {
-//   if (label === 'пАмидор') {
-//     return "пАмидор is about men's clothing";
-//   }
-//   if (label === 'Page B') {
-//     return "Page B is about women's dress";
-//   }
-//   if (label === 'Page C') {
-//     return "Page C is about women's bag";
-//   }
-//   if (label === 'Page D') {
-//     return 'Page D is about household goods';
-//   }
-//   if (label === 'Page E') {
-//     return 'Page E is about food';
-//   }
-//   if (label === 'Page F') {
-//     return 'Page F is about baby food';
-//   }
-//   return '';
-// };
-
-// const CustomTooltip = ({ payload, label }) => {
-//   if ( payload && payload.length) {
-//     return (
-//       <div >
-//         <p className="label">{`${label} : ${payload[0].value}`}</p>
-//         <p className="intro">{getIntroOfPage(label)}</p>
-//         <p className="desc">Anything you want can be displayed here.</p>
-//       </div>
-//     );
-//   }
-
-//   return null;
-// };
 
 function CustomTooltip({ active, payload}) {
   if ( active ) {
@@ -140,7 +104,7 @@ const DesktopChart = () => {
 
         <CartesianGrid opacity={0.6} vertical={false} />
         
-        <Bar dataKey="pv" radius={[10, 10, 0, 0]} barSize={38} label={renderCustomizedLabel}>
+        <Bar dataKey="uv" radius={[10, 10, 0, 0]} barSize={38} label={renderCustomizedLabel}>
 
           {data?.map((el, index) => (
             <Cell fill={index % 3 ? '#FFDAC0' : '#ff751d'} key={`cell-${index}`}/>

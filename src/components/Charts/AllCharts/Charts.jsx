@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import { useMediaQuery } from 'hooks/useMediaQuery';
+
 import { Wrapper, Container} from './Charts.styled';
 import DesktopChart from '../DesktopChart/';
 import MobileChart from '../MobileChart';
 
 const Charts = () => {
-  const [category, setCategory] = useState(true);
+  const isMatches = useMediaQuery('(min-width: 768px)');
 
   return (
     <Container>
           <Wrapper>
-        <DesktopChart />
-        <MobileChart/>
+        {isMatches ? <DesktopChart /> :
+        <MobileChart/>}
           </Wrapper>
     </Container>
   );

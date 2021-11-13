@@ -1,6 +1,6 @@
-import Chart from '../components/Charts/MobileChart';
-import Modal from 'components/Modal';
-import CustomBtnStyled from 'components/Buttons/CustomButton';
+// import Chart from '../components/Charts/MobileChart';
+// import Modal from 'components/Modal';
+// import CustomBtnStyled from 'components/Buttons/CustomButton';
 import Container from 'components/Container';
 import Header from 'components/Header';
 import Logo from 'components/Logo/Logo';

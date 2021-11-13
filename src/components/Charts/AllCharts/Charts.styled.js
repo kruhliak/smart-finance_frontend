@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   column-gap: 10px;
   @media (min-width: 320px) {
     max-width: 320px;
-    /* display: none; */
+    width: 100%;
   }
   @media (min-width: 768px) {
     max-width: 635px;
