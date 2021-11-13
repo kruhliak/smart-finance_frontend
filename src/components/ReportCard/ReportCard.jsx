@@ -3,21 +3,19 @@ import { Icon } from 'hooks/Icon';
 
 import { Wrapper, Text } from './ReportCard.styled';
 
-function ReportCard({ sum, name, icon }) {
-  const [isShown, setIsShown] = useState(false);
-
-  const showGraph = () => {
-    setIsShown(!isShown);
+function ReportCard({ sum, name, icon, setSelectedCard, selectedCard, index }) {
+  const showSelectedCard = e => {
+    setSelectedCard(index);
   };
 
   return (
-    <Wrapper onClick={showGraph}>
+    <Wrapper onClick={showSelectedCard}>
       <Text>{sum}</Text>
       <Icon
         name={icon}
         size="56px"
         viewBox="0 0 56 56"
-        color={isShown ? '#FF751D' : '#071F41'}
+        color={selectedCard === index ? '#FF751D' : '#071F41'}
       ></Icon>
       <Text>{name}</Text>
     </Wrapper>
