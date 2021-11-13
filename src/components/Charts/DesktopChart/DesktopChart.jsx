@@ -1,5 +1,7 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, Cell, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Cell, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
+
+import { Toolpit } from './DesktopChart.styled';
 
 const data = [
   {
@@ -11,7 +13,7 @@ const data = [
   {
     name: 'Круглое красное',
     uv: 3000,
-    pv: 1398,
+    pv: 4398,
     amt: 2210,
   },
   {
@@ -46,41 +48,19 @@ const data = [
   },
 ];
 
-// const getIntroOfPage = (label) => {
-//   if (label === 'пАмидор') {
-//     return "пАмидор is about men's clothing";
-//   }
-//   if (label === 'Page B') {
-//     return "Page B is about women's dress";
-//   }
-//   if (label === 'Page C') {
-//     return "Page C is about women's bag";
-//   }
-//   if (label === 'Page D') {
-//     return 'Page D is about household goods';
-//   }
-//   if (label === 'Page E') {
-//     return 'Page E is about food';
-//   }
-//   if (label === 'Page F') {
-//     return 'Page F is about baby food';
-//   }
-//   return '';
-// };
+function CustomTooltip({ active, payload}) {
+  if ( active ) {
+    // console.log("data inside", payload[0].payload.name)
+    return (
+      <Toolpit>
+        <p>{`${payload[0].value} грн`}</p>
+          <h4 className="mb-1">{`${payload[0].payload.name}`}</h4>
+      </Toolpit>
+    );
+  }
+  return null;
+};
 
-// const CustomTooltip = ({ payload, label }) => {
-//   if ( payload && payload.length) {
-//     return (
-//       <div >
-//         <p className="label">{`${label} : ${payload[0].value}`}</p>
-//         <p className="intro">{getIntroOfPage(label)}</p>
-//         <p className="desc">Anything you want can be displayed here.</p>
-//       </div>
-//     );
-//   }
-
-//   return null;
-// };
 
 const DesktopChart = () => {
 
@@ -94,7 +74,7 @@ const DesktopChart = () => {
         dy={-10}
         textAnchor="middle"
         fontSize={12}
-      >{`${value}грн`}</text>
+      >{`${value} грн`}</text>
     );
   };
 
@@ -112,7 +92,7 @@ const DesktopChart = () => {
         }}
       >
         
-        <XAxis dataKey="name" axisLine={false} tickLine={false}/>
+        <XAxis dataKey="name" axisLine={false} tickLine={false} padding={{ left: 10, right: 10 }}/>
 
         <YAxis axisLine={false}
           tickLine={false}
@@ -120,9 +100,11 @@ const DesktopChart = () => {
           tickFormatter={( num ) => `${num.toString().slice( 0, -50 )}`}
         />
 
+        <Tooltip cursor={false} content={<CustomTooltip/>}/>
+
         <CartesianGrid opacity={0.6} vertical={false} />
         
-        <Bar dataKey="pv" radius={[10, 10, 0, 0]} barSize={38} /*fill={'#ff751d'}*/ label={renderCustomizedLabel}>
+        <Bar dataKey="uv" radius={[10, 10, 0, 0]} barSize={38} label={renderCustomizedLabel}>
 
           {data?.map((el, index) => (
             <Cell fill={index % 3 ? '#FFDAC0' : '#ff751d'} key={`cell-${index}`}/>
