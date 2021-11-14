@@ -1,10 +1,12 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './index.css';
+import { useDispatch } from 'react-redux';
 
 import Loader from 'react-loader-spinner';
-// import PrivateRoute from 'components/PrivateRoute';
-// import PublicRoute from 'components/PublicRoute';
+import PrivateRoute from 'components/PrivateRoute';
+import PublicRoute from 'components/PublicRoute';
+import { fetchUser } from 'redux/operations/auth-operation';
 
 const HomePage = lazy(() =>
   import('views/HomePage' /* webpackChunkName: "home-page" */),
@@ -32,13 +34,19 @@ const TestPage = lazy(() =>
 );
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, [dispatch]);
+
   return (
     <div id="container">
       <Suspense
         fallback={<Loader type="Oval" color="#ff751d" height={50} width={50} />}
       >
         <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <HomePage />
           </Route>
 
@@ -55,9 +63,9 @@ export default function App() {
 
           <Route path="/test">
             <TestPage />
-          </Route>
+          </Route> */}
 
-          {/* <PrivateRoute exact path="/" redirectTo="/login">
+          <PrivateRoute exact path="/" redirectTo="/login">
             <HomePage />
           </PrivateRoute>
 
@@ -65,9 +73,14 @@ export default function App() {
             <LoginPage />
           </PublicRoute>
 
-          <PrivateRoute path="/report" restricted redirectTo="/">
+          <PublicRoute path="/register" restricted redirectTo="/">
+            <RegisterPage />
+          </PublicRoute>
+
+          <PrivateRoute path="/report" redirectTo="/">
             <ReportPage />
-          </PrivateRoute> */}
+          </PrivateRoute>
+
           <Route>
             <NotFoundPage />
           </Route>

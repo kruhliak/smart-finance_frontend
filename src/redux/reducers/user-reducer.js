@@ -45,7 +45,7 @@ const userSlice = createSlice({
       state.error = action.payload;
     },
     [userLogout.fulfilled](state) {
-      state.user = { name: null, email: null };
+      state.user = {};
       state.token = null;
       state.isLoading = false;
       state.isLogged = false;

@@ -8,6 +8,7 @@ import Title from 'components/Title';
 import TitleWrapper from 'components/TitleWrapper';
 import Subtitle from 'components/Subtitle';
 import UserNav from 'components/UserNav';
+import Balance from 'components/Balance/Balance';
 
 export default function HomePage() {
   return (
@@ -21,6 +22,8 @@ export default function HomePage() {
           {/* тут должна быть проверка на авторизованность юзера */}
           {/* {isLogged && <UserNav />} */}
         </Header>
+        <Balance />
+
         <TitleWrapper>
           <Title text="Kapu$ta" />
           <Subtitle text="smart finance" />
