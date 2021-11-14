@@ -6,6 +6,7 @@
 :root {
   --accent-color: #ff751d;
   --primary-text-color: #52555f;
+  --primary-text-color-transparent: rgba(82, 85, 95, 0.7);
   --black-text-color: #000000;
   --white-text-color: #ffffff;
 }
@@ -36,7 +37,8 @@ code {
 
 /* Убираем внутренние отступы */
 ul,
-ol {
+ol,
+button {
   padding: 0;
 }
 
@@ -49,7 +51,8 @@ h4,
 p,
 ul,
 ol,
-li {
+li,
+button {
   margin: 0;
 }
 
@@ -68,7 +71,7 @@ ol {
 }
 
 /* Элементы a сбрасываем до дефолтных стилей */
-a:not() {
+a {
   text-decoration: none;
 }
 
