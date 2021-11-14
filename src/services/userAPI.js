@@ -21,3 +21,10 @@ export async function userLogout() {
   const { data } = await axios.post(`/users/logout`);
   return data;
 }
+
+//Для ввода текущего баланса пользователя
+
+export async function userSetBalance(balance) {
+  const { data } = await axios.post(`/users/balance`, balance);
+  return data;
+}

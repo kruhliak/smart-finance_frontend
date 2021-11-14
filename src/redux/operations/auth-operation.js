@@ -16,7 +16,6 @@ export const userSignup = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const response = await userAPI.userSignup(user);
-      token.set(response.token);
       return response;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -28,9 +27,9 @@ export const userLogin = createAsyncThunk(
   'auth/login',
   async (user, { rejectWithValue }) => {
     try {
-      const response = await userAPI.userLogin(user);
-      token.set(response.token);
-      return response;
+      const { data } = await userAPI.userLogin(user);
+      token.set(data.token);
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

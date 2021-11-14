@@ -3,92 +3,57 @@ import React, { useState } from 'react';
 import { Wrapper, Container, Categories } from './ReportList.styled';
 
 import ReportCard from '../ReportCard/ReportCard';
+import data from './data.json';
+import dataIncome from './dataIncome.json';
 
 function ReportList() {
   const [category, setCategory] = useState(true);
+  const [selectedCard, setSelectedCard] = useState(0);
+
+  const changeCategory = () => {
+    setSelectedCard(0);
+    setCategory(!category);
+  };
 
   return (
     <Container>
       {category ? (
         <>
-          <Categories onClick={() => setCategory(!category)}>
-            РАСХОДЫ
-          </Categories>
+          <Categories onClick={changeCategory}>РАСХОДЫ</Categories>
           <Wrapper>
-            <ReportCard
-              icon={'icon-food'}
-              sum={'1000'}
-              name={'Продукты'}
-            ></ReportCard>
-            <ReportCard
-              icon={'icon-alco'}
-              sum={'1000'}
-              name={'Алкоголь'}
-            ></ReportCard>
-            <ReportCard
-              icon={'icon-entertainment'}
-              sum={'1000'}
-              name={'Развлечение'}
-            ></ReportCard>
-            <ReportCard
-              icon={'icon-health'}
-              sum={'1000'}
-              name={'Здоровье'}
-            ></ReportCard>
-            <ReportCard
-              icon={'icon-car'}
-              sum={'1000'}
-              name={'Транспорт'}
-            ></ReportCard>
-            <ReportCard
-              icon={'icon-home'}
-              sum={'1000'}
-              name={'все для дома'}
-            ></ReportCard>
-            <ReportCard
-              icon={'icon-electronics'}
-              sum={'1000'}
-              name={'техника'}
-            ></ReportCard>
-            <ReportCard
-              icon={'icon-communal'}
-              sum={'1000'}
-              name={`коммуналка`}
-            ></ReportCard>
-            <ReportCard
-              icon={'icon-hobby'}
-              sum={'1000'}
-              name={'спорт, хобби'}
-            ></ReportCard>
-            <ReportCard
-              icon={'icon-education'}
-              sum={'1000'}
-              name={'образование'}
-            ></ReportCard>
-            <ReportCard
-              icon={'icon-other'}
-              sum={'1000'}
-              name={'прочее'}
-            ></ReportCard>
+            {data.map(({ id, icon, sum, name }) => (
+              <ReportCard
+                key={id}
+                index={id}
+                icon={icon}
+                sum={sum.reduce((a, b) => {
+                  return a + b;
+                })}
+                name={name}
+                setSelectedCard={setSelectedCard}
+                selectedCard={selectedCard}
+              ></ReportCard>
+            ))}
           </Wrapper>
         </>
       ) : (
         <>
           <>
-            <Categories onClick={() => setCategory(!category)}>
-              ДОХОДЫ
-            </Categories>
+            <Categories onClick={changeCategory}>ДОХОДЫ</Categories>
             <Wrapper>
-              <ReportCard
-                icon={'icon-salary'}
-                sum={'1000'}
-                name={'ЗП'}
-              ></ReportCard>
-              <ReportCard
-                icon={'icon-income'}
-                sum={'1000'}
-                name={'Доп. доход'}
-              ></ReportCard>
+              {dataIncome.map(({ id, icon, sum, name }) => (
+                <ReportCard
+                  key={id}
+                  index={id}
+                  icon={icon}
+                  sum={sum.reduce((a, b) => {
+                    return a + b;
+                  })}
+                  name={name}
+                  setSelectedCard={setSelectedCard}
+                  selectedCard={selectedCard}
+                ></ReportCard>
+              ))}
             </Wrapper>
           </>
         </>

@@ -19,11 +19,8 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   extraReducers: {
-    [userSignup.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+    [userSignup.fulfilled](state) {
       state.isLoading = false;
-      state.isLogged = true;
     },
     [userSignup.pending](state) {
       state.isLoading = true;
@@ -34,7 +31,7 @@ const userSlice = createSlice({
       state.error = action.payload;
     },
     [userLogin.fulfilled](state, action) {
-      state.user = action.payload.user;
+      state.user = action.payload;
       state.token = action.payload.token;
       state.isLoading = false;
       state.isLogged = true;
