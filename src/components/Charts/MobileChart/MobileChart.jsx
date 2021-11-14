@@ -11,43 +11,43 @@ import {
 const data = [
   {
     name: 'пАмидор',
-    uv: 4000,
+    value: 4000,
     pv: 2400,
     amt: 2400,
   },
   {
     name: 'Круглое красное',
-    uv: 3000,
+    value: 3000,
     pv: 4398,
     amt: 2210,
   },
   {
     name: 'Хурма',
-    uv: 2000,
+    value: 2000,
     pv: 9800,
     amt: 2290,
   },
   {
     name: 'Авокадо',
-    uv: 2780,
+    value: 2780,
     pv: 3908,
     amt: 2000,
   },
   {
     name: 'Куринные когти',
-    uv: 1890,
+    value: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
     name: 'Печень медведя',
-    uv: 2390,
+    value: 2390,
     pv: 3800,
     amt: 2500,
   },
   {
     name: 'Кисляк',
-    uv: 3490,
+    value: 3490,
     pv: 4300,
     amt: 2100,
   },
@@ -66,17 +66,19 @@ const MobileCharts = () => {
     </text>
   );
 
+  const sortedData = data.sort((prevValue, nextValue) => prevValue.value < nextValue.value ? 1 : -1)
+
   return (
     <ResponsiveContainer width="90%" height={500}>
       <BarChart
       width={290}
         height={600}
         layout="vertical"
-        data={data}
+        data={sortedData}
         margin={{ top: 30, right: 0, bottom: 30, left: 0 }}
       >
         <Bar
-          dataKey="uv"
+          dataKey="value"
           barSize={18}
           radius={[0, 10, 10, 0]}
           label={<BarLabel />}
