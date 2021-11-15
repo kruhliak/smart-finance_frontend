@@ -1,4 +1,7 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import ExpenseIncomeForm from 'components/ExpenseIncomeForm/ExpenseIncomeForm';
+import { expenseList, expensePlaceholder} from 'components/ExpenseIncomeForm/expenseList';
+import { incomeList, incomePlaceholder }  from 'components/ExpenseIncomeForm/incomeList';
 import 'react-tabs/style/react-tabs.css';
 
 const UserTabs = () => (
@@ -9,10 +12,10 @@ const UserTabs = () => (
     </TabList>
 
     <TabPanel>
-      <h2>Какая-то прибыль</h2>
+     <ExpenseIncomeForm list={expenseList} placeholder={expensePlaceholder}/>
     </TabPanel>
     <TabPanel>
-      <h2>Непомерные траты</h2>
+     <ExpenseIncomeForm list={incomeList} placeholder={incomePlaceholder}/>
     </TabPanel>
   </Tabs>
 );
