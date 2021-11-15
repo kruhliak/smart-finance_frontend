@@ -23,23 +23,7 @@ import './Datepicker.css';
 import { useDispatch } from 'react-redux';
 import { addTransaction } from 'redux/operations/transaction-operation';
 
-const expenseList = [
-  'Транспорт',
-  'Продукты',
-  'Здоровье',
-  'Алкоголь',
-  'Развлечения',
-  'Всё для дома',
-  'Техника',
-  'Коммуналка, связь',
-  'Спорт, хобби',
-  'Образование',
-  'Прочее',
-];
-
-// const incomeList = ['ЗП', 'Доп. доход'];
-
-const ExpenseIncomeForm = () => {
+const ExpenseIncomeForm = ({ list, placeholder }) => {
   const dispatch = useDispatch();
   const [isCategories, setIsCategories] = useState(false);
   const { register, handleSubmit, setValue, control, reset } = useForm();
@@ -88,7 +72,7 @@ const ExpenseIncomeForm = () => {
               {...register('category', { required: true })}
               autoComplete="off"
               readOnly
-              placeholder="Категория товара"
+              placeholder={placeholder}
               placeholderTextColor="#C7CCDC"
               onClick={handleClick}
             />
@@ -115,18 +99,18 @@ const ExpenseIncomeForm = () => {
             )}
             {isCategories && (
               <ListСategory>
-                {expenseList.map((expense, i) => (
+                {list.map((item, i) => (
                   <ItemСategory key={i}>
                     <LabelСategory tabIndex={0}>
                       <input
                         onClick={handleCategoryClick}
                         hidden
-                        value={expense}
+                        value={item}
                         readOnly
                         type="radio"
                         name="expCategory"
                       />
-                      {expense}
+                      {item}
                     </LabelСategory>
                   </ItemСategory>
                 ))}
