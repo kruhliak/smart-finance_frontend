@@ -8,6 +8,7 @@ import Title from 'components/Title';
 import TitleWrapper from 'components/TitleWrapper';
 import Subtitle from 'components/Subtitle';
 import UserNav from 'components/UserNav';
+import ExpenseIncomeForm from 'components/ExpenseIncomeForm/ExpenseIncomeForm';
 
 export default function HomePage() {
   return (
@@ -25,7 +26,7 @@ export default function HomePage() {
           <Title text="Kapu$ta" />
           <Subtitle text="smart finance" />
         </TitleWrapper>
-
+        <ExpenseIncomeForm />
         {/* <Modal text="Вы действительно хотите выйти?">
         <CustomBtnStyled text="Да, ёпта"/>
         <CustomBtnStyled backBtn text="Пардон" />
