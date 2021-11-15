@@ -4,10 +4,6 @@
 import Container from 'components/Container';
 import Header from 'components/Header';
 import Logo from 'components/Logo/Logo';
-import Title from 'components/Title';
-import TitleWrapper from 'components/TitleWrapper';
-import Subtitle from 'components/Subtitle';
-import UserNav from 'components/UserNav';
 import Balance from 'components/Balance/Balance';
 
 export default function HomePage() {
@@ -17,17 +13,10 @@ export default function HomePage() {
       <Container>
         <Header>
           <Logo />
-          <p>HomePage</p>
-          <UserNav />
           {/* тут должна быть проверка на авторизованность юзера */}
           {/* {isLogged && <UserNav />} */}
         </Header>
         <Balance />
-
-        <TitleWrapper>
-          <Title text="Kapu$ta" />
-          <Subtitle text="smart finance" />
-        </TitleWrapper>
 
         {/* <Modal text="Вы действительно хотите выйти?">
         <CustomBtnStyled text="Да, ёпта"/>
