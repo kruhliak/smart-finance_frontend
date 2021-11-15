@@ -22,6 +22,7 @@ import Logo from 'components/Logo/Logo';
 import Title from 'components/Title';
 import TitleWrapper from 'components/TitleWrapper';
 import Subtitle from 'components/Subtitle';
+import Background from 'components/Background';
 
 const RegisterPage = () => {
   const {
@@ -42,10 +43,9 @@ const RegisterPage = () => {
   return (
     <>
       <Header>
-        <Container>
-          <Logo />
-        </Container>
+        <Logo />
       </Header>
+      <Background />
 
       <Container>
         <LoginPageWrap>
