@@ -20,6 +20,8 @@ import {
 } from './ExpenseIncomeForm.styled';
 import Button from 'components/Buttons/CustomButton';
 import './Datepicker.css';
+import { useDispatch } from 'react-redux';
+import { addTransaction } from 'redux/operations/transaction-operation';
 
 const expenseList = [
   'Транспорт',
@@ -38,6 +40,7 @@ const expenseList = [
 // const incomeList = ['ЗП', 'Доп. доход'];
 
 const ExpenseIncomeForm = () => {
+  const dispatch = useDispatch();
   const [isCategories, setIsCategories] = useState(false);
   const { register, handleSubmit, setValue, control, reset } = useForm();
   const handleClick = () => {
@@ -52,7 +55,8 @@ const ExpenseIncomeForm = () => {
   };
 
   const onSubmit = data => {
-    console.log(data);
+    console.log({ ...data, operation: 'expense' });
+    dispatch(addTransaction({ ...data, operation: 'expense' }));
     reset();
   };
   return (
@@ -76,7 +80,7 @@ const ExpenseIncomeForm = () => {
             id="descriptione"
             placeholder="Описание товара"
             placeholderTextColor="#C7CCDC"
-            {...register('descriptione')}
+            {...register('description')}
           />
           <InputWrapperCategory>
             <InputСategory
