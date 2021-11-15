@@ -85,6 +85,7 @@ const LoginPage = () => {
               </Label>
               <Input
                 id="password"
+                type="password"
                 placeholder="••••••••"
                 placeholderTextColor="#ffffff"
                 {...register('password', {
