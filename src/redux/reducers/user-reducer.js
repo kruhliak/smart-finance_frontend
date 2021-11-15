@@ -58,8 +58,8 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    [fetchUser.fulfilled](state, action) {
-      state.user = action.payload;
+    [fetchUser.fulfilled](state, { payload }) {
+      state.user = payload.data.result;
       state.isLoading = false;
       state.isLogged = true;
     },

@@ -16,7 +16,6 @@ export default function HomePage() {
       <Container>
         <Header>
           <Logo />
-
           <UserNav />
         </Header>
         <Balance />
