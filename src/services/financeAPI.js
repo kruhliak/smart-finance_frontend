@@ -30,3 +30,15 @@ export async function operationByType(operation) {
   const { data } = await axios.get(`/transactions/${operation}`);
   return data;
 }
+
+// фильтрация по расходам или доходам за указанный год
+export async function operationTypeByYear(operationType, year) {
+  const { data } = await axios.get(`/${operationType}/${year}`);
+  return data;
+}
+
+// фильтрация по расходам или доходам за указанный месяц года
+export async function operationTypeByMonth(operationType, year, month) {
+  const { data } = await axios.get(`/${operationType}/${year}/${month}`);
+  return data;
+}
