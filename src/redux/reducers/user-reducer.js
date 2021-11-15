@@ -68,7 +68,10 @@ const userSlice = createSlice({
       state.error = null;
     },
     [fetchUser.rejected](state, action) {
+      state.user = {};
+      state.token = null;
       state.isLoading = false;
+      state.isLogged = false;
       state.error = action.payload;
     },
   },
