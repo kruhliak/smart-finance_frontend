@@ -8,6 +8,9 @@ import PrivateRoute from 'components/PrivateRoute';
 import PublicRoute from 'components/PublicRoute';
 import { fetchUser } from 'redux/operations/auth-operation';
 
+import { useLocation } from 'react-router';
+import { setGoogleToken } from 'redux/operations/auth-operation';
+
 const HomePage = lazy(() =>
   import('views/HomePage' /* webpackChunkName: "home-page" */),
 );
@@ -35,6 +38,12 @@ const TestPage = lazy(() =>
 
 export default function App() {
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  if (location.search) {
+    const googleToken = location.search.slice(1, location.search.length);
+    dispatch(setGoogleToken(googleToken));
+  }
 
   useEffect(() => {
     dispatch(fetchUser());

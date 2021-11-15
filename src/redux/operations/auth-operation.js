@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as userAPI from 'services/userAPI';
+// import { useLocation } from 'react-router';
 
 const token = {
   set(token) {
@@ -65,6 +66,18 @@ export const fetchUser = createAsyncThunk(
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const setGoogleToken = createAsyncThunk(
+  'auth/setGoogleToken',
+  async (token, rejectWithValue) => {
+    token.set(token);
+    try {
+      return token;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   },
 );

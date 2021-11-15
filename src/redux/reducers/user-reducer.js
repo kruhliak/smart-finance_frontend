@@ -5,6 +5,7 @@ import {
   userLogin,
   userLogout,
   fetchUser,
+  setGoogleToken,
 } from '../operations/auth-operation';
 
 const initialState = {
@@ -73,6 +74,13 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.isLogged = false;
       state.error = action.payload;
+    },
+    [setGoogleToken.pending](state, action) {
+      console.log(action);
+      state.isLoading = true;
+      state.isLogged = true;
+      state.error = null;
+      state.token = action.meta.arg;
     },
   },
 });
