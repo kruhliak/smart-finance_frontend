@@ -1,4 +1,3 @@
-// import Chart from '../components/Charts/MobileChart';
 // import Modal from 'components/Modal';
 // import CustomBtnStyled from 'components/Buttons/CustomButton';
 import Container from 'components/Container';
@@ -9,24 +8,19 @@ import Title from 'components/Title';
 import TitleWrapper from 'components/TitleWrapper';
 import Subtitle from 'components/Subtitle';
 import UserNav from 'components/UserNav';
-import ExpenseIncomeForm from 'components/ExpenseIncomeForm/ExpenseIncomeForm';
 import UserTabs from 'components/UserTabs';
 
 export default function HomePage() {
   return (
     <>
-      {/* <Chart/> */}
       <Container>
         <Header>
           <Logo />
-          {/* тут должна быть проверка на авторизованность юзера */}
-          {/* {isLogged && <UserNav />} */}
+
+          <UserNav />
         </Header>
-
-        <UserTabs />
-        <ExpenseIncomeForm />
-
         <Balance />
+        <UserTabs />
 
         {/* <Modal text="Вы действительно хотите выйти?">
         <CustomBtnStyled text="Да, ёпта"/>

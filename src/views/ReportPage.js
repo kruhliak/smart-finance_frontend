@@ -13,8 +13,6 @@ export default function ReportPage() {
         <Logo />
         <p>HomePage</p>
         <UserNav />
-        {/* тут должна быть проверка на авторизованность юзера */}
-        {/* {isLogged && <UserNav />} */}
       </Header>
       <ReportBalance />
       <ReportLine></ReportLine>
