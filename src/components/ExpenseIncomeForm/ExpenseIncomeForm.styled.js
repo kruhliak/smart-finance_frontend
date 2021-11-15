@@ -75,7 +75,10 @@ export const InputDesc = styled.input`
   @media ${device.tablet} {
     border-radius: 16px 0 0 0;
     width: 190px;
-    border: 2px solid #f5f6fb;
+
+    border-top: 2px solid #f5f6fb;
+    border-bottom: 2px solid #f5f6fb;
+    border-left: 2px solid #f5f6fb;
   }
   @media ${device.desktop} {
     padding: 15px 21px;
@@ -97,13 +100,16 @@ export const InputСategory = styled.input`
 
   padding: 2px 21px;
   border: 2px solid #ffffff;
+  cursor: pointer;
 
   @media ${device.mobileMax} {
     border-radius: 0 0 16px 0;
   }
   @media ${device.tablet} {
     width: 171px;
-    border: 2px solid #f5f6fb;
+    border-top: 2px solid #f5f6fb;
+    border-bottom: 2px solid #f5f6fb;
+    border-left: 2px solid #f5f6fb;
   }
   @media ${device.desktop} {
     width: 171px;

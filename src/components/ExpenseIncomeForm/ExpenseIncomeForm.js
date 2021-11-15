@@ -80,11 +80,12 @@ const ExpenseIncomeForm = () => {
             id="descriptione"
             placeholder="Описание товара"
             placeholderTextColor="#C7CCDC"
-            {...register('description')}
+            autocomplete="off"
+            {...register('description', { required: true })}
           />
           <InputWrapperCategory>
             <InputСategory
-              {...register('category')}
+              {...register('category', { required: true })}
               autoComplete="off"
               readOnly
               placeholder="Категория товара"
@@ -135,9 +136,21 @@ const ExpenseIncomeForm = () => {
 
           <InputValue
             id="value"
+            type="number"
+            step="0.1"
             placeholder="0,00"
             placeholderTextColor="#C7CCDC"
-            {...register('value', { min: 0 })}
+            autocomplete="off"
+            {...register(
+              'value',
+              { required: true },
+              {
+                pattern: {
+                  value: '^[ 0-9]+$',
+                },
+                min: 0.01,
+              },
+            )}
           />
           <MyIcon>
             <Icon
@@ -152,6 +165,7 @@ const ExpenseIncomeForm = () => {
       <ButtonWrapper>
         <Button text="Ввод" type="submit" />
         <Button
+          type="button"
           text="Очистить"
           onClick={() => {
             reset({
