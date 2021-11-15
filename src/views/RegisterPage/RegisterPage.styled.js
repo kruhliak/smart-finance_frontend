@@ -2,13 +2,14 @@ import styled from '@emotion/styled';
 import { device } from '../../components/options/device';
 
 export const Wrapper = styled.div`
-  border: 1px solid tomato;
   width: 300px;
   padding: 50px 18px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 76px;
   background-color: var(--white-text-color);
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
   @media ${device.tablet} {
     width: 436px;
     padding: 50px 85px;

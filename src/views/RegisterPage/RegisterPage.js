@@ -106,6 +106,7 @@ const RegisterPage = () => {
               </Label>
               <Input
                 id="password"
+                type="password"
                 placeholder="••••••••"
                 placeholderTextColor="#FFFFFF"
                 {...register('password', {
