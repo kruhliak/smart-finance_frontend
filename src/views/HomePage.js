@@ -10,6 +10,7 @@ import TitleWrapper from 'components/TitleWrapper';
 import Subtitle from 'components/Subtitle';
 import UserNav from 'components/UserNav';
 import ExpenseIncomeForm from 'components/ExpenseIncomeForm/ExpenseIncomeForm';
+import UserTabs from 'components/UserTabs';
 
 export default function HomePage() {
   return (
@@ -22,10 +23,7 @@ export default function HomePage() {
           {/* {isLogged && <UserNav />} */}
         </Header>
 
-        <TitleWrapper>
-          <Title text="Kapu$ta" />
-          <Subtitle text="smart finance" />
-        </TitleWrapper>
+        <UserTabs />
         <ExpenseIncomeForm />
 
         <Balance />
