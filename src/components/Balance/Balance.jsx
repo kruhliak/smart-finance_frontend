@@ -1,5 +1,6 @@
 import { Box, Link, Title, Text, Button } from './Balance.styled';
 import { Icon } from '../../hooks/Icon';
+import { NavLink } from 'react-router-dom';
 
 export default function Balance() {
   const width = document.documentElement.scrollWidth;
@@ -23,7 +24,7 @@ export default function Balance() {
       <Text>00.00 UAH</Text>
       <Button>ПОДТВЕРДИТЬ</Button>
       {renderByWidth && (
-        <Link href="#">
+        <NavLink to="/report">
           Перейти к отчетам
           <Icon
             name={'icon-balance'}
@@ -31,7 +32,7 @@ export default function Balance() {
             viewBox="0 0 14 14"
             color="#52555F"
           />
-        </Link>
+        </NavLink>
       )}
     </Box>
   );

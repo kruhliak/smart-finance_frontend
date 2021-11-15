@@ -7,8 +7,10 @@ axios.defaults.baseURL = 'https://smart-finance-backend.herokuapp.com/api';
 //       category: "ЗП",
 //       operation: "income" или "expense",
 //       description: "Моя ЗП"; "Продукты" итп ,
-//       value: 250
+//       value: 250,
+//       date:
 //   }
+
 export async function addOperation(operation) {
   const { data } = await axios.post(`/transactions/add`, operation);
   return data;
@@ -24,7 +26,7 @@ export async function deleteOperation(id) {
 //    {
 //       operation: "income" или "expense",
 //   }
-export async function operationType(operation) {
+export async function operationByType(operation) {
   const { data } = await axios.get(`/transactions/${operation}`);
   return data;
 }
