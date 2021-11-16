@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { device } from '../../../components/options/device';
 
 export const Wrapper = styled.div`
   margin: 0 auto;
