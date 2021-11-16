@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import { Icon } from 'hooks/Icon';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useForm, Controller } from 'react-hook-form';
@@ -19,9 +18,9 @@ import {
   Arrow,
 } from './ExpenseIncomeForm.styled';
 import Button from 'components/Buttons/CustomButton';
-import './Datepicker.css';
 import { useDispatch } from 'react-redux';
 import { addTransaction } from 'redux/operations/transaction-operation';
+import Datepicker from 'components/ExpenseIncomeForm/Datepicker';
 
 const ExpenseIncomeForm = ({ list, placeholder }) => {
   const dispatch = useDispatch();
@@ -51,12 +50,7 @@ const ExpenseIncomeForm = ({ list, placeholder }) => {
           name="date"
           defaultValue={newDate}
           render={({ field: { value, onBlur, ref } }) => (
-            <DatePicker
-              dateFormat="dd.MM.yyyy"
-              onChange={date => setValue('date', date)}
-              onBlur={onBlur}
-              selected={value}
-            />
+            <Datepicker selected={value} onChange={setValue} onBlur={onBlur} />
           )}
         />
         <InputWrapper>
