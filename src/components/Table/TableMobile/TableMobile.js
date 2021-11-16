@@ -12,16 +12,15 @@ import {
 import { Icon } from 'hooks/Icon';
 
 const TableMobile = ({ transactions }) => {
-  console.log(transactions);
   return (
     <>
       {transactions.map(trans => (
-        <Wrapper>
+        <Wrapper key={trans._id}>
           <LeftSide>
             <Desc>{trans.description}</Desc>
             <SubLeftSide>
               <Date>{trans.date}</Date>
-              <Category>{trans.category}</Category>s
+              <Category>{trans.category}</Category>
             </SubLeftSide>
           </LeftSide>
           <RightSide>
