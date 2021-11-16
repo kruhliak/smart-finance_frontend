@@ -51,7 +51,7 @@ const data = [
   },
 ];
 
-const Charts = ({data}) => {
+const Charts = () => {
   const isMatches = useMediaQuery('(min-width: 768px)');
 
   return (
