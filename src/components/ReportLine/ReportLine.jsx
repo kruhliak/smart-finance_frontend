@@ -23,7 +23,7 @@ function ReportLine() {
   const [expenses, setExpenses] = useState([]);
 
   const dispatch = useDispatch();
-  const transactions = useSelector(getTransactions);
+  // const transactions = useSelector(getTransactions);
 
   // console.log(transactions);
 
@@ -31,11 +31,11 @@ function ReportLine() {
   //   setExpenses(transactions.map(item => item.value));
   // };
 
-  const getIncome = () => {};
+  // const getIncome = () => {};
 
-  useEffect(() => {
-    dispatch(transactionOperations.getTransactionByType('expense'));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(transactionOperations.getTransactionByType('expense'));
+  // }, [dispatch]);
 
   return (
     <Container>
@@ -43,8 +43,8 @@ function ReportLine() {
         Расходы:{' '}
         <Expenses>
           -{' '}
-          {transactions.length > 0 &&
-            transactions.map(item => item.value).reduce((a, b) => a + b)}{' '}
+          {/* {transactions.length > 0 &&
+            transactions.map(item => item.value).reduce((a, b) => a + b)}{' '} */}
           грн.
         </Expenses>
       </Categories>

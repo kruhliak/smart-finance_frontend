@@ -14,11 +14,11 @@ function ReportList() {
   const [selectedCard, setSelectedCard] = useState(0);
 
   const dispatch = useDispatch();
-  const transactions = useSelector(getTransactions);
+  // const transactions = useSelector(getTransactions);
 
-  useEffect(() => {
-    dispatch(transactionOperations.getTransactionByType('expense'));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(transactionOperations.getTransactionByType('expense'));
+  // }, [dispatch]);
 
   const changeCategory = () => {
     setSelectedCard(0);

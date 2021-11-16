@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   transactions: {},
+  summary: {},
   isLoading: null,
   error: null,
 };
@@ -28,18 +29,18 @@ const financeSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    [getTransactionByType.fulfilled](state, action) {
-      state.isLoading = false;
-      state.transactions = action.payload.result;
-    },
-    [getTransactionByType.pending](state) {
-      state.isLoading = true;
-      state.error = null;
-    },
-    [getTransactionByType.rejected](state, action) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
+    // [getTransactionByType.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.transactions = action.payload.result;
+    // },
+    // [getTransactionByType.pending](state) {
+    //   state.isLoading = true;
+    //   state.error = null;
+    // },
+    // [getTransactionByType.rejected](state, action) {
+    //   state.isLoading = false;
+    //   state.error = action.payload;
+    // },
     [deleteTransaction.fulfilled](state, { payload }) {
       state.items = [...state.items.filter(({ id }) => id !== payload)];
     },

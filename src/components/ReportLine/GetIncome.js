@@ -12,13 +12,13 @@ export const GetIncome = () => {
   const [income, setIncome] = useState([]);
 
   const dispatch = useDispatch();
-  const transactions = useSelector(getTransactions);
+  // const transactions = useSelector(getTransactions);
 
-  useEffect(() => {
-    dispatch(transactionOperations.getTransactionByType('income'));
-    setIncome(transactions);
-    console.log(income);
-  }, []);
+  // useEffect(() => {
+  //   dispatch(transactionOperations.getTransactionByType('income'));
+  //   setIncome(transactions);
+  //   console.log(income);
+  // }, []);
 
   return income;
 };

@@ -25,11 +25,37 @@ export const deleteTransaction = createAsyncThunk(
   },
 );
 
-export const getTransactionByType = createAsyncThunk(
-  'finance/getTransactionByType',
-  async (type, { rejectWithValue }) => {
+export const getSummaryByYear = createAsyncThunk(
+  'finance/getSummaryByYear',
+  async (year, { rejectWithValue }) => {
     try {
-      const { data } = await financeAPI.operationByType(type);
+      const { data } = await financeAPI.getSummaryByYear(year);
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
+export const getAllOperationByMonth = createAsyncThunk(
+  'finance/getAllOperationByMonth',
+  async (value, { rejectWithValue }) => {
+    try {
+      const { data } = await financeAPI.getAllOperationByMonth(value);
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
+export const getCategoriesByMonth = createAsyncThunk(
+  'finance/getCategoriesByMonth',
+  async (value, { rejectWithValue }) => {
+    try {
+      const { data } = await financeAPI.getCategoriesByMonth(value);
 
       return data;
     } catch (error) {
