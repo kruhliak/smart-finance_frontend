@@ -4,15 +4,15 @@ export const Wrapper = styled.div`
   text-align: center;
   width: 90px;
   cursor: pointer;
-
   @media (max-width: 768px) {
-    &:after {
+    &:before {
       content: '';
       width: 280px;
       border-bottom: 1px solid #e0e5eb;
       position: absolute;
-      left: 0px;
+      left: 127px;
       margin: 20px;
+      margin-top: 128px;
     }
   }
 `;

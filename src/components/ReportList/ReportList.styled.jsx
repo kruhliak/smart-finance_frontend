@@ -23,6 +23,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding-bottom: 25px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
   @media (min-width: 320px) {
     max-width: 320px;
     padding-top: 10px;

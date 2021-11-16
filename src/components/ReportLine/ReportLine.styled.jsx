@@ -9,6 +9,8 @@ export const Container = styled.div`
   padding-top: 7px;
   padding-bottom: 7px;
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
 
   @media (min-width: 320px) {
     max-width: 282px;
@@ -55,7 +57,7 @@ export const Income = styled.span`
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
-  color: #e53935;
+  color: #407946;
   @media (min-width: 768px) {
     margin-left: 15px;
   }
@@ -66,7 +68,7 @@ export const Expenses = styled.span`
   font-size: 14px;
   line-height: 16px;
 
-  color: #407946;
+  color: #e53935;
   @media (min-width: 768px) {
     margin-left: 15px;
   }
