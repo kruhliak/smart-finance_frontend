@@ -5,6 +5,7 @@ import { LogoContainer, RectangleTransparent, RectangleNotTransparent } from "./
 const Logo = () => {
   return (
     <LogoContainer>
+      <a href="/">
       <RectangleTransparent>
         <Icon name="icon-logo"
           size="33px"
@@ -21,6 +22,7 @@ const Logo = () => {
         </Icon>
       </RectangleNotTransparent>
       <LogoTitle text="Kapu$ta" />
+      </a>
     </LogoContainer>
   )
 }
