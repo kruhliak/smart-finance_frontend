@@ -148,9 +148,8 @@ const Table = () => {
               </tr>
             </TheadTable>
           </TableS>
-
-          <TableS body>
-            <Scroll>
+          <Scroll>
+            <TableS body>
               <tbody>
                 {transactions.map(trans => (
                   <Tr key={trans._id}>
@@ -172,8 +171,8 @@ const Table = () => {
                   </Tr>
                 ))}
               </tbody>
-            </Scroll>
-          </TableS>
+            </TableS>
+          </Scroll>
         </Wrapper>
       )}
     </>
