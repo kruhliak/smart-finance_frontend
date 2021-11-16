@@ -85,3 +85,14 @@ img {
 article > * + * {
   margin-top: 1em;
 }
+
+/*  scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background-color: #f5f6fb;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #ff751d;
+}
