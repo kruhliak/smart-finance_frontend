@@ -1,4 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  getTransactions,
+  getStatusLoader,
+} from 'redux/selectors/transaction-selectors';
+import * as transactionOperations from '../../redux/operations/transaction-operation';
 
 import {
   Container,
@@ -8,17 +16,37 @@ import {
   Expenses,
 } from './ReportLine.styled';
 
-function ReportLine() {
-  const [income, setIncome] = useState('');
-  const [expenses, setExpenses] = useState('');
+import { GetIncome } from './GetIncome';
 
-  const getExpenses = () => {};
+function ReportLine() {
+  const [income, setIncome] = useState([]);
+  const [expenses, setExpenses] = useState([]);
+
+  const dispatch = useDispatch();
+  const transactions = useSelector(getTransactions);
+
+  // console.log(transactions);
+
+  // const getExpenses = () => {
+  //   setExpenses(transactions.map(item => item.value));
+  // };
+
   const getIncome = () => {};
+
+  useEffect(() => {
+    dispatch(transactionOperations.getTransactionByType('expense'));
+  }, [dispatch]);
 
   return (
     <Container>
       <Categories>
-        Расходы: <Expenses>- {expenses} грн.</Expenses>
+        Расходы:{' '}
+        <Expenses>
+          -{' '}
+          {transactions.length > 0 &&
+            transactions.map(item => item.value).reduce((a, b) => a + b)}{' '}
+          грн.
+        </Expenses>
       </Categories>
       <Stripe></Stripe>
       <Categories>

@@ -57,7 +57,7 @@ export const Income = styled.span`
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
-  color: #e53935;
+  color: #407946;
   @media (min-width: 768px) {
     margin-left: 15px;
   }
@@ -68,7 +68,7 @@ export const Expenses = styled.span`
   font-size: 14px;
   line-height: 16px;
 
-  color: #407946;
+  color: #e53935;
   @media (min-width: 768px) {
     margin-left: 15px;
   }
