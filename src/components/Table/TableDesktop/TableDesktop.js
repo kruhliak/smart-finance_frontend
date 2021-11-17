@@ -14,7 +14,7 @@ import {
 } from './TableDesktop.styled';
 import { Icon } from 'hooks/Icon';
 
-const TableDesktop = ({ transactions }) => {
+const TableDesktop = ({ transactions, onClickModal }) => {
   return (
     <Wrapper>
       <TableS>
@@ -40,7 +40,7 @@ const TableDesktop = ({ transactions }) => {
                 <Value>{trans.value}</Value>
 
                 <Td>
-                  <DeleteBtn type="button">
+                  <DeleteBtn type="button" onClick={onClickModal}>
                     <Icon
                       name="icon-delete"
                       size="18px"

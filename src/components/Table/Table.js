@@ -117,14 +117,14 @@ const transactions = [
   //   },
 ];
 
-const Table = () => {
+const Table = ({ onClickModal }) => {
   const isMatches = useMediaQuery('(min-width: 768px)');
   return (
     <>
       {isMatches ? (
-        <TableDesktop transactions={transactions} />
+        <TableDesktop transactions={transactions} onClickModal={onClickModal} />
       ) : (
-        <TableMobile transactions={transactions} />
+        <TableMobile transactions={transactions} onClickModal={onClickModal} />
       )}
     </>
   );
