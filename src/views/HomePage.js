@@ -1,5 +1,6 @@
-// import Modal from 'components/Modal';
-// import CustomBtnStyled from 'components/Buttons/CustomButton';
+import { useState } from 'react';
+import Modal from 'components/Modal';
+import CustomBtnStyled from 'components/Buttons/CustomButton';
 import Container from 'components/Container';
 import Header from 'components/Header';
 import Logo from 'components/Logo/Logo';
@@ -17,6 +18,10 @@ import {
 } from 'redux/operations/transaction-operation';
 
 export default function HomePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => setIsModalOpen(state => !state);
+  
   const dispatch = useDispatch();
   useEffect(() => {
     const dateNow = new Date();
@@ -29,12 +34,18 @@ export default function HomePage() {
   return (
     <>
       <Container>
+        {isModalOpen && (
+          <Modal text="Вы уверены?" onClose={toggleModal}>
+            <CustomBtnStyled text="Да" />
+            <CustomBtnStyled backBtn text="Нет" />
+          </Modal>
+        )}
         <Header>
           <Logo />
           <UserNav />
         </Header>
         <Balance />
-        <UserTabs />
+        <UserTabs onClickModal={toggleModal} />
 
         {/* <Modal text="Вы действительно хотите выйти?">
         <CustomBtnStyled text="Да, ёпта"/>

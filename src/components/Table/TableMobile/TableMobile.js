@@ -11,7 +11,7 @@ import {
 } from './TableMobile.styled';
 import { Icon } from 'hooks/Icon';
 
-const TableMobile = ({ transactions }) => {
+const TableMobile = ({ transactions, onClickModal }) => {
   return (
     <>
       {transactions.map(trans => (
@@ -25,7 +25,7 @@ const TableMobile = ({ transactions }) => {
           </LeftSide>
           <RightSide>
             <Value>{trans.value}</Value>
-            <DeleteBtn type="button">
+            <DeleteBtn type="button" onClick={onClickModal}>
               <Icon
                 name="icon-delete"
                 size="18px"

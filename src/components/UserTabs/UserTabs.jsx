@@ -12,7 +12,7 @@ import {
 import 'react-tabs/style/react-tabs.css';
 import Summary from 'components/Summary/Summary';
 
-const UserTabs = () => (
+const UserTabs = ({onClickModal}) => (
   <Tabs>
     <TabList>
       <Tab>Расход</Tab>
@@ -21,12 +21,12 @@ const UserTabs = () => (
 
     <TabPanel>
       <ExpenseIncomeForm list={expenseList} placeholder={expensePlaceholder} />
-      <Table/>
+      <Table onClickModal={onClickModal}/>
       <Summary />
     </TabPanel>
     <TabPanel>
       <ExpenseIncomeForm list={incomeList} placeholder={incomePlaceholder} />
-       <Table/>
+       <Table onClickModal={ onClickModal}/>
       <Summary />
     </TabPanel>
   </Tabs>
