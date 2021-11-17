@@ -22,7 +22,7 @@ import { useDispatch } from 'react-redux';
 import { addTransaction } from 'redux/operations/transaction-operation';
 import Datepicker from 'components/ExpenseIncomeForm/Datepicker';
 
-const ExpenseIncomeForm = ({ list, placeholder }) => {
+const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
   const dispatch = useDispatch();
   const [isCategories, setIsCategories] = useState(false);
   const { register, handleSubmit, setValue, control, reset } = useForm();
@@ -38,8 +38,8 @@ const ExpenseIncomeForm = ({ list, placeholder }) => {
   };
 
   const onSubmit = data => {
-    console.log({ ...data, operation: 'expense' });
-    dispatch(addTransaction({ ...data, operation: 'expense' }));
+    console.log({ ...data, operation: operationType });
+    dispatch(addTransaction({ ...data, operation: operationType }));
     reset();
   };
   return (
