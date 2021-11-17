@@ -9,8 +9,23 @@ import Balance from 'components/Balance/Balance';
 // import Subtitle from 'components/Subtitle';
 import UserNav from 'components/UserNav';
 import UserTabs from 'components/UserTabs';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import {
+  getSummaryByYear,
+  getAllOperationByMonth,
+} from 'redux/operations/transaction-operation';
 
 export default function HomePage() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const dateNow = new Date();
+    const year = dateNow.getFullYear();
+    const month = dateNow.getMonth() + 1;
+    dispatch(getSummaryByYear(year));
+    dispatch(getAllOperationByMonth([year, month]));
+  }, [dispatch]);
+
   return (
     <>
       <Container>

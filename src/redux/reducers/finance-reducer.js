@@ -61,7 +61,6 @@ const financeSlice = createSlice({
     },
 
     [getAllOperationByMonth.fulfilled](state, { payload }) {
-      console.log('payload:', payload);
       state.isLoading = false;
       state.operations = payload;
     },
