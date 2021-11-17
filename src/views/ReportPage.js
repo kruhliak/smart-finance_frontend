@@ -5,6 +5,8 @@ import Header from 'components/Header';
 import Logo from 'components/Logo/Logo';
 import UserNav from 'components/UserNav';
 import ReportBalance from 'components/Balance/Report/ReportBalance';
+import Container from 'components/Container';
+import Background from 'components/Background';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getCategoriesByMonth } from 'redux/operations/transaction-operation';
@@ -21,13 +23,16 @@ export default function ReportPage() {
     <>
       <Header>
         <Logo />
-        <p>HomePage</p>
         <UserNav />
       </Header>
-      <ReportBalance />
-      <ReportLine></ReportLine>
-      <ReportList></ReportList>
-      <Charts />
+      <Background typePage="home" />
+
+      <Container typePage="home">
+        <ReportBalance />
+        <ReportLine></ReportLine>
+        <ReportList></ReportList>
+        <Charts />
+      </Container>
     </>
   );
 }

@@ -1,8 +1,8 @@
 import React from "react";
-import { BgImage } from './Background.styled';
+import { BgLogin, BgHome } from './Background.styled';
 
-const Background = () => {
-    return <BgImage />
+const Background = ({typePage}) => {
+    return <>{typePage === 'home' ? <BgHome/> : <BgLogin/>}</>
 };
 
 export default Background;

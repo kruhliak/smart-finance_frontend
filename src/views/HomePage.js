@@ -5,11 +5,9 @@ import Container from 'components/Container';
 import Header from 'components/Header';
 import Logo from 'components/Logo/Logo';
 import Balance from 'components/Balance/Balance';
-// import Title from 'components/Title';
-// import TitleWrapper from 'components/TitleWrapper';
-// import Subtitle from 'components/Subtitle';
 import UserNav from 'components/UserNav';
 import UserTabs from 'components/UserTabs';
+import Background from 'components/Background';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import {
@@ -21,7 +19,7 @@ export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => setIsModalOpen(state => !state);
-  
+
   const dispatch = useDispatch();
   useEffect(() => {
     const dateNow = new Date();
@@ -33,17 +31,19 @@ export default function HomePage() {
 
   return (
     <>
-      <Container>
+      <Header>
+        <Logo />
+        <UserNav />
+      </Header>
+      <Background typePage="home" />
+
+      <Container typePage="home">
         {isModalOpen && (
           <Modal text="Вы уверены?" onClose={toggleModal}>
             <CustomBtnStyled text="Да" />
             <CustomBtnStyled backBtn text="Нет" />
           </Modal>
         )}
-        <Header>
-          <Logo />
-          <UserNav />
-        </Header>
         <Balance />
         <UserTabs onClickModal={toggleModal} />
 
