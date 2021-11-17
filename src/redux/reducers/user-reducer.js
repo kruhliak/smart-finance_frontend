@@ -6,6 +6,7 @@ import {
   userLogout,
   fetchUser,
   setGoogleToken,
+  userCreateBalance,
 } from '../operations/auth-operation';
 
 const initialState = {
@@ -81,6 +82,18 @@ const userSlice = createSlice({
       state.isLogged = true;
       state.error = null;
       state.token = action.meta.arg;
+    },
+    [userCreateBalance.fulfilled](state, action) {
+      state.user.balance = action.payload;
+      state.isLoading = false;
+    },
+    [userCreateBalance.pending](state) {
+      state.isLoading = true;
+      state.error = null;
+    },
+    [userCreateBalance.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
     },
   },
 });

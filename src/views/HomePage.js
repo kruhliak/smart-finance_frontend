@@ -1,5 +1,3 @@
-// import Modal from 'components/Modal';
-// import CustomBtnStyled from 'components/Buttons/CustomButton';
 import Container from 'components/Container';
 import Header from 'components/Header';
 import Logo from 'components/Logo/Logo';
@@ -35,12 +33,6 @@ export default function HomePage() {
       <Container typePage="home">
         <Balance />
         <UserTabs />
-
-        {/* <Modal text="Вы действительно хотите выйти?">
-        <CustomBtnStyled text="Да, ёпта"/>
-        <CustomBtnStyled backBtn text="Пардон" />
-        <CustomBtnStyled googleBtn text="Google"/>
-      </Modal> */}
       </Container>
     </>
   );
