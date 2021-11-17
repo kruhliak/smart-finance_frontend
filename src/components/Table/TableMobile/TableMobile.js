@@ -1,3 +1,6 @@
+import Modal from 'components/Modal';
+import { useState } from 'react';
+import CustomBtnStyled from 'components/Buttons/CustomButton';
 import {
   Wrapper,
   LeftSide,
@@ -10,11 +13,34 @@ import {
   Value,
 } from './TableMobile.styled';
 import { Icon } from 'hooks/Icon';
+import { useDispatch } from 'react-redux';
+import { deleteTransaction } from 'redux/operations/transaction-operation';
 
-const TableMobile = ({ onClickModal, operation, color }) => {
-  console.log(operation);
+const TableMobile = ({ operation, color }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [id, setId] = useState('');
+  const toggleModal = () => setIsModalOpen(state => !state);
+
+  const dispatch = useDispatch();
+  const onDeleteContact = id => {
+    dispatch(deleteTransaction(id));
+    toggleModal();
+  };
+
+  const handleDeleteClick = idToDel => {
+    setId(idToDel);
+    toggleModal();
+  };
+
+  console.log(id);
   return (
     <>
+      {isModalOpen && (
+        <Modal text="Вы уверены?" onClose={toggleModal}>
+          <CustomBtnStyled text="Да" onClick={() => onDeleteContact(id)} />
+          <CustomBtnStyled backBtn text="Нет" onClick={toggleModal} />
+        </Modal>
+      )}
       {operation &&
         operation.list.map(item => (
           <Wrapper key={item._id}>
@@ -35,7 +61,12 @@ const TableMobile = ({ onClickModal, operation, color }) => {
               ) : (
                 <Value>{`+${item.value} грн.`}</Value>
               )}
-              <DeleteBtn type="button" onClick={onClickModal}>
+              <DeleteBtn
+                type="button"
+                onClick={() => {
+                  handleDeleteClick(item._id);
+                }}
+              >
                 <Icon
                   name="icon-delete"
                   size="18px"
