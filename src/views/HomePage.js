@@ -17,7 +17,6 @@ import {
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const toggleModal = () => setIsModalOpen(state => !state);
 
   const dispatch = useDispatch();
