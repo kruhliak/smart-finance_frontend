@@ -4,9 +4,9 @@ import Container from 'components/Container';
 import Header from 'components/Header';
 import Logo from 'components/Logo/Logo';
 import Balance from 'components/Balance/Balance';
-import Title from 'components/Title';
-import TitleWrapper from 'components/TitleWrapper';
-import Subtitle from 'components/Subtitle';
+// import Title from 'components/Title';
+// import TitleWrapper from 'components/TitleWrapper';
+// import Subtitle from 'components/Subtitle';
 import UserNav from 'components/UserNav';
 import UserTabs from 'components/UserTabs';
 

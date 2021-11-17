@@ -30,7 +30,6 @@ export const getSummaryByYear = createAsyncThunk(
   async (year, { rejectWithValue }) => {
     try {
       const { data } = await financeAPI.getSummaryByYear(year);
-
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -42,8 +41,7 @@ export const getAllOperationByMonth = createAsyncThunk(
   'finance/getAllOperationByMonth',
   async (value, { rejectWithValue }) => {
     try {
-      const { data } = await financeAPI.getAllOperationByMonth(value);
-
+      const { data } = await financeAPI.getAllOperationByMonth(...value);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -55,7 +53,7 @@ export const getCategoriesByMonth = createAsyncThunk(
   'finance/getCategoriesByMonth',
   async (value, { rejectWithValue }) => {
     try {
-      const { data } = await financeAPI.getCategoriesByMonth(value);
+      const { data } = await financeAPI.getCategoriesByMonth(...value);
 
       return data;
     } catch (error) {
