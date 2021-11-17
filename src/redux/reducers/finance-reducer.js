@@ -74,7 +74,9 @@ const financeSlice = createSlice({
     },
 
     [deleteTransaction.fulfilled](state, { payload }) {
-      state.items = [...state.items.filter(({ id }) => id !== payload)];
+      state.operations = [
+        ...state.operations.filter(({ id }) => id !== payload),
+      ];
     },
     [deleteTransaction.rejected](state, { payload }) {
       state.error = payload;
