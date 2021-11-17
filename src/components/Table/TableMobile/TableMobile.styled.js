@@ -45,7 +45,7 @@ export const Value = styled.div`
   text-align: right;
   letter-spacing: 0.04em;
 
-  color: #e7192e;
+  color: ${props => (props.red ? '#e7192e' : '#407946')};
   padding: 15px 0;
 `;
 

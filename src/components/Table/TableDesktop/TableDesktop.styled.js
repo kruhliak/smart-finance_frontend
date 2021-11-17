@@ -92,7 +92,7 @@ export const Category = styled.td`
 export const Value = styled.td`
   font-weight: bold;
   width: 130px;
-  color: #407946;
+  color: ${props => (props.red ? '#e7192e' : '#407946')};
 `;
 
 export const Tr = styled.tr`
