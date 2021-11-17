@@ -1,12 +1,12 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Div } from './TitleWrapper.styled'
 
 const TitleWrapper = ({ children }) => {
   return <Div>{children}</Div>;
 };
 
-// Title.propTypes = {
-//   text: PropTypes.string.isRequired,
-// };
+TitleWrapper.propTypes = {
+  text: PropTypes.string.isRequired,
+};
 
 export default TitleWrapper;

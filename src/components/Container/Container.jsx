@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Div } from './Container.styled'
+import { Div, DivHome } from './Container.styled'
 
-const Container = ({children})=>{
-  return<Div>{children}</Div>
+const Container = ({ typePage, children})=>{
+  return <>{typePage === 'home' ? <DivHome>{children}</DivHome> : <Div>{children}</Div>}</>;
 }
 
 export default Container;
