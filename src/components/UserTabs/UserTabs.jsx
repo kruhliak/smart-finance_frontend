@@ -35,12 +35,12 @@ useEffect(() => {
     </TabList>
 
     <TabPanel>
-      <ExpenseIncomeForm list={expenseList} placeholder={expensePlaceholder} />
+      <ExpenseIncomeForm list={expenseList} placeholder={expensePlaceholder} operationType={'expense'}/>
         <Table onClickModal={onClickModal} operation={expense} color={ true}/>
       <Summary />
     </TabPanel>
     <TabPanel>
-      <ExpenseIncomeForm list={incomeList} placeholder={incomePlaceholder} />
+      <ExpenseIncomeForm list={incomeList} placeholder={incomePlaceholder}  operationType={'income'}/>
        <Table onClickModal={ onClickModal} operation={income} color={false}/>
       <Summary />
     </TabPanel>
