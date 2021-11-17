@@ -1,4 +1,4 @@
-import { Box, Link, Title, Text, Button } from './Balance.styled';
+import { Box, Title, InputBox, Button, Input } from './Balance.styled';
 import { Icon } from '../../hooks/Icon';
 import { NavLink } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ export default function Balance() {
   return (
     <Box>
       {!renderByWidth && (
-        <Link href="#">
+        <NavLink className="balance-link" to="/report">
           Перейти к отчетам
           <Icon
             name={'icon-balance'}
@@ -17,14 +17,19 @@ export default function Balance() {
             viewBox="0 0 14 14"
             color="#52555F"
           />
-        </Link>
+        </NavLink>
       )}
 
       <Title>Баланс:</Title>
-      <Text>00.00 UAH</Text>
-      <Button>ПОДТВЕРДИТЬ</Button>
+      <form className="balance-form" action="" method="post">
+        <InputBox>
+          <Input placeholder="00.00 UAH" />
+        </InputBox>
+        <Button type="submit">ПОДТВЕРДИТЬ</Button>
+      </form>
+
       {renderByWidth && (
-        <NavLink to="/report">
+        <NavLink className="balance-link" to="/report">
           Перейти к отчетам
           <Icon
             name={'icon-balance'}
