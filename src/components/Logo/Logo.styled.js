@@ -1,17 +1,14 @@
 import styled from '@emotion/styled/macro';
 
-export const RectangleTransparent = styled.div`
-  position: absolute;
-  top: 12px;
-  left: 19px;
-`;
+export const RectangleTransparent = styled.div``;
 
 export const RectangleNotTransparent = styled.div`
   position: absolute;
-  top: 17px;
-  left: 25px;
+  top: 5px;
+  left: 6px;
 `;
 
 export const LogoContainer = styled.div`
-  display: block;
+  position: relative;
+  z-index: 25;
 `;

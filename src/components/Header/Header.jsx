@@ -1,9 +1,11 @@
-import { HeaderContainer } from "./Header.styled";
+import { HeaderContainer, HeaderWrap } from "./Header.styled";
 
 const Header = ({children}) => {
   return(
     <HeaderContainer>
-      {children}
+      <HeaderWrap>
+        {children}
+      </HeaderWrap>
     </HeaderContainer>
   )
 }

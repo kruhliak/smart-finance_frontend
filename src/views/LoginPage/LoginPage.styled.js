@@ -82,14 +82,10 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const LoginPageWrap = styled.div`
-  /* margin: 0 auto; */
-  /* width: 100%; */
-
   @media ${device.desktop} {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 117px;
     margin-bottom: 142px;
   }
 `;
