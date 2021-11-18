@@ -30,21 +30,35 @@ function ReportLine() {
   //   dispatch(transactionOperations.getAllOperationByMonth(Array(2)));
   // }, [dispatch]);
 
-  // console.log(transactions);
-
   return (
     <Container>
       <Categories>
         Расходы:{' '}
         <Expenses>
-          - {transactions.length > 0 && transactions[1]?.sum} грн.
+
+
+          {transactions.find(
+            transaction => transaction.operation === 'expense',
+          ) !== undefined &&
+            transactions.find(
+              transaction => transaction.operation === 'expense',
+            ).sum}{' '}
+          грн.
+
         </Expenses>
       </Categories>
       <Stripe></Stripe>
       <Categories>
         Доходы:{' '}
         <Income>
-          + {transactions.length > 0 && transactions[0]?.sum} грн.
+
+          {transactions.find(
+            transaction => transaction.operation === 'income',
+          ) !== undefined &&
+            transactions.find(transaction => transaction.operation === 'income')
+              .sum}{' '}
+          грн.
+
         </Income>
       </Categories>
     </Container>
