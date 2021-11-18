@@ -16,6 +16,8 @@ export const Wrapper = styled.div`
     margin-bottom: 198px;
   }
   @media ${device.desktop} {
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 0;
   }
 `;
@@ -79,13 +81,4 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
-`;
-
-export const LoginPageWrap = styled.div`
-  @media ${device.desktop} {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 142px;
-  }
 `;

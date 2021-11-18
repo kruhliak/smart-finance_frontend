@@ -6,16 +6,16 @@ export const Wrapper = styled.div`
   padding: 50px 18px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 76px;
   background-color: var(--white-text-color);
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
   @media ${device.tablet} {
     width: 436px;
     padding: 50px 85px;
-    margin-bottom: 198px;
   }
   @media ${device.desktop} {
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 0;
   }
 `;
@@ -73,10 +73,18 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const LoginPageWrap = styled.div`
+  margin-top: 86px;
+  margin-bottom: 76px;
+
+  @media ${device.tablet} {
+    margin-top: 90px;
+    margin-bottom: 198px;
+  }
   @media ${device.desktop} {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 117px;
     margin-bottom: 142px;
   }
 `;

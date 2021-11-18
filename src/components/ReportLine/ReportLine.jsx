@@ -16,16 +16,9 @@ import {
   Expenses,
 } from './ReportLine.styled';
 
-import { GetIncome } from './GetIncome';
-
 function ReportLine() {
-  const [income, setIncome] = useState([]);
-  const [expenses, setExpenses] = useState([]);
-
   const dispatch = useDispatch();
-  // const transactions = useSelector(getTransactions);
-
-  // console.log(transactions);
+  const transactions = useSelector(state => state.finance.operations);
 
   // const getExpenses = () => {
   //   setExpenses(transactions.map(item => item.value));
@@ -34,23 +27,25 @@ function ReportLine() {
   // const getIncome = () => {};
 
   // useEffect(() => {
-  //   dispatch(transactionOperations.getTransactionByType('expense'));
+  //   dispatch(transactionOperations.getAllOperationByMonth(Array(2)));
   // }, [dispatch]);
+
+  // console.log(transactions);
 
   return (
     <Container>
       <Categories>
         Расходы:{' '}
         <Expenses>
-          -{' '}
-          {/* {transactions.length > 0 &&
-            transactions.map(item => item.value).reduce((a, b) => a + b)}{' '} */}
-          грн.
+          - {transactions.length > 0 && transactions[1]?.sum} грн.
         </Expenses>
       </Categories>
       <Stripe></Stripe>
       <Categories>
-        Доходы: <Income>+ {income} грн.</Income>
+        Доходы:{' '}
+        <Income>
+          + {transactions.length > 0 && transactions[0]?.sum} грн.
+        </Income>
       </Categories>
     </Container>
   );

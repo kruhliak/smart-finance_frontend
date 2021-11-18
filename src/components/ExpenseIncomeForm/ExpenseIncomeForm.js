@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Icon } from 'hooks/Icon';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useForm, Controller } from 'react-hook-form';
@@ -21,11 +21,26 @@ import Button from 'components/Buttons/CustomButton';
 import { useDispatch } from 'react-redux';
 import { addTransaction } from 'redux/operations/transaction-operation';
 import Datepicker from 'components/ExpenseIncomeForm/Datepicker';
+import { getAllOperationByMonth } from 'redux/operations/transaction-operation';
 
 const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
-  const dispatch = useDispatch();
   const [isCategories, setIsCategories] = useState(false);
-  const { register, handleSubmit, setValue, control, reset } = useForm();
+  const { register, handleSubmit, setValue, control, reset, formState } =
+    useForm();
+  const { isSubmitSuccessful } = formState;
+  //console.log(isSubmitSuccessful);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      const dateNow = new Date();
+      const year = dateNow.getFullYear();
+      const month = dateNow.getMonth() + 1;
+      dispatch(getAllOperationByMonth([year, month]));
+    }
+  }, [dispatch, isSubmitSuccessful]);
+
   const handleClick = () => {
     setIsCategories(!isCategories);
   };
@@ -42,6 +57,7 @@ const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
     dispatch(addTransaction({ ...data, operation: operationType }));
     reset();
   };
+
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Wrapper>
