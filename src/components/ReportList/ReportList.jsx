@@ -14,16 +14,22 @@ function ReportList() {
   const [selectedCard, setSelectedCard] = useState(0);
 
   const dispatch = useDispatch();
-  // const transactions = useSelector(getTransactions);
+  const categories = useSelector(state => state.finance.categories);
+  const operations = useSelector(state => state.finance.operations);
 
-  // useEffect(() => {
-  //   dispatch(transactionOperations.getTransactionByType('expense'));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(transactionOperations.getCategoriesByMonth(['expense', 2021, 11]));
+  }, [category]);
 
   const changeCategory = () => {
     setSelectedCard(0);
     setCategory(!category);
   };
+
+  const salary = operations[0].list.filter(item => item.category === 'ЗП');
+  const income = operations[0].list.filter(
+    item => item.category === 'Доп. доход',
+  );
 
   return (
     <Container>
@@ -31,19 +37,18 @@ function ReportList() {
         <>
           <Categories onClick={changeCategory}>РАСХОДЫ</Categories>
           <Wrapper>
-            {data.map(({ id, icon, sum, name }) => (
-              <ReportCard
-                key={id}
-                index={id}
-                icon={icon}
-                sum={sum.reduce((a, b) => {
-                  return a + b;
-                })}
-                name={name}
-                setSelectedCard={setSelectedCard}
-                selectedCard={selectedCard}
-              ></ReportCard>
-            ))}
+            {categories.length > 0 &&
+              categories.map(({ category, sum }) => (
+                <ReportCard
+                  key={category}
+                  index={category}
+                  icon={category}
+                  sum={sum}
+                  name={category}
+                  setSelectedCard={setSelectedCard}
+                  selectedCard={selectedCard}
+                ></ReportCard>
+              ))}
           </Wrapper>
         </>
       ) : (
@@ -51,19 +56,38 @@ function ReportList() {
           <>
             <Categories onClick={changeCategory}>ДОХОДЫ</Categories>
             <Wrapper>
-              {dataIncome.map(({ id, icon, sum, name }) => (
+              {salary.length > 0 && (
                 <ReportCard
-                  key={id}
-                  index={id}
-                  icon={icon}
-                  sum={sum.reduce((a, b) => {
-                    return a + b;
-                  })}
-                  name={name}
+                  key={'ЗП'}
+                  index={'ЗП'}
+                  icon={'icon-salary'}
+                  sum={operations[0].list
+                    .filter(item => item.category === 'ЗП')
+                    .map(item => item.value)
+                    .reduce((a, b) => {
+                      return a + b;
+                    })}
+                  name={'ЗП'}
                   setSelectedCard={setSelectedCard}
                   selectedCard={selectedCard}
                 ></ReportCard>
-              ))}
+              )}
+              {income.length > 0 && (
+                <ReportCard
+                  key={'Доп. доход'}
+                  index={'Доп. доход'}
+                  icon={'icon-income'}
+                  sum={operations[0].list
+                    .filter(item => item.category === 'Доп. доход')
+                    .map(item => item.value)
+                    .reduce((a, b) => {
+                      return a + b;
+                    })}
+                  name={'Доп. доход'}
+                  setSelectedCard={setSelectedCard}
+                  selectedCard={selectedCard}
+                ></ReportCard>
+              )}
             </Wrapper>
           </>
         </>
