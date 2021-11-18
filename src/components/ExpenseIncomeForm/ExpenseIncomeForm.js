@@ -28,7 +28,7 @@ const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
   const { register, handleSubmit, setValue, control, reset, formState } =
     useForm();
   const { isSubmitSuccessful } = formState;
-  console.log(isSubmitSuccessful);
+  //console.log(isSubmitSuccessful);
 
   const dispatch = useDispatch();
 
