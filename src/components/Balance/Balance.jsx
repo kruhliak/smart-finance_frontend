@@ -1,10 +1,19 @@
+import { useSelector } from 'react-redux';
 import { Box, Title, InputBox, Button, Input } from './Balance.styled';
 import { Icon } from '../../hooks/Icon';
 import { NavLink } from 'react-router-dom';
+import { getBalance } from '../../redux/selectors/auth-selectors';
 
 export default function Balance() {
+  const balance = useSelector(getBalance);
   const width = document.documentElement.scrollWidth;
   const renderByWidth = width > 767;
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+
+    console.log(evt.target[0].value);
+  }
 
   return (
     <Box>
@@ -21,9 +30,9 @@ export default function Balance() {
       )}
 
       <Title>Баланс:</Title>
-      <form className="balance-form" action="" method="post">
+      <form className="balance-form" action="" onSubmit={handleSubmit}>
         <InputBox>
-          <Input placeholder="00.00 UAH" />
+          <Input type="number" placeholder={balance.toFixed(2) + ' UAH'} />
         </InputBox>
         <Button type="submit">ПОДТВЕРДИТЬ</Button>
       </form>

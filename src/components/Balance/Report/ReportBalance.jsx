@@ -1,14 +1,15 @@
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import {
   ReportBox,
   ReportTitle,
-  ReportText,
   ReportInputBox,
   ReportInput,
   ReportButton,
   MonthSlider,
 } from './ReportBalance.styled';
+import { getBalance } from '../../../redux/selectors/auth-selectors';
 
 import { Icon } from '../../../hooks/Icon';
 
@@ -16,6 +17,13 @@ export default function ReportBalance() {
   const screenWidth = document.documentElement.scrollWidth;
   const renderOnTablet = screenWidth > 767;
   const renderOnDesktop = screenWidth > 1279;
+  const balance = useSelector(getBalance);
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+
+    console.log(evt);
+  }
 
   return (
     <ReportBox>
@@ -30,10 +38,10 @@ export default function ReportBalance() {
       </NavLink>
       {!renderOnTablet && <MonthSlider>This is slider</MonthSlider>}
       {renderOnDesktop && (
-        <form className="report-balance-form">
+        <form className="report-balance-form" onSubmit={handleSubmit}>
           <ReportTitle>Баланс:</ReportTitle>
           <ReportInputBox>
-            <ReportInput placeholder="55 000 UAH" />
+            <ReportInput placeholder={balance.toFixed(2) + ' UAH'} />
           </ReportInputBox>
           <ReportButton>ПОДТВЕРДИТЬ</ReportButton>
         </form>
@@ -41,7 +49,7 @@ export default function ReportBalance() {
       {!renderOnDesktop && (
         <>
           <ReportTitle>Баланс:</ReportTitle>
-          <ReportInputBox>55 000.00 UAH</ReportInputBox>
+          <ReportInputBox>{balance.toFixed(2) + ' UAH'}</ReportInputBox>
         </>
       )}
 
