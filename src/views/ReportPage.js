@@ -11,6 +11,10 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getCategoriesByMonth } from 'redux/operations/transaction-operation';
 
+
+const categories = new getCategoriesByMonth();
+console.log("categories >>", categories)
+
 export default function ReportPage() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,7 +35,7 @@ export default function ReportPage() {
         <ReportBalance />
         <ReportLine></ReportLine>
         <ReportList></ReportList>
-        <Charts />
+        <Charts category="alcohol"/>
       </Container>
     </>
   );

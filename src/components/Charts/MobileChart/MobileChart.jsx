@@ -8,7 +8,8 @@ import {
   LabelList,
 } from 'recharts';
 
-const MobileCharts = ({data}) => {
+const MobileCharts = ({ data }) => {
+  console.log("data inside MobileChart >>", data)
   const BarLabel = ({ x, y, width, value }) => (
     <text x={x + width / 1.1} y={y} textAnchor="middle" fontSize={10} dy={-10}>
       {value ? `${value} грн` : ''}
