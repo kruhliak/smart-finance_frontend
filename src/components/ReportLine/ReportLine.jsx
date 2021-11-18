@@ -37,13 +37,15 @@ function ReportLine() {
       <Categories>
         Расходы:{' '}
         <Expenses>
-          - {transactions.length > 0 && transactions[1].sum} грн.
+          - {transactions.length > 0 && transactions[1]?.sum} грн.
         </Expenses>
       </Categories>
       <Stripe></Stripe>
       <Categories>
         Доходы:{' '}
-        <Income>+ {transactions.length > 0 && transactions[0].sum} грн.</Income>
+        <Income>
+          + {transactions.length > 0 && transactions[0]?.sum} грн.
+        </Income>
       </Categories>
     </Container>
   );
