@@ -6,6 +6,7 @@ import Logo from 'components/Logo/Logo';
 import UserNav from 'components/UserNav';
 import ReportBalance from 'components/Balance/Report/ReportBalance';
 import Container from 'components/Container';
+import { HomePageWrap } from './HomePage.styled';
 import Background from 'components/Background';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -25,13 +26,16 @@ export default function ReportPage() {
         <Logo />
         <UserNav />
       </Header>
+
       <Background typePage="home" />
 
-      <Container typePage="home">
-        <ReportBalance />
-        <ReportLine></ReportLine>
-        <ReportList></ReportList>
-        <Charts />
+      <Container>
+        <HomePageWrap>
+          <ReportBalance />
+          <ReportLine></ReportLine>
+          <ReportList></ReportList>
+          <Charts />
+        </HomePageWrap>
       </Container>
     </>
   );

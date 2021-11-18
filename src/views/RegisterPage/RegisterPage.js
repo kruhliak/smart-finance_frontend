@@ -45,6 +45,7 @@ const RegisterPage = () => {
       <Header>
         <Logo />
       </Header>
+
       <Background />
 
       <Container>

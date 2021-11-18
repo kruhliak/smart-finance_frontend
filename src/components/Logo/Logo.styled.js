@@ -10,5 +10,5 @@ export const RectangleNotTransparent = styled.div`
 
 export const LogoContainer = styled.div`
   position: relative;
-  z-index: 25;
+  z-index: 10;
 `;
