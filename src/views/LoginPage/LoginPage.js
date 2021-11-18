@@ -9,8 +9,8 @@ import {
   Label,
   StarErr,
   ButtonWrapper,
-  LoginPageWrap,
 } from './LoginPage.styled';
+import { LoginPageWrap } from 'views/RegisterPage/RegisterPage.styled';
 import GoogleRegister from 'components/FormElems/GoogleRegister/GoogleRegister';
 import Button from 'components/Buttons/CustomButton';
 import ButtonNav from 'components/FormElems/ButtonNav/ButtonNav';
@@ -45,6 +45,7 @@ const LoginPage = () => {
       <Header>
         <Logo />
       </Header>
+
       <Background />
 
       <Container>
