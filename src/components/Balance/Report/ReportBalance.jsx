@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import {
   ReportBox,
   ReportTitle,
-  ReportText,
   ReportInputBox,
   ReportInput,
   ReportButton,
@@ -41,7 +40,9 @@ export default function ReportBalance() {
       {!renderOnDesktop && (
         <>
           <ReportTitle>Баланс:</ReportTitle>
-          <ReportInputBox>55 000.00 UAH</ReportInputBox>
+          <ReportInputBox>
+            <ReportInput placeholder="55 000 UAH" />
+          </ReportInputBox>
         </>
       )}
 

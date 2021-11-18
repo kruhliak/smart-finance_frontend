@@ -2,54 +2,39 @@ import styled from '@emotion/styled';
 
 import { device } from '../options/device';
 
-export const Box = styled.section`
+export const Box = styled.div`
   display: flex;
-  justify-content: start;
-  align-content: flex-start;
-
-  width: 100%;
-  height: 342px;
-
-  border-bottom-left-radius: 140px;
-
-  padding-top: 86px;
-
-  background-color: #f5f6fb;
 
   @media ${device.mobileMax} {
     flex-direction: column;
-
-    margin-bottom: 172px;
+    margin-bottom: 40px;
   }
 
   @media ${device.tablet} {
-    width: 768px;
-    height: 583px;
-
-    border-bottom-left-radius: 80px;
+    justify-content: space-between;
+    padding-bottom: 58px;
   }
 
   @media ${device.desktop} {
-    width: 1280px;
-
-    justify-content: flex-end;
+    justify-content: space-between;
+    padding-bottom: 9px;
   }
 
   & .balance-form {
     display: flex;
     justify-content: center;
-    width: 100%;
+
+    @media ${device.mobileMax} {
+      flex-direction: column;
+      align-items: center;
+    }
 
     @media ${device.tablet} {
-      width: 265px;
       height: 44px;
-
-      margin-right: 111px;
     }
 
     @media ${device.desktop} {
-      width: 265px;
-      margin-right: 205px;
+      margin-left: 332px;
     }
   }
 `;
@@ -80,108 +65,62 @@ export const Box = styled.section`
 //   }
 // `;
 
-export const Title = styled.h2`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.166;
-  letter-spacing: 0.02em;
-
+export const Title = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 100%;
-  height: 20px;
 
   color: var(--primary-text-color-transparent);
 
   @media ${device.mobileMax} {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
   }
 
   @media ${device.tablet} {
-    justify-content: flex-end;
-
     width: 83px;
-    height: 44px;
-
     margin-right: 21px;
-    margin-left: 82px;
+    margin-left: 15px;
   }
 
   @media ${device.desktop} {
     justify-content: center;
-
-    margin-left: 442px;
   } ;
 `;
 
 export const InputBox = styled.div`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.166;
-  letter-spacing: 0.02em;
-
   display: flex;
   align-items: center;
-  justify-content: center;
+`;
 
-  width: 124px;
+export const Input = styled.input`
+  font-weight: 700;
+
   height: 44px;
+  width: 125px;
+
+  text-align: center;
 
   border: 2px solid var(--white-text-color);
   border-radius: 22px 0 0 22px;
 
   color: var(--black-text-color);
+  background-color: transparent;
 
   @media ${device.mobileMax} {
   }
 
   @media ${device.tablet} {
     border-radius: 16px;
-
     margin-right: 15px;
-  }
-`;
-
-export const Input = styled.input`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.166;
-  letter-spacing: 0.02em;
-
-  text-align: center;
-
-  width: 100%;
-
-  border: none;
-
-  color: var(--black-text-color);
-  background-color: transparent;
-
-  &:hover,
-  &:focus {
-    border: none;
-    outline: none;
   }
 
   &::placeholder {
     text-align: center;
-
     color: inherit;
   }
 `;
 
 export const Button = styled.button`
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  line-height: 1.166;
-
-  letter-spacing: 0.02em;
-
   display: flex;
   align-items: center;
   justify-content: center;

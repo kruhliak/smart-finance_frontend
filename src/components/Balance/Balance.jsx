@@ -20,12 +20,12 @@ export default function Balance() {
         </NavLink>
       )}
 
-      <Title>Баланс:</Title>
       <form className="balance-form" action="" method="post">
+        <Title>Баланс:</Title>
         <InputBox>
           <Input placeholder="00.00 UAH" />
+          <Button type="submit">ПОДТВЕРДИТЬ</Button>
         </InputBox>
-        <Button type="submit">ПОДТВЕРДИТЬ</Button>
       </form>
 
       {renderByWidth && (
