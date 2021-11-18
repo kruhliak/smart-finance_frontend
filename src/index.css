@@ -1,6 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import-normilize;
+
 :root {
   --accent-color: #ff751d;
   --primary-text-color: #52555f;
+  --primary-text-color-transparent: rgba(82, 85, 95, 0.7);
   --black-text-color: #000000;
   --white-text-color: #ffffff;
 }
@@ -20,28 +26,149 @@ code {
     monospace;
 }
 
-.link {
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
+/* Normilize */
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.list {
-  list-style: none;
-  margin: 0;
+/* Убираем внутренние отступы */
+ul,
+ol,
+button {
   padding: 0;
 }
 
-img {
-  display: inline-block;
-}
-
+/* Убираем внешние отступы */
+body,
 h1,
 h2,
 h3,
 h4,
-h5,
-h6 {
+p,
+ul,
+ol,
+li,
+button {
   margin: 0;
-  padding: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il*/
+ul,
+ol {
+  list-style: none;
+}
+
+/* Элементы a сбрасываем до дефолтных стилей */
+a {
+  text-decoration: none;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/*  scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background-color: #f5f6fb;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #ff751d;
+}
+
+.balance-link {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.166;
+  letter-spacing: 0.04em;
+
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  width: 100%;
+
+  color: var(--primary-text-color-transparent);
+}
+
+.report-balance-link {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.166;
+  letter-spacing: 0.04em;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-self: flex-start;
+
+  width: 24px;
+  height: 24px;
+
+  color: var(--primary-text-color-transparent);
+}
+
+.balance-link svg {
+  margin-left: 17px;
+}
+
+.report-balance-link svg {
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .balance-link {
+    height: 20px;
+
+    margin-bottom: 41px;
+  }
+
+  .report-balance-link {
+    margin-bottom: 10px;
+  }
+
+  .report-balance-link svg {
+    margin-right: 0px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .balance-link {
+    width: 154px;
+    height: 44px;
+
+    padding-top: 10px;
+  }
+
+  .report-balance-link {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: flex-start;
+
+    width: 174px;
+    height: 44px;
+  }
 }
