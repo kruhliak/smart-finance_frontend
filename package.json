@@ -63,7 +63,7 @@
     "lint-staged": "^11.0.0",
     "mrm": "^3.0.2",
     "mrm-task-lint-staged": "^6.0.0",
-    "netlify-cli": "^6.14.16",
+    "netlify-cli": "^6.15.0",
     "prettier": "^2.3.2"
   },
   "lint-staged": {
