@@ -33,13 +33,6 @@ export default function ReportPage() {
 
       <Background typePage="home" />
 
-<<<<<<< HEAD
-      <Container typePage="home">
-        <ReportBalance />
-        <ReportLine></ReportLine>
-        <ReportList></ReportList>
-        <Charts category="alcohol"/>
-=======
       <Container>
         <HomePageWrap>
           <ReportBalance />
@@ -47,7 +40,6 @@ export default function ReportPage() {
           <ReportList></ReportList>
           <Charts />
         </HomePageWrap>
->>>>>>> 9a44793266262d5c7dce9e4e0f319ba061a6ea1d
       </Container>
     </>
   );

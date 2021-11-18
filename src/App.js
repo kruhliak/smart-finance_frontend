@@ -51,24 +51,6 @@ export default function App() {
         fallback={<Loader type="Oval" color="#ff751d" height={50} width={50} />}
       >
         <Switch>
-<<<<<<< HEAD
-          {/* <Route exact path="/">
-            <HomePage />
-          </Route>
-
-          <Route path="/register">
-            <RegisterPage />
-          </Route>
-
-          <Route exact path="/login">
-            <LoginPage />
-          </Route>
-          <Route exact path="/report">
-            <ReportPage />
-          </Route> */}
-
-=======
->>>>>>> 9a44793266262d5c7dce9e4e0f319ba061a6ea1d
           <PrivateRoute exact path="/" redirectTo="/login">
             <HomePage />
           </PrivateRoute>

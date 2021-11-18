@@ -54,6 +54,9 @@ import MobileChart from '../MobileChart';
 // ];
 
 const Charts = () => {
+ const [category, setCategory] = useState(true);
+  const [selectedCard, setSelectedCard] = useState(0);
+
   const isMatches = useMediaQuery('(min-width: 768px)');
 
   return (

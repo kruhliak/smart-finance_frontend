@@ -26,8 +26,8 @@ function ReportList() {
     setCategory(!category);
   };
 
-  const salary = operations[0].list.filter(item => item.category === 'ЗП');
-  const income = operations[0].list.filter(
+  const salary = operations[0]?.list.filter(item => item.category === 'ЗП');
+  const income = operations[0]?.list.filter(
     item => item.category === 'Доп. доход',
   );
 
