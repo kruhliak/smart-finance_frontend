@@ -89,16 +89,27 @@ export const Title = styled.p`
 
 export const InputBox = styled.div`
   display: flex;
+  position: relative;
   align-items: center;
+
+  label {
+    position: absolute;
+    color: var(--black-text-color);
+
+    left: 80px;
+    font-weight: 700;
+    font-size: 12px;
+  }
 `;
 
 export const Input = styled.input`
   font-weight: 700;
-
+  padding-right: 46px;
   height: 44px;
   width: 125px;
+  font-size: 12px;
 
-  text-align: center;
+  text-align: right;
 
   border: 2px solid var(--white-text-color);
   border-radius: 22px 0 0 22px;
@@ -115,7 +126,7 @@ export const Input = styled.input`
   }
 
   &::placeholder {
-    text-align: center;
+    text-align: right;
     color: inherit;
   }
 `;
@@ -141,5 +152,14 @@ export const Button = styled.button`
 
   @media ${device.tablet} {
     border-radius: 16px;
+  }
+  &:focus,
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--white-text-color);
+    border: none;
+    box-shadow: 2px 4px 4px 0px rgb(0 0 0 / 30%), -1px 0px 0px rgb(0 0 0 / 14%),
+      0px 2px 1px rgb(0 0 0 / 20%);
+    transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;

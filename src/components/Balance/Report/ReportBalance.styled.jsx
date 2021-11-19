@@ -58,11 +58,23 @@ export const ReportInputBox = styled(InputBox)`
   @media ${device.desktop} {
     margin-right: 15px;
   }
+
+  label {
+    position: absolute;
+    color: var(--black-text-color);
+
+    left: 110px;
+    font-weight: 700;
+    font-size: 12px;
+  }
 `;
 
 export const ReportInput = styled(Input)`
   @media ${device.mobileMax} {
+    text-align: right;
     border-radius: 22px;
+    width: 183px;
+    padding-right: 75px;
   }
   @media ${device.tablet} {
     margin-right: 0;
