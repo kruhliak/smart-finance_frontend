@@ -85,6 +85,15 @@ export const InputDesc = styled.input`
     margin-bottom: 4px;
     width: 260px;
   }
+
+  &:hover,
+  &:focus {
+    border: 2px solid var(--accent-color);
+  }
+
+  &::placeholder {
+    color: #c7ccdc;
+  }
 `;
 
 export const InputСategory = styled.input`
@@ -95,7 +104,6 @@ export const InputСategory = styled.input`
   font-size: 12px;
   line-height: 14px;
   font-family: inherit;
-  color: #c7ccdc;
   letter-spacing: 0.02em;
 
   padding: 2px 21px;
@@ -113,6 +121,15 @@ export const InputСategory = styled.input`
   }
   @media ${device.desktop} {
     width: 171px;
+  }
+
+  &::placeholder {
+    color: #c7ccdc;
+  }
+
+  &:hover,
+  &:focus {
+    border: 2px solid var(--accent-color);
   }
 `;
 
@@ -141,39 +158,6 @@ export const InputWrapperCategory = styled.div`
   position: relative;
 `;
 
-export const ItemСategory = styled.li``;
-
-export const LabelСategory = styled.label`
-  position: relative;
-  padding: 9px 20px;
-  font-size: 12px;
-  line-height: 14px;
-  color: #c7ccdc;
-  height: 32px;
-  width: 171px;
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-
-  @media ${device.desktop} {
-    width: 188px;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: #f5f6fb;
-    color: #52555f;
-  }
-`;
-
-export const Arrow = styled.svg`
-  position: absolute;
-  right: 18px;
-  top: 18px;
-  width: 12px;
-  height: 8px;
-`;
-
 export const InputValue = styled.input`
   position: relative;
   display: block;
@@ -184,13 +168,16 @@ export const InputValue = styled.input`
   line-height: 14px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
+  color: #c7ccdc;
   color: #000000;
   border: 2px solid #ffffff;
   border-radius: 22px;
   text-align: center;
+  background-color: transparent;
+  &::placeholder {
+    color: #000;
+  }
   @media ${device.mobileMax} {
-    background-color: transparent;
     width: 183px;
     margin-top: 30px;
   }
@@ -199,10 +186,20 @@ export const InputValue = styled.input`
     width: 104px;
     border: 2px solid #f5f6fb;
     border-radius: 0 16px 16px 0;
+    color: #c7ccdc;
+
+    &::placeholder {
+      color: #c7ccdc;
+    }
   }
 
   @media ${device.desktop} {
     width: 126px;
+  }
+
+  &:hover,
+  &:focus {
+    border: 2px solid var(--accent-color);
   }
 `;
 
