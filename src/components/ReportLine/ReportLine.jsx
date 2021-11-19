@@ -35,8 +35,7 @@ function ReportLine() {
       <Categories>
         Расходы:{' '}
         <Expenses>
-
-
+          -
           {transactions.find(
             transaction => transaction.operation === 'expense',
           ) !== undefined &&
@@ -44,21 +43,19 @@ function ReportLine() {
               transaction => transaction.operation === 'expense',
             ).sum}{' '}
           грн.
-
         </Expenses>
       </Categories>
       <Stripe></Stripe>
       <Categories>
         Доходы:{' '}
         <Income>
-
+          +
           {transactions.find(
             transaction => transaction.operation === 'income',
           ) !== undefined &&
             transactions.find(transaction => transaction.operation === 'income')
               .sum}{' '}
           грн.
-
         </Income>
       </Categories>
     </Container>

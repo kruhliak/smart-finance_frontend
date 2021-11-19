@@ -9,9 +9,8 @@ import ReportCard from '../ReportCard/ReportCard';
 import data from './data.json';
 import dataIncome from './dataIncome.json';
 
-function ReportList() {
+function ReportList({ setSelectedCard, selectedCard }) {
   const [category, setCategory] = useState(true);
-  const [selectedCard, setSelectedCard] = useState(0);
   const [salary, setSalary] = useState([]);
   const [income, setIncome] = useState([]);
 
@@ -24,7 +23,7 @@ function ReportList() {
   // }, [category]);
 
   const changeCategory = () => {
-    setSelectedCard(0);
+    setSelectedCard('');
     setCategory(!category);
   };
 
