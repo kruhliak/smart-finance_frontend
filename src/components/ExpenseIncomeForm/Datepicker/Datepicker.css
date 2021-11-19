@@ -10,6 +10,7 @@
   display: inline-block;
   font-family: 'Roboto', sans-serif;
   color: #52555f;
+  background-color: transparent;
   z-index: 9;
   margin: 0;
   border: none;
@@ -21,6 +22,11 @@
   cursor: pointer;
 }
 
+.react-datepicker__input-container > input:hover,
+.react-datepicker__input-container > input:focus {
+  color: var(--accent-color);
+}
+
 .react-datepicker__header {
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
@@ -29,4 +35,8 @@
 .datepicker__container {
   display: flex;
   align-items: center;
+}
+
+.react-datepicker__day--selected {
+  background-color: var(--accent-color);
 }

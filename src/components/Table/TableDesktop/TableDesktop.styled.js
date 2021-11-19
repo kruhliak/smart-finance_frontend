@@ -111,7 +111,7 @@ export const Tr = styled.tr`
 `;
 
 export const DeleteBtn = styled.button`
-  margin: 2px auto 0;
+  margin: 2px 15px 0 0;
   cursor: pointer;
   width: 32px;
   height: 32px;
@@ -119,6 +119,10 @@ export const DeleteBtn = styled.button`
   border: transparent;
   background-color: transparent;
   padding: 7px;
+
+  @media ${device.desktop} {
+    margin: 2px 45px 0 0;
+  }
 
   &:hover,
   &:focus {
