@@ -79,7 +79,7 @@ export default function ReportBalance({ category }) {
               autoComplete="off"
               placeholder="00.00"
             />
-            <label for="inputBalance">UAN</label>
+            <label htmlFor="inputBalance">UAN</label>
           </ReportInputBox>
           <ReportButton>ПОДТВЕРДИТЬ</ReportButton>
         </form>
@@ -99,7 +99,7 @@ export default function ReportBalance({ category }) {
               autoComplete="off"
               placeholder="00.00"
             />
-            <label for="inputBalance">UAN</label>{' '}
+            <label htmlFor="inputBalance">UAN</label>{' '}
           </ReportInputBox>
         </>
       )}
@@ -110,7 +110,7 @@ export default function ReportBalance({ category }) {
             selected={startDate}
             onChange={date => setStartDate(date)}
             dateFormat="MMMM yyyy"
-            showMonthYearPicker
+            showFullMonthYearPicker
           />
         </MonthSlider>
       )}

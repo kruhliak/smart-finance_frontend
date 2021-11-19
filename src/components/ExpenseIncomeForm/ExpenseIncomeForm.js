@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Icon } from 'hooks/Icon';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useForm, Controller } from 'react-hook-form';
@@ -28,37 +28,24 @@ const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
   const isMatches = useMediaQuery('(min-width: 768px)');
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
-  const { register, handleSubmit, setValue, control, reset, formState } =
-    useForm();
-  const { isSubmitSuccessful } = formState;
-  //console.log(isSubmitSuccessful);
-
+  const { register, handleSubmit, setValue, control, reset } = useForm();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      const dateNow = new Date();
-      const year = dateNow.getFullYear();
-      const month = dateNow.getMonth() + 1;
-      dispatch(getAllOperationByMonth([year, month]));
-    }
-  }, [dispatch, isSubmitSuccessful]);
-
   const handleClick = () => {
     setIsActive(!isActive);
   };
-
   const newDate = new Date();
-
   const handleCategoryClick = e => {
     setValue('category', e.currentTarget.value);
     handleClick();
   };
 
-  const onSubmit = data => {
-    console.log({ ...data, operation: operationType });
-    dispatch(addTransaction({ ...data, operation: operationType }));
+  const onSubmit = async data => {
+    await dispatch(addTransaction({ ...data, operation: operationType }));
     reset();
+    const dateNow = new Date();
+    const year = dateNow.getFullYear();
+    const month = dateNow.getMonth() + 1;
+    dispatch(getAllOperationByMonth([year, month]));
   };
 
   return (

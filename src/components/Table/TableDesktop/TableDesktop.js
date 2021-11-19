@@ -20,6 +20,14 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
     toggleModal();
   };
 
+  const isZero = i => {
+    return i.toString().length === 1 ? `0${i}` : i;
+  };
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
     <Wrapper>
       <TableS>
@@ -41,11 +49,11 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
               operation.list.map(item => (
                 <Tr key={item._id}>
                   <Date>
-                    {`${item.day}.
+                    {`${isZero(item.day)}.
                   ${item.month}.
                   ${item.year}`}
                   </Date>
-                  <Desc>{item.description}</Desc>
+                  <Desc>{capitalizeFirstLetter(item.description)}</Desc>
                   <Category>{item.category}</Category>
                   {color ? (
                     <Value red>{`-${item.value} грн.`}</Value>
