@@ -19,7 +19,7 @@ import {
   getAllOperationByMonth,
 } from 'redux/operations/transaction-operation';
 
-export default function ReportBalance() {
+export default function ReportBalance({ category }) {
   const screenWidth = document.documentElement.scrollWidth;
   const renderOnTablet = screenWidth > 767;
   const renderOnDesktop = screenWidth > 1279;
@@ -33,10 +33,10 @@ export default function ReportBalance() {
   useEffect(() => {
     const year = startDate.getFullYear();
     const month = startDate.getMonth() + 1;
-    // const operation =
-    dispatch(getCategoriesByMonth(['expense', year, month]));
+    const operation = category === true ? 'expense' : 'income';
+    dispatch(getCategoriesByMonth([operation, year, month]));
     dispatch(getAllOperationByMonth([year, month]));
-  }, [dispatch, startDate]);
+  }, [category, dispatch, startDate]);
 
   useEffect(() => {
     setValue(state);

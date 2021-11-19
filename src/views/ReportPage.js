@@ -26,7 +26,7 @@ export default function ReportPage() {
 
       <Container>
         <HomePageWrap>
-          <ReportBalance />
+          <ReportBalance category={category} />
           <ReportLine></ReportLine>
           <ReportList
             selectedCard={selectedCard}
