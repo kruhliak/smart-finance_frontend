@@ -18,16 +18,24 @@ const TableMobile = ({ operation, color, toggleModal, setId }) => {
     toggleModal();
   };
 
+  const isZero = i => {
+    return i.toString().length === 1 ? `0${i}` : i;
+  };
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
     <Scroll>
       {operation &&
         operation.list.map(item => (
           <Wrapper key={item._id}>
             <LeftSide>
-              <Desc>{item.description}</Desc>
+              <Desc>{capitalizeFirstLetter(item.description)}</Desc>
               <SubLeftSide>
                 <Date>
-                  {`${item.day}.
+                  {`${isZero(item.day)}.
                   ${item.month}.
                   ${item.year}`}
                 </Date>
