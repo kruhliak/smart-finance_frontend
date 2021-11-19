@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   /* width: 613px; */
-  row-gap: 40px;
+  row-gap: 30px;
   column-gap: 10px;
   @media (min-width: 320px) {
     max-width: 320px;
@@ -26,6 +26,7 @@ export const Container = styled.div`
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
+  background-color: #f5f6fb;
   @media (min-width: 320px) {
     max-width: 320px;
     padding-top: 10px;
