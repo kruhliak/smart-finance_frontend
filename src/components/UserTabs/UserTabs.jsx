@@ -23,15 +23,15 @@ const STabs = styled(Tabs)`
   -webkit-tap-highlight-color: transparent;
   `;
 const STabList = styled(TabList)`
-  margin: 0;
+  margin: 0!important;
+  border-bottom: none!important;
 `;
 STabList.tabsRole = 'TabList';
 
 const STab = styled(Tab)`
   display: inline-block;
-  position: relative;
   list-style: none;
-  padding: 11px 44.5px;
+  padding: 11px 44.5px!important;  
   cursor: pointer; //-
   font-size: 0.75rem; //+
   font-weight: 700; //+
@@ -54,21 +54,6 @@ const STab = styled(Tab)`
   &.is-disabled {
     color: #eee;
     cursor: default;
-  }
-
-  &:focus {
-    box-shadow: 0 0 5px var(--accent-color); //-
-    border-color: var(--accent-color); //-
-
-    &:after {
-      content: '';
-      position: absolute;
-      height: 5px;
-      left: -4px;
-      right: -4px;
-      bottom: -5px;
-      background: teal;
-    }
   }
 `;
 STab.tabsRole = 'Tab';
