@@ -13,6 +13,7 @@ import React, { useState } from 'react';
 
 export default function ReportPage() {
   const [selectedCard, setSelectedCard] = useState('');
+  const [category, setCategory] = useState(true);
 
   return (
     <>
@@ -30,6 +31,8 @@ export default function ReportPage() {
           <ReportList
             selectedCard={selectedCard}
             setSelectedCard={setSelectedCard}
+            category={category}
+            setCategory={setCategory}
           ></ReportList>
           <Charts />
         </HomePageWrap>
