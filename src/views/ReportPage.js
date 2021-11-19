@@ -8,22 +8,17 @@ import ReportBalance from 'components/Balance/Report/ReportBalance';
 import Container from 'components/Container';
 import { HomePageWrap } from './HomePage.styled';
 import Background from 'components/Background';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { getCategoriesByMonth } from 'redux/operations/transaction-operation';
+
+import React, { useState } from 'react';
 
 
 const categories = new getCategoriesByMonth();
 console.log("categories >>", categories)
 
 export default function ReportPage() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const dateNow = new Date();
-    const year = dateNow.getFullYear();
-    const month = dateNow.getMonth() + 1;
-    dispatch(getCategoriesByMonth(['expense', year, month]));
-  }, [dispatch]);
+  const [selectedCard, setSelectedCard] = useState('');
+  const [category, setCategory] = useState(true);
+
   return (
     <>
       <Header>
@@ -37,7 +32,12 @@ export default function ReportPage() {
         <HomePageWrap>
           <ReportBalance />
           <ReportLine></ReportLine>
-          <ReportList></ReportList>
+          <ReportList
+            selectedCard={selectedCard}
+            setSelectedCard={setSelectedCard}
+            category={category}
+            setCategory={setCategory}
+          ></ReportList>
           <Charts />
         </HomePageWrap>
       </Container>

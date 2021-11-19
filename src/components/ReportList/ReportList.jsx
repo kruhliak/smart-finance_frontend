@@ -1,58 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { getTransactions } from 'redux/selectors/transaction-selectors';
-import * as transactionOperations from '../../redux/operations/transaction-operation';
 import { Wrapper, Container, Categories } from './ReportList.styled';
 
 import ReportCard from '../ReportCard/ReportCard';
-import data from './data.json';
-import dataIncome from './dataIncome.json';
 
-function ReportList() {
-  const [category, setCategory] = useState(true);
-  const [selectedCard, setSelectedCard] = useState(0);
-  const [salary, setSalary] = useState([]);
-  const [income, setIncome] = useState([]);
-
-  const dispatch = useDispatch();
+function ReportList({ setSelectedCard, selectedCard, category, setCategory }) {
   const categories = useSelector(state => state.finance.categories);
   const operations = useSelector(state => state.finance.operations);
 
-  // useEffect(() => {
-  //   dispatch(transactionOperations.getCategoriesByMonth(['expense', 2021, 11]));
-  // }, [category]);
-
   const changeCategory = () => {
-    setSelectedCard(0);
+    setSelectedCard('');
     setCategory(!category);
   };
-
-  // const salary = operations[0].list.filter(item => item.category === 'ЗП');
-  // const income = operations[0].list.filter(
-  //   item => item.category === 'Доп. доход',
-  // );
-
-  // console.log(
-  //   operations[1].list
-  //     .filter(item => item.category === 'ЗП')
-  //     .map(item => item.value)
-  //     .reduce((a, b) => {
-  //       return a + b;
-  //     }),
-  // );
-
-  // console.log(operations);
-
-  // console.log(operations.find(item => item.operation === 'income'));
-  // console.log(
-  //   operations
-  //     .find(item => item.operation === 'income')
-  //     .list.filter(item => item.category === 'Доп. доход')
-  //     .map(item => item.value),
-  // );
-  // console.log(categories);
-  // console.log(operations);
 
   return (
     <Container>

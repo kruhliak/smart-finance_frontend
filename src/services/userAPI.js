@@ -25,6 +25,6 @@ export async function userLogout() {
 //Для ввода текущего баланса пользователя
 
 export async function userSetBalance(balance) {
-  const { data } = await axios.post(`/users/balance`, balance);
+  const { data } = await axios.post(`/users/balance`, { value: balance });
   return data;
 }

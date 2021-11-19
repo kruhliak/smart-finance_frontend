@@ -1,4 +1,5 @@
 import {
+  Scroll,
   Wrapper,
   LeftSide,
   SubLeftSide,
@@ -18,7 +19,7 @@ const TableMobile = ({ operation, color, toggleModal, setId }) => {
   };
 
   return (
-    <>
+    <Scroll>
       {operation &&
         operation.list.map(item => (
           <Wrapper key={item._id}>
@@ -55,7 +56,7 @@ const TableMobile = ({ operation, color, toggleModal, setId }) => {
             </RightSide>
           </Wrapper>
         ))}
-    </>
+    </Scroll>
   );
 };
 
