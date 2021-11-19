@@ -1,5 +1,11 @@
 import styled from '@emotion/styled';
 
+export const Scroll = styled.div`
+  height: 160px;
+  background: transparent;
+  overflow-y: scroll;
+`;
+
 export const Wrapper = styled.div`
   margin: 0 auto;
   width: 282px;
