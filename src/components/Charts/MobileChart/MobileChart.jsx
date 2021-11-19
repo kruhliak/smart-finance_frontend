@@ -45,14 +45,14 @@ const MobileCharts = ({ data }) => {
             <Cell key={`cell-${idx}`} fill={idx % 3 ? '#FFDAC0' : '#ff751d'} />
           ))}
           <LabelList
-            dataKey="name"
+            dataKey="description"
             content={<LabelListContent/>}
             fill="#52555F"
           />
         </Bar>
 
         <XAxis type="number" hide={true} />
-        <YAxis dataKey="name" type="category" scale="band" hide={true} />
+        <YAxis dataKey="description" type="category" scale="band" hide={true} />
       </BarChart>
     </ResponsiveContainer>
   );
