@@ -66,6 +66,9 @@ export const ReportInputBox = styled(InputBox)`
     left: 110px;
     font-weight: 700;
     font-size: 12px;
+    @media ${device.tablet} {
+      left: 80px;
+    }
   }
 `;
 
