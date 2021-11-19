@@ -1,5 +1,5 @@
 import { useMediaQuery } from 'hooks/useMediaQuery';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import TableMobile from './TableMobile/TableMobile';
 import TableDesktop from './TableDesktop/TableDesktop';
@@ -13,28 +13,28 @@ import {
 const Table = ({ operation, color }) => {
   const [id, setId] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isDelete, setIsDelete] = useState(false);
   const isMatches = useMediaQuery('(min-width: 768px)');
   const toggleModal = () => setIsModalOpen(state => !state);
-
   const dispatch = useDispatch();
-
-  const onDeleteContact = id => {
-    dispatch(deleteTransaction(id));
+  const onDeleteContact = async id => {
+    await dispatch(deleteTransaction(id));
     toggleModal();
-    setIsDelete(true);
+    const dateNow = new Date();
+    const year = dateNow.getFullYear();
+    const month = dateNow.getMonth() + 1;
+    dispatch(getAllOperationByMonth([year, month]));
   };
 
   //console.log(isDelete);
 
-  useEffect(() => {
-    if (isDelete) {
-      const dateNow = new Date();
-      const year = dateNow.getFullYear();
-      const month = dateNow.getMonth() + 1;
-      dispatch(getAllOperationByMonth([year, month]));
-    }
-  }, [dispatch, isDelete]);
+  // useEffect(() => {
+  //   if (isDelete) {
+  //     const dateNow = new Date();
+  //     const year = dateNow.getFullYear();
+  //     const month = dateNow.getMonth() + 1;
+  //     dispatch(getAllOperationByMonth([year, month]));
+  //   }
+  // }, [dispatch, isDelete]);
 
   return (
     <>
