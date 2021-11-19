@@ -9,7 +9,11 @@ import Container from 'components/Container';
 import { HomePageWrap } from './HomePage.styled';
 import Background from 'components/Background';
 
+import React, { useState } from 'react';
+
 export default function ReportPage() {
+  const [selectedCard, setSelectedCard] = useState('');
+
   return (
     <>
       <Header>
@@ -23,7 +27,10 @@ export default function ReportPage() {
         <HomePageWrap>
           <ReportBalance />
           <ReportLine></ReportLine>
-          <ReportList></ReportList>
+          <ReportList
+            selectedCard={selectedCard}
+            setSelectedCard={setSelectedCard}
+          ></ReportList>
           <Charts />
         </HomePageWrap>
       </Container>
