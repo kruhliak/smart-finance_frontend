@@ -1,5 +1,6 @@
 import DatePicker from 'react-datepicker';
 import { Icon } from 'hooks/Icon';
+import ru from 'date-fns/locale/ru';
 import './Datepicker.css';
 
 const Datepicker = ({ onChange, onBlur, selected }) => {
@@ -22,6 +23,7 @@ const Datepicker = ({ onChange, onBlur, selected }) => {
         onChange={date => onChange('date', date)}
         onBlur={onBlur}
         selected={selected}
+        locale={ru}
       />
     </div>
   );
