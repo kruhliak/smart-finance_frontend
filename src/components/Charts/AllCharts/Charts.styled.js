@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* width: 613px; */
+  /* background: #fff; */
   row-gap: 40px;
   column-gap: 10px;
   @media (min-width: 320px) {
@@ -22,6 +22,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;

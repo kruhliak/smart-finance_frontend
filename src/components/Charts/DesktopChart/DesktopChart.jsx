@@ -9,7 +9,7 @@ function CustomTooltip({ active, payload}) {
     return (
       <Toolpit>
         <p>{`${payload[0].value} грн`}</p>
-          <h4 className="mb-1">{`${payload[0].payload.name}`}</h4>
+          <h4 className="mb-1">{`${payload[0].payload.description}`}</h4>
       </Toolpit>
     );
   }
@@ -17,7 +17,9 @@ function CustomTooltip({ active, payload}) {
 };
 
 
-const DesktopChart = ({data}) => {
+const DesktopChart = ({ data }) => {
+  
+  console.log("data inside DesctopChart >>", data)
 
   // const sortByValue = value => (prevValue, nextValue) => prevValue[value] < nextValue[value] ? 1 : -1;
   const sortedData = data.sort((prevValue, nextValue) => prevValue.value < nextValue.value ? 1 : -1)
@@ -50,7 +52,7 @@ const DesktopChart = ({data}) => {
         }}
       >
         
-        <XAxis dataKey="name" axisLine={false} tickLine={false} padding={{ left: 10, right: 10 }}/>
+        <XAxis dataKey="description" axisLine={false} tickLine={false} padding={{ left: 10, right: 10 }}/>
 
         <YAxis axisLine={false}
           tickLine={false}
