@@ -56,7 +56,7 @@ export default function Balance() {
             autoComplete="off"
             placeholder="00.00"
           />
-          <label htmlFor="inputBalance">UAN</label>
+          <label htmlFor="inputBalance">UAH</label>
           <Button type="submit">ПОДТВЕРДИТЬ</Button>
         </InputBox>
       </form>

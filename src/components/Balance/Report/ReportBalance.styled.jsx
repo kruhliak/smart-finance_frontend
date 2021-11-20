@@ -94,10 +94,42 @@ export const ReportButton = styled(Button)`
 export const MonthSlider = styled.div`
   width: 134px;
   height: 39px;
-
-  border: 1px solid tomato;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   @media ${device.mobileMax} {
     margin-bottom: 30px;
+  }
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  width: 134px;
+  & .react-datepicker-wrapper,
+  .react-datepicker__input-container,
+  .inputDatePicker {
+    width: 96px;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: 000000;
+  }
+
+  & button {
+    background-color: transparent;
+    border: none;
+    &:focus,
+    &:hover {
+      transform: scale(1.2);
+      transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
 `;
