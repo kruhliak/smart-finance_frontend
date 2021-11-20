@@ -11,15 +11,9 @@ import Background from 'components/Background';
 
 import React, { useState } from 'react';
 
-
-// const categories = new getCategoriesByMonth();
-// console.log("categories >>", categories)
-
 export default function ReportPage() {
-  const [selectedCard, setSelectedCard] = useState("Здоровье");
+  const [selectedCard, setSelectedCard] = useState('Алкоголь');
   const [category, setCategory] = useState(true);
-  console.log("category >>", category)
-  console.log("selectedCard >>", selectedCard)
 
   return (
     <>
@@ -40,7 +34,7 @@ export default function ReportPage() {
             category={category}
             setCategory={setCategory}
           ></ReportList>
-          <Charts data={selectedCard}/>
+          <Charts data={selectedCard} />
         </HomePageWrap>
       </Container>
     </>

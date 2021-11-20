@@ -126,6 +126,7 @@ export const InputWrapper = styled.div`
   & button {
     background-color: transparent;
     border: none;
+    display: content;
     &:focus,
     &:hover {
       transform: scale(1.2);
