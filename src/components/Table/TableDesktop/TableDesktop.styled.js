@@ -69,6 +69,8 @@ export const Th = styled.th`
   }
 `;
 
+export const Nodate = styled.td``;
+
 export const Td = styled.td``;
 
 export const Date = styled.td`

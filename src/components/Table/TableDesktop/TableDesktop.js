@@ -11,6 +11,7 @@ import {
   Date,
   DeleteBtn,
   Scroll,
+  Nodate,
 } from './TableDesktop.styled';
 import { Icon } from 'hooks/Icon';
 
@@ -45,7 +46,7 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
       <Scroll>
         <TableS body>
           <tbody>
-            {operation &&
+            {operation ? (
               operation.list.map(item => (
                 <Tr key={item._id}>
                   <Date>
@@ -77,7 +78,12 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
                     </DeleteBtn>
                   </Td>
                 </Tr>
-              ))}
+              ))
+            ) : (
+              <Tr>
+                <Nodate>Вы еще не внесли данные</Nodate>
+              </Tr>
+            )}
           </tbody>
         </TableS>
       </Scroll>
