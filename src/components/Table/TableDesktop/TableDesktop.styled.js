@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   @media ${device.desktop} {
     width: 760px;
+    margin-right: 30px;
   }
 `;
 
@@ -113,7 +114,7 @@ export const Tr = styled.tr`
 `;
 
 export const DeleteBtn = styled.button`
-  margin: 2px 15px 0 0;
+  margin: 2px 0 0 0;
   cursor: pointer;
   width: 32px;
   height: 32px;

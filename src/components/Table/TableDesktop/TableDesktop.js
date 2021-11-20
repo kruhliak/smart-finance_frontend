@@ -38,8 +38,7 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
             <Th className="desc">Описание</Th>
             <Th className="category">Категория</Th>
             <Th className="value">Сумма</Th>
-            <Th></Th>
-            <Th></Th>
+            <Th style={{ width: '100px' }}></Th>
           </tr>
         </TheadTable>
       </TableS>
@@ -62,7 +61,7 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
                     <Value>{`+${item.value} грн.`}</Value>
                   )}
 
-                  <Td>
+                  <Td style={{ width: '100px' }}>
                     <DeleteBtn
                       type="button"
                       onClick={() => {

@@ -13,17 +13,27 @@ export const Form = styled.form`
 
   @media ${device.tablet} {
     margin-bottom: 48px;
-    width: 604px;
   }
   @media ${device.desktop} {
     flex-direction: row;
-    width: 1060px;
+    justify-content: space-between;
+    margin-bottom: 59px;
   }
 `;
 export const Wrapper = styled.div`
   @media ${device.tablet} {
     display: flex;
     flex-direction: row;
+  }
+
+  @media ${device.tablet} {
+    margin-bottom: 30px;
+    flex-direction: row;
+  }
+  @media ${device.desktop} {
+    margin-bottom: 0px;
+    justify-content: space-between;
+    margin-right: 10px;
   }
 `;
 
@@ -51,9 +61,9 @@ export const InputWrapper = styled.div`
     flex-direction: row;
   }
   @media ${device.desktop} {
-    margin-bottom: 59px;
+    margin-bottom: 0px;
     justify-content: space-between;
-    margin-right: 27px;
+    margin-right: 10px;
   }
 `;
 
