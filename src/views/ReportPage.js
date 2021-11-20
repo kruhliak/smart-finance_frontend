@@ -19,6 +19,7 @@ export default function ReportPage() {
   const [selectedCard, setSelectedCard] = useState("Здоровье");
   const [category, setCategory] = useState(true);
   console.log("category >>", category)
+  console.log("selectedCard >>", selectedCard)
 
   return (
     <>
@@ -39,7 +40,7 @@ export default function ReportPage() {
             category={category}
             setCategory={setCategory}
           ></ReportList>
-          <Charts />
+          <Charts data={selectedCard}/>
         </HomePageWrap>
       </Container>
     </>

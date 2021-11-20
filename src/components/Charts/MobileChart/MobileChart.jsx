@@ -11,13 +11,13 @@ import {
 const MobileCharts = ({ data }) => {
   console.log("data inside MobileChart >>", data)
   const BarLabel = ({ x, y, width, value }) => (
-    <text x={x + width / 1.1} y={y} textAnchor="middle" fontSize={10} dy={-10}>
+    <text x={x + width / 1.09} y={y} textAnchor="middle" fontSize={10} dy={-3}>
       {value ? `${value} грн` : ''}
     </text>
   );
 
   const LabelListContent= ({ x, y, value }) => (
-    <text x={x} y={y} dy={-10} fontSize={10}>
+    <text x={x} y={y} dy={-3} fontSize={10}>
       {value}
     </text>
   );
@@ -25,10 +25,10 @@ const MobileCharts = ({ data }) => {
   const sortedData = data.sort((prevValue, nextValue) => prevValue.value < nextValue.value ? 1 : -1)
 
   return (
-    <ResponsiveContainer width="90%" height={500}>
+    <ResponsiveContainer width="90%" height={550}>
       <BarChart
       width={290}
-        height={600}
+        height={650}
         layout="vertical"
         data={sortedData}
         margin={{ top: 30, right: 0, bottom: 30, left: 0 }}
