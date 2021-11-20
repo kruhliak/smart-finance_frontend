@@ -16,14 +16,17 @@ const Charts = ({ data }) => {
   const categories = useSelector(state => state.finance.categories);
   const isMatches = useMediaQuery('(min-width: 768px)');
 
-  const dataByCategory = data === []
-    ? categories.find(item => (item.category === data)).list.map(({ description, value }) => ({ description, value }))
+  const dataByCategory = data
+    ? categories
+      .find(item => (item.category === data))
+      .list.map(({ description, value }) => ({ description, value }))
     : [{ description: 'Вы еще не внесли данные', value: 0 }];
 
   const newData = dataByCategory
     ?.reduce((acc, { description, value }) => {
-      const match = capitalizeFirstLetter(description);
+      const match = description;
       const newArr = acc?.find(el => el.description === description);
+      console.log("newArr >>", newArr)
       if (!newArr) {
         acc.push({ description: match, value });
       }
@@ -34,11 +37,13 @@ const Charts = ({ data }) => {
       return acc;
     }, [])
   
+  const dataChart = newData?.length ? newData : [];
+  
   return (
     <Container>
           <Wrapper>
-        {isMatches ? <DesktopChart data={newData}/> :
-        <MobileChart data={newData}/>}
+        {isMatches ? <DesktopChart data={dataChart}/> :
+        <MobileChart data={dataChart}/>}
           </Wrapper>
     </Container>
   );
