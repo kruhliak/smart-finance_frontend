@@ -125,7 +125,6 @@ const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
         <Button text="Ввод" type="submit" />
         <Button
           type="button"
-          i
           text="Очистить"
           onClick={() => {
             reset({
