@@ -42,8 +42,8 @@ export const InputWrapper = styled.div`
       border-right: 2px solid #fff;
       width: 2px;
       height: 40px;
-      top: 119px;
-      left: 174px;
+      top: 120px;
+      left: 186px;
     }
   }
   @media ${device.tablet} {
@@ -81,8 +81,6 @@ export const InputDesc = styled.input`
     border-left: 2px solid #f5f6fb;
   }
   @media ${device.desktop} {
-    padding: 15px 21px;
-    margin-bottom: 4px;
     width: 260px;
   }
 
@@ -109,6 +107,7 @@ export const InputСategory = styled.input`
   padding: 2px 21px;
   border: 2px solid #ffffff;
   cursor: pointer;
+  color: #c7ccdc;
 
   @media ${device.mobileMax} {
     border-radius: 0 0 16px 0;
@@ -120,7 +119,7 @@ export const InputСategory = styled.input`
     border-left: 2px solid #f5f6fb;
   }
   @media ${device.desktop} {
-    width: 171px;
+    width: 188px;
   }
 
   &::placeholder {
@@ -203,7 +202,7 @@ export const InputValue = styled.input`
   }
 `;
 
-export const MyIcon = styled.div`
+export const Label = styled.label`
   position: absolute;
   content: '';
   right: 65px;

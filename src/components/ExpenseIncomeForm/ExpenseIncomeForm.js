@@ -11,7 +11,7 @@ import {
   ListСategory,
   InputWrapperCategory,
   InputValue,
-  MyIcon,
+  Label,
   ButtonWrapper,
 } from './ExpenseIncomeForm.styled';
 import Arrow from './Arrow/Arrow';
@@ -111,14 +111,14 @@ const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
               },
             )}
           />
-          <MyIcon>
+          <Label htmlFor="value">
             <Icon
               name="icon-calculator"
               size="20px"
               viewBox="0 0 20 20"
               color="none"
             />
-          </MyIcon>
+          </Label>
         </InputWrapper>
       </Wrapper>
       <ButtonWrapper>
