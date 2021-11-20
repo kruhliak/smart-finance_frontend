@@ -77,3 +77,9 @@ export const TabPanel = styled.div`
     display: none;
   }
 `;
+
+export const WrapperContent = styled.div`
+  @media ${device.desktop} {
+    display: flex;
+  }
+`;

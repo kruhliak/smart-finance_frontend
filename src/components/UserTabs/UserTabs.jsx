@@ -17,6 +17,7 @@ import {
 import 'react-tabs/style/react-tabs.css';
 import Summary from 'components/Summary/Summary';
 import { device } from 'components/options/device';
+import {WrapperContent} from'./UserTabs.styled'
 
 //............
 const STabs = styled(Tabs)`
@@ -77,6 +78,7 @@ const STabPanel = styled(TabPanel)`
 STabPanel.tabsRole = 'TabPanel';
 
 
+
 const UserTabs = ({ onClickModal }) => {
   const state = useSelector(state => state.finance.operations)
   const [income, setIncome] = useState();
@@ -100,8 +102,10 @@ useEffect(() => {
 
     <STabPanel>
       <ExpenseIncomeForm list={expenseList} placeholder={expensePlaceholder} operationType={'expense'}/>
-        <Table onClickModal={onClickModal} operation={expense} color={ true}/>
+        <WrapperContent>
+            <Table onClickModal={onClickModal} operation={expense} color={ true}/>
       <Summary />
+      </WrapperContent>
     </STabPanel>
     <STabPanel>
       <ExpenseIncomeForm list={incomeList} placeholder={incomePlaceholder}  operationType={'income'}/>
