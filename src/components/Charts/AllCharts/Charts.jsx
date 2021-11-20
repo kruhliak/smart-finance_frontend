@@ -16,9 +16,9 @@ const Charts = ({ data }) => {
   const categories = useSelector(state => state.finance.categories);
   const isMatches = useMediaQuery('(min-width: 768px)');
 
-  const dataByCategory = data
+  const dataByCategory = data === []
     ? categories.find(item => (item.category === data)).list.map(({ description, value }) => ({ description, value }))
-    : [{description: 'Вы еще не внесли данные', value: 0}];
+    : [{ description: 'Вы еще не внесли данные', value: 0 }];
 
   const newData = dataByCategory
     ?.reduce((acc, { description, value }) => {
