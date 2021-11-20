@@ -9,6 +9,7 @@ import {
   Desc,
   Category,
   Value,
+  Nodate,
 } from './TableMobile.styled';
 import { Icon } from 'hooks/Icon';
 
@@ -28,7 +29,7 @@ const TableMobile = ({ operation, color, toggleModal, setId }) => {
 
   return (
     <Scroll>
-      {operation &&
+      {operation ? (
         operation.list.map(item => (
           <Wrapper key={item._id}>
             <LeftSide>
@@ -63,7 +64,12 @@ const TableMobile = ({ operation, color, toggleModal, setId }) => {
               </DeleteBtn>
             </RightSide>
           </Wrapper>
-        ))}
+        ))
+      ) : (
+        <Wrapper nodate>
+          <Nodate>Вы еще не внесли данные</Nodate>
+        </Wrapper>
+      )}
     </Scroll>
   );
 };
