@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Rectangle = styled.div`
+align-items: center;
   width: 230px;
   height: 38px;
   background: #f5f6fb;
@@ -24,6 +25,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
+align-items: center;
   width: 230px;
   height: 38px;
   background: #f5f6fb;

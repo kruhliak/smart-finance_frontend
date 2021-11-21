@@ -101,8 +101,8 @@ useEffect(() => {
     <STabPanel>
       <ExpenseIncomeForm list={expenseList} placeholder={expensePlaceholder} operationType={'expense'}/>
         <WrapperContent>
-            <Table onClickModal={onClickModal} operation={expense} color={ true}/>
-      <Summary />
+            <Table onClickModal={onClickModal} operation={expense} color={true}/>
+      <Summary title="СВОДКА" />
       </WrapperContent>
     </STabPanel>
       <STabPanel>
