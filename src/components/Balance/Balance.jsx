@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-
+import SpeechBalloon from 'components/SpeechBalloon';
 import { userCreateBalance } from 'redux/operations/auth-operation';
 
 export default function Balance() {
@@ -28,6 +28,14 @@ export default function Balance() {
     dispatch(userCreateBalance(value));
   };
 
+  const showNotification = () => {
+    if (state === 0) {
+      // return console.log('state === 0');
+      <SpeechBalloon/>
+      console.log('show not-n');
+    }
+  }
+  
   return (
     <Box>
       {!renderByWidth && (
@@ -50,6 +58,7 @@ export default function Balance() {
             type="number"
             name="filter"
             onChange={handleChangeForm}
+            onClick={showNotification}
             value={value}
             pattern="\d+(\.\d{2})"
             title="0.00"

@@ -19,7 +19,6 @@ import Summary from 'components/Summary/Summary';
 import { device } from 'components/options/device';
 import {WrapperContent} from'./UserTabs.styled'
 
-//............
 const STabs = styled(Tabs)`
   -webkit-tap-highlight-color: transparent;
   `;
@@ -54,6 +53,11 @@ const STab = styled(Tab)`
     color: #eee;
     cursor: default;
   }
+  &:focus {
+      box-shadow: none!important; ;
+      border-color: transparent!important; ;
+      outline: none;
+  }
 `;
 STab.tabsRole = 'Tab';
 
@@ -75,8 +79,6 @@ const STabPanel = styled(TabPanel)`
 `;
 STabPanel.tabsRole = 'TabPanel';
 
-
-
 const UserTabs = ({ onClickModal }) => {
   const state = useSelector(state => state.finance.operations)
   const [income, setIncome] = useState();
@@ -87,8 +89,6 @@ useEffect(() => {
   i.operation === 'income' ? setIncome(i) : setExpense(i)
   )
 }, [state])
-
-
 
   return (
     <STabs selectedTabClassName='--selected'
