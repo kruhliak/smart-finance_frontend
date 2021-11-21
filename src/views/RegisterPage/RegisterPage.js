@@ -37,14 +37,14 @@ const RegisterPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit = data => {
-    console.log(data);
     dispatch(userSignup(data));
     //   reset();
   };
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleClickShowPassword = () => {
+  const handleClickShowPassword = e => {
+    e.preventDefault();
     setShowPassword(!showPassword);
   };
   const handleMouseDownPassword = event => {
