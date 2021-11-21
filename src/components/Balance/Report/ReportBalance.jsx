@@ -21,7 +21,7 @@ import {
   getAllOperationByMonth,
 } from 'redux/operations/transaction-operation';
 
-export default function ReportBalance({ category }) {
+export default function ReportBalance({ category, setSelectedCard }) {
   const screenWidth = document.documentElement.scrollWidth;
   const renderOnTablet = screenWidth > 767;
   const renderOnDesktop = screenWidth > 1279;
@@ -38,6 +38,7 @@ export default function ReportBalance({ category }) {
   }, [state]);
 
   useEffect(() => {
+    setSelectedCard('');
     const month = startDate.getMonth() + 1;
     const year = startDate.getFullYear();
     const operation = category === true ? 'expense' : 'income';

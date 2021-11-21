@@ -15,6 +15,7 @@ function ReportList({ setSelectedCard, selectedCard, category, setCategory }) {
   };
 
   useEffect(() => {
+    console.log(categories.length > 0);
     if (category === true && categories.length > 0) {
       setSelectedCard(categories[0].category);
     }
@@ -26,7 +27,7 @@ function ReportList({ setSelectedCard, selectedCard, category, setCategory }) {
         operations.find(item => item.operation === 'income').list[0].category,
       );
     }
-  }, [category]);
+  }, [categories]);
 
   return (
     <Container>
