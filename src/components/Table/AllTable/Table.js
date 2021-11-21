@@ -1,14 +1,15 @@
 import { useMediaQuery } from 'hooks/useMediaQuery';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import TableMobile from './TableMobile/TableMobile';
-import TableDesktop from './TableDesktop/TableDesktop';
+import TableMobile from '../TableMobile/TableMobile';
+import TableDesktop from '../TableDesktop/TableDesktop';
 import CustomBtnStyled from 'components/Buttons/CustomButton';
 import Modal from 'components/Modal';
 import {
   deleteTransaction,
   getAllOperationByMonth,
 } from 'redux/operations/transaction-operation';
+import { fetchUser } from 'redux/operations/auth-operation';
 
 const Table = ({ operation, color }) => {
   const [id, setId] = useState('');
@@ -23,18 +24,8 @@ const Table = ({ operation, color }) => {
     const year = dateNow.getFullYear();
     const month = dateNow.getMonth() + 1;
     dispatch(getAllOperationByMonth([year, month]));
+    dispatch(fetchUser());
   };
-
-  //console.log(isDelete);
-
-  // useEffect(() => {
-  //   if (isDelete) {
-  //     const dateNow = new Date();
-  //     const year = dateNow.getFullYear();
-  //     const month = dateNow.getMonth() + 1;
-  //     dispatch(getAllOperationByMonth([year, month]));
-  //   }
-  // }, [dispatch, isDelete]);
 
   return (
     <>

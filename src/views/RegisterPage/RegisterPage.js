@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import {
@@ -10,6 +10,7 @@ import {
   StarErr,
   ButtonWrapper,
   LoginPageWrap,
+  LabelIconWrapper,
 } from './RegisterPage.styled';
 import GoogleRegister from 'components/FormElems/GoogleRegister/GoogleRegister';
 import Button from 'components/Buttons/CustomButton';
@@ -23,6 +24,7 @@ import Title from 'components/Title';
 import TitleWrapper from 'components/TitleWrapper';
 import Subtitle from 'components/Subtitle';
 import Background from 'components/Background';
+import ShowPasswordBtn from 'components/FormElems/ShowPasswordBtn/ShowPasswordBtn';
 
 const RegisterPage = () => {
   const {
@@ -35,9 +37,18 @@ const RegisterPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit = data => {
-    console.log(data);
     dispatch(userSignup(data));
     //   reset();
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = e => {
+    e.preventDefault();
+    setShowPassword(!showPassword);
+  };
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
   };
 
   return (
@@ -69,7 +80,6 @@ const RegisterPage = () => {
               <Input
                 id="name"
                 placeholder="your name"
-                placeholderTextColor="#A6ABB9"
                 {...register('name', {
                   required: 'это обязательное поле',
                   minLength: {
@@ -90,7 +100,6 @@ const RegisterPage = () => {
               <Input
                 id="email"
                 placeholder="your@email.com"
-                placeholderTextColor="#A6ABB9"
                 {...register('email', {
                   required: 'это обязательное поле',
                   pattern: {
@@ -101,15 +110,21 @@ const RegisterPage = () => {
                 })}
               />
               <ErrorMessage errors={errors.email} />
-              <Label htmlFor="password">
-                {errors.password && <StarErr>*</StarErr>}
-                Пароль:
-              </Label>
+              <LabelIconWrapper>
+                <Label htmlFor="password" password>
+                  {errors.password && <StarErr>*</StarErr>}
+                  Пароль:
+                </Label>
+                <ShowPasswordBtn
+                  onClick={handleClickShowPassword}
+                  mouseDown={handleMouseDownPassword}
+                  showPassword={showPassword}
+                />
+              </LabelIconWrapper>
               <Input
                 id="password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder="••••••••"
-                placeholderTextColor="#FFFFFF"
                 {...register('password', {
                   required: 'это обязательное поле',
                   minLength: {
