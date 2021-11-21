@@ -32,25 +32,23 @@ const STab = styled(Tab)`
   display: inline-block;
   list-style: none;
   padding: 11px 44.5px!important;  
-  cursor: pointer; //-
-  font-size: 0.75rem; //+
-  font-weight: 700; //+
-  text-transform: uppercase; //+
-  line-height: 17px; //+
-  color: var(--black-text-color); //+
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 17px;
+  color: var(--black-text-color);
   background: linear-gradient(
     270deg,
     rgba(250, 251, 253, 1) 0%,
     rgba(239, 239, 239, 1) 100%
-  ); //+
-  border-top-left-radius: 19px; //+
-  border-top-right-radius: 19px; //+
-
+  );
+  border-top-left-radius: 19px;
+  border-top-right-radius: 19px;
   &.--selected {
-      background: #FEFEFE; //+
-      color: var(--accent-color); //+
+      background: #FEFEFE;
+      color: var(--accent-color);
     }
-
   &.is-disabled {
     color: #eee;
     cursor: default;
