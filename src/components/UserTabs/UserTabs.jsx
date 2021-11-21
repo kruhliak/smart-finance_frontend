@@ -5,7 +5,7 @@ import 'react-tabs/style/react-tabs.css';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import ExpenseIncomeForm from 'components/ExpenseIncomeForm/ExpenseIncomeForm';
-import Table from 'components/Table/Table';
+import Table from 'components/Table/AllTable/Table';
 import {
   expenseList,
   expensePlaceholder,
