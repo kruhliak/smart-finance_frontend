@@ -11,6 +11,7 @@ import {
   Date,
   DeleteBtn,
   Scroll,
+  Nodate,
 } from './TableDesktop.styled';
 import { Icon } from 'hooks/Icon';
 
@@ -19,6 +20,14 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
     setId(idToDel);
     toggleModal();
   };
+
+  const isZero = i => {
+    return i.toString().length === 1 ? `0${i}` : i;
+  };
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
   return (
     <Wrapper>
@@ -29,23 +38,22 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
             <Th className="desc">Описание</Th>
             <Th className="category">Категория</Th>
             <Th className="value">Сумма</Th>
-            <Th></Th>
-            <Th></Th>
+            <Th style={{ width: '100px' }}></Th>
           </tr>
         </TheadTable>
       </TableS>
       <Scroll>
         <TableS body>
           <tbody>
-            {operation &&
+            {operation ? (
               operation.list.map(item => (
                 <Tr key={item._id}>
                   <Date>
-                    {`${item.day}.
+                    {`${isZero(item.day)}.
                   ${item.month}.
                   ${item.year}`}
                   </Date>
-                  <Desc>{item.description}</Desc>
+                  <Desc>{capitalizeFirstLetter(item.description)}</Desc>
                   <Category>{item.category}</Category>
                   {color ? (
                     <Value red>{`-${item.value} грн.`}</Value>
@@ -53,7 +61,7 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
                     <Value>{`+${item.value} грн.`}</Value>
                   )}
 
-                  <Td>
+                  <Td style={{ width: '100px' }}>
                     <DeleteBtn
                       type="button"
                       onClick={() => {
@@ -69,7 +77,12 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
                     </DeleteBtn>
                   </Td>
                 </Tr>
-              ))}
+              ))
+            ) : (
+              <Tr>
+                <Nodate>Вы еще не внесли данные</Nodate>
+              </Tr>
+            )}
           </tbody>
         </TableS>
       </Scroll>

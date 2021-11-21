@@ -1,13 +1,26 @@
 import styled from '@emotion/styled';
 
+export const Scroll = styled.div`
+  height: 160px;
+  background: transparent;
+  overflow-y: scroll;
+`;
+
 export const Wrapper = styled.div`
   margin: 0 auto;
   width: 282px;
   height: 52px;
+  border: ${props => props.nodate && '1px solid #f5f6fb'};
+  padding: ${props => props.nodate && '0 auto'};
   border-bottom: 1px solid #f5f6fb;
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const Nodate = styled.span`
+  display: block;
+  margin: 0 auto;
 `;
 
 export const LeftSide = styled.div`

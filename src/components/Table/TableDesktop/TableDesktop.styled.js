@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   @media ${device.desktop} {
     width: 760px;
+    margin-right: 30px;
   }
 `;
 
@@ -69,6 +70,8 @@ export const Th = styled.th`
   }
 `;
 
+export const Nodate = styled.td``;
+
 export const Td = styled.td``;
 
 export const Date = styled.td`
@@ -111,7 +114,7 @@ export const Tr = styled.tr`
 `;
 
 export const DeleteBtn = styled.button`
-  margin: 2px auto 0;
+  margin: 2px 0 0 0;
   cursor: pointer;
   width: 32px;
   height: 32px;
@@ -119,6 +122,10 @@ export const DeleteBtn = styled.button`
   border: transparent;
   background-color: transparent;
   padding: 7px;
+
+  @media ${device.desktop} {
+    margin: 2px 45px 0 0;
+  }
 
   &:hover,
   &:focus {

@@ -1,35 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-import { getTransactions } from 'redux/selectors/transaction-selectors';
-import * as transactionOperations from '../../redux/operations/transaction-operation';
 import { Wrapper, Container, Categories } from './ReportList.styled';
 
 import ReportCard from '../ReportCard/ReportCard';
-import data from './data.json';
-import dataIncome from './dataIncome.json';
 
-function ReportList() {
-  const [category, setCategory] = useState(true);
-  const [selectedCard, setSelectedCard] = useState(0);
-
-  const dispatch = useDispatch();
+function ReportList({ setSelectedCard, selectedCard, category, setCategory }) {
   const categories = useSelector(state => state.finance.categories);
   const operations = useSelector(state => state.finance.operations);
 
-  useEffect(() => {
-    dispatch(transactionOperations.getCategoriesByMonth(['expense', 2021, 11]));
-  }, [category]);
-
   const changeCategory = () => {
-    setSelectedCard(0);
+    setSelectedCard('');
     setCategory(!category);
   };
 
-  const salary = operations[0].list.filter(item => item.category === 'ЗП');
-  const income = operations[0].list.filter(
-    item => item.category === 'Доп. доход',
-  );
+  useEffect(() => {
+    console.log(categories.length > 0);
+    if (category === true && categories.length > 0) {
+      setSelectedCard(categories[0].category);
+    }
+    if (
+      category === false &&
+      operations.find(item => item.operation === 'income') !== undefined
+    ) {
+      setSelectedCard(
+        operations.find(item => item.operation === 'income').list[0].category,
+      );
+    }
+  }, [categories]);
 
   return (
     <Container>
@@ -37,7 +35,7 @@ function ReportList() {
         <>
           <Categories onClick={changeCategory}>РАСХОДЫ</Categories>
           <Wrapper>
-            {categories.length > 0 &&
+            {categories.length > 0 ? (
               categories.map(({ category, sum }) => (
                 <ReportCard
                   key={category}
@@ -48,7 +46,10 @@ function ReportList() {
                   setSelectedCard={setSelectedCard}
                   selectedCard={selectedCard}
                 ></ReportCard>
-              ))}
+              ))
+            ) : (
+              <p>На текущий период нет существующих расходов</p>
+            )}
           </Wrapper>
         </>
       ) : (
@@ -56,38 +57,50 @@ function ReportList() {
           <>
             <Categories onClick={changeCategory}>ДОХОДЫ</Categories>
             <Wrapper>
-              {salary.length > 0 && (
-                <ReportCard
-                  key={'ЗП'}
-                  index={'ЗП'}
-                  icon={'icon-salary'}
-                  sum={operations[0].list
-                    .filter(item => item.category === 'ЗП')
-                    .map(item => item.value)
-                    .reduce((a, b) => {
-                      return a + b;
-                    })}
-                  name={'ЗП'}
-                  setSelectedCard={setSelectedCard}
-                  selectedCard={selectedCard}
-                ></ReportCard>
-              )}
-              {income.length > 0 && (
-                <ReportCard
-                  key={'Доп. доход'}
-                  index={'Доп. доход'}
-                  icon={'icon-income'}
-                  sum={operations[0].list
-                    .filter(item => item.category === 'Доп. доход')
-                    .map(item => item.value)
-                    .reduce((a, b) => {
-                      return a + b;
-                    })}
-                  name={'Доп. доход'}
-                  setSelectedCard={setSelectedCard}
-                  selectedCard={selectedCard}
-                ></ReportCard>
-              )}
+              {typeof operations.find(item => item.operation === 'income') ===
+                'object' &&
+                operations
+                  .find(item => item.operation === 'income')
+                  .list.filter(item => item.category === 'ЗП')
+                  .map(item => item.value).length > 0 && (
+                  <ReportCard
+                    key={'ЗП'}
+                    index={'ЗП'}
+                    icon={'icon-salary'}
+                    sum={operations
+                      .find(item => item.operation === 'income')
+                      .list.filter(item => item.category === 'ЗП')
+                      .map(item => item.value)
+                      .reduce((a, b) => {
+                        return a + b;
+                      })}
+                    name={'ЗП'}
+                    setSelectedCard={setSelectedCard}
+                    selectedCard={selectedCard}
+                  ></ReportCard>
+                )}
+              {typeof operations.find(item => item.operation === 'income') ===
+                'object' &&
+                operations
+                  .find(item => item.operation === 'income')
+                  .list.filter(item => item.category === 'Доп. доход')
+                  .map(item => item.value).length > 0 && (
+                  <ReportCard
+                    key={'Доп. доход'}
+                    index={'Доп. доход'}
+                    icon={'icon-income'}
+                    sum={operations
+                      .find(item => item.operation === 'income')
+                      .list.filter(item => item.category === 'Доп. доход')
+                      .map(item => item.value)
+                      .reduce((a, b) => {
+                        return a + b;
+                      })}
+                    name={'Доп. доход'}
+                    setSelectedCard={setSelectedCard}
+                    selectedCard={selectedCard}
+                  ></ReportCard>
+                )}
             </Wrapper>
           </>
         </>

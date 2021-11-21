@@ -11,6 +11,7 @@ export const Container = styled.div`
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
+  background-color: #ffffff;
 
   @media (min-width: 320px) {
     max-width: 282px;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { Icon } from 'hooks/Icon';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useForm, Controller } from 'react-hook-form';
@@ -9,53 +9,43 @@ import {
   InputDesc,
   InputСategory,
   ListСategory,
-  ItemСategory,
-  LabelСategory,
   InputWrapperCategory,
   InputValue,
-  MyIcon,
+  Label,
   ButtonWrapper,
-  Arrow,
 } from './ExpenseIncomeForm.styled';
+import Arrow from './Arrow/Arrow';
+import ItemCategory from './ItemCategory/ItemCategory';
 import Button from 'components/Buttons/CustomButton';
 import { useDispatch } from 'react-redux';
 import { addTransaction } from 'redux/operations/transaction-operation';
-import Datepicker from 'components/ExpenseIncomeForm/Datepicker';
+import Datepicker from 'components/ExpenseIncomeForm/Datepicker/Datepicker';
 import { getAllOperationByMonth } from 'redux/operations/transaction-operation';
+import { useDetectOutsideClick } from '../../hooks/useDetectOutsideClick ';
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
 const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
-  const [isCategories, setIsCategories] = useState(false);
-  const { register, handleSubmit, setValue, control, reset, formState } =
-    useForm();
-  const { isSubmitSuccessful } = formState;
-  //console.log(isSubmitSuccessful);
-
+  const isMatches = useMediaQuery('(min-width: 768px)');
+  const dropdownRef = useRef(null);
+  const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+  const { register, handleSubmit, setValue, control, reset } = useForm();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      const dateNow = new Date();
-      const year = dateNow.getFullYear();
-      const month = dateNow.getMonth() + 1;
-      dispatch(getAllOperationByMonth([year, month]));
-    }
-  }, [dispatch, isSubmitSuccessful]);
-
   const handleClick = () => {
-    setIsCategories(!isCategories);
+    setIsActive(!isActive);
   };
-
   const newDate = new Date();
-
   const handleCategoryClick = e => {
     setValue('category', e.currentTarget.value);
     handleClick();
   };
 
-  const onSubmit = data => {
-    console.log({ ...data, operation: operationType });
-    dispatch(addTransaction({ ...data, operation: operationType }));
+  const onSubmit = async data => {
+    await dispatch(addTransaction({ ...data, operation: operationType }));
     reset();
+    const dateNow = new Date();
+    const year = dateNow.getFullYear();
+    const month = dateNow.getMonth() + 1;
+    dispatch(getAllOperationByMonth([year, month]));
   };
 
   return (
@@ -73,7 +63,6 @@ const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
           <InputDesc
             id="descriptione"
             placeholder="Описание товара"
-            placeholderTextColor="#C7CCDC"
             autocomplete="off"
             {...register('description', { required: true })}
           />
@@ -83,47 +72,24 @@ const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
               autoComplete="off"
               readOnly
               placeholder={placeholder}
-              placeholderTextColor="#C7CCDC"
               onClick={handleClick}
             />
-            {!isCategories ? (
+            {!isActive ? (
               <Arrow
-                width="12"
-                height="7"
-                fill="none"
                 onClick={handleClick}
                 onFocus={handleClick}
-              >
-                <path d="m1 1 5 4 5-4" stroke="#C7CCDC" strokeWidth="2" />
-              </Arrow>
+                path={'m1 1 5 4 5-4'}
+              />
             ) : (
               <Arrow
-                width="12"
-                height="7"
-                fill="none"
                 onClick={handleClick}
                 onFocus={handleClick}
-              >
-                <path d="m1 6 5-4 5 4" stroke="#C7CCDC" strokeWidth="2" />
-              </Arrow>
+                path={'m1 6 5-4 5 4'}
+              />
             )}
-            {isCategories && (
-              <ListСategory>
-                {list.map((item, i) => (
-                  <ItemСategory key={i}>
-                    <LabelСategory tabIndex={0}>
-                      <input
-                        onClick={handleCategoryClick}
-                        hidden
-                        value={item}
-                        readOnly
-                        type="radio"
-                        name="expCategory"
-                      />
-                      {item}
-                    </LabelСategory>
-                  </ItemСategory>
-                ))}
+            {isActive && (
+              <ListСategory ref={dropdownRef}>
+                <ItemCategory onClick={handleCategoryClick} list={list} />
               </ListСategory>
             )}
           </InputWrapperCategory>
@@ -132,8 +98,7 @@ const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
             id="value"
             type="number"
             step="0.1"
-            placeholder="0,00"
-            placeholderTextColor="#C7CCDC"
+            placeholder={isMatches ? '0,00' : '0,00 UAH'}
             autocomplete="off"
             {...register(
               'value',
@@ -146,14 +111,14 @@ const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
               },
             )}
           />
-          <MyIcon>
+          <Label htmlFor="value">
             <Icon
               name="icon-calculator"
               size="20px"
               viewBox="0 0 20 20"
               color="none"
             />
-          </MyIcon>
+          </Label>
         </InputWrapper>
       </Wrapper>
       <ButtonWrapper>
