@@ -75,8 +75,6 @@ const STabPanel = styled(TabPanel)`
 `;
 STabPanel.tabsRole = 'TabPanel';
 
-
-
 const UserTabs = ({ onClickModal }) => {
   const state = useSelector(state => state.finance.operations)
   const [income, setIncome] = useState();
@@ -87,8 +85,6 @@ useEffect(() => {
   i.operation === 'income' ? setIncome(i) : setExpense(i)
   )
 }, [state])
-
-
 
   return (
     <STabs selectedTabClassName='--selected'
@@ -102,14 +98,14 @@ useEffect(() => {
       <ExpenseIncomeForm list={expenseList} placeholder={expensePlaceholder} operationType={'expense'}/>
         <WrapperContent>
             <Table onClickModal={onClickModal} operation={expense} color={true}/>
-      <Summary title="СВОДКА" />
+      <Summary data="expense"/>
       </WrapperContent>
     </STabPanel>
       <STabPanel>
        <ExpenseIncomeForm list={incomeList} placeholder={incomePlaceholder} operationType={'income'} />
         <WrapperContent>
         <Table onClickModal={onClickModal} operation={income} color={false} />
-      <Summary />
+      <Summary data="income"/>
          </WrapperContent>
     </STabPanel>
   </STabs>
