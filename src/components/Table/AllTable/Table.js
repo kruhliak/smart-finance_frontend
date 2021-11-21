@@ -9,6 +9,7 @@ import {
   deleteTransaction,
   getAllOperationByMonth,
 } from 'redux/operations/transaction-operation';
+import { fetchUser } from 'redux/operations/auth-operation';
 
 const Table = ({ operation, color }) => {
   const [id, setId] = useState('');
@@ -23,6 +24,7 @@ const Table = ({ operation, color }) => {
     const year = dateNow.getFullYear();
     const month = dateNow.getMonth() + 1;
     dispatch(getAllOperationByMonth([year, month]));
+    dispatch(fetchUser());
   };
 
   return (
