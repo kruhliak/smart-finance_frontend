@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   text-align: center;
   width: 90px;
   cursor: pointer;
+  z-index: 1;
 `;
 
 export const Background = styled.div`
@@ -14,7 +15,7 @@ export const Background = styled.div`
   margin-top: 30px;
   border-radius: 20px;
   background-color: #f5f6fb;
-  opacity: 0.35;
+  z-index: -1;
   ${({ selectedBg }) =>
     selectedBg &&
     `
