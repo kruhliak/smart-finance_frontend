@@ -35,7 +35,7 @@ function ReportList({ setSelectedCard, selectedCard, category, setCategory }) {
         <>
           <Categories onClick={changeCategory}>РАСХОДЫ</Categories>
           <Wrapper>
-            {categories.length > 0 &&
+            {categories.length > 0 ? (
               categories.map(({ category, sum }) => (
                 <ReportCard
                   key={category}
@@ -46,7 +46,10 @@ function ReportList({ setSelectedCard, selectedCard, category, setCategory }) {
                   setSelectedCard={setSelectedCard}
                   selectedCard={selectedCard}
                 ></ReportCard>
-              ))}
+              ))
+            ) : (
+              <p>На текущий период нет существующих расходов</p>
+            )}
           </Wrapper>
         </>
       ) : (
