@@ -13,7 +13,6 @@ import {
   getAllOperationByMonth,
   getCategoriesByMonth,
 } from 'redux/operations/transaction-operation';
-// import SpeechBalloon from 'components/SpeechBalloon';
 
 export default function HomePage() {
   const dispatch = useDispatch();
