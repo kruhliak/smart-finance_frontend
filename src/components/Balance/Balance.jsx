@@ -11,6 +11,7 @@ export default function Balance() {
   const width = document.documentElement.scrollWidth;
   const renderByWidth = width > 767;
   const [value, setValue] = useState(0);
+  const [showNotification, setShowNotification] = useState(false);
 
   const dispatch = useDispatch();
   const state = useSelector(state => state.auth.user.balance);
@@ -28,15 +29,12 @@ export default function Balance() {
     dispatch(userCreateBalance(value));
   };
 
-  const showNotification = () => {
-    if (state === 0) {
-      // return console.log('state === 0');
-      <SpeechBalloon/>
-      console.log('show not-n');
-    }
+  const toggleNotification = () => {
+    setShowNotification(!showNotification);
   }
   
   return (
+    <>
     <Box>
       {!renderByWidth && (
         <NavLink className="balance-link" to="/report">
@@ -58,7 +56,7 @@ export default function Balance() {
             type="number"
             name="filter"
             onChange={handleChangeForm}
-            onClick={showNotification}
+            onClick={toggleNotification}
             value={value}
             pattern="\d+(\.\d{2})"
             title="0.00"
@@ -84,5 +82,7 @@ export default function Balance() {
         </NavLink>
       )}
     </Box>
+    {showNotification && (<SpeechBalloon/>)}
+    </>
   );
 }
