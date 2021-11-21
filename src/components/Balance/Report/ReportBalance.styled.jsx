@@ -82,6 +82,11 @@ export const ReportInput = styled(Input)`
   @media ${device.tablet} {
     margin-right: 0;
   }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 export const ReportButton = styled(Button)`
