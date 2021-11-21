@@ -9,7 +9,6 @@ import {
 } from 'recharts';
 
 const MobileCharts = ({ data }) => {
-  console.log("data inside MobileChart >>", data)
   const BarLabel = ({ x, y, width, value }) => (
     <text x={x + width / 1.09} y={y} textAnchor="middle" fontSize={10} dy={-3}>
       {value ? `${value} грн` : ''}
@@ -39,7 +38,7 @@ const MobileCharts = ({ data }) => {
           radius={[0, 10, 10, 0]}
           label={<BarLabel />}
           fill="#52555f"
-          minPointSize={80}
+          minPointSize={130}
         >
           {data.map((el, idx) => (
             <Cell key={`cell-${idx}`} fill={idx % 3 ? '#FFDAC0' : '#ff751d'} />

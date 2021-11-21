@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'hooks/useMediaQuery';
-import * as transactionOperations from '../../../redux/operations/transaction-operation';
 
 import { Wrapper, Container} from './Charts.styled';
 import DesktopChart from '../DesktopChart/';
@@ -12,21 +10,19 @@ function capitalizeFirstLetter(string) {
 }
 
 const Charts = ({ data }) => {
-  console.log("data Cgarts >>", data)
   const categories = useSelector(state => state.finance.categories);
   const isMatches = useMediaQuery('(min-width: 768px)');
 
   const dataByCategory = data
     ? categories
       .find(item => (item.category === data))
-      .list.map(({ description, value }) => ({ description, value }))
+      .list.map(({ description, value }) => ({ description: capitalizeFirstLetter(description), value }))
     : [{ description: 'Вы еще не внесли данные', value: 0 }];
 
   const newData = dataByCategory
     ?.reduce((acc, { description, value }) => {
       const match = description;
       const newArr = acc?.find(el => el.description === description);
-      console.log("newArr >>", newArr)
       if (!newArr) {
         acc.push({ description: match, value });
       }

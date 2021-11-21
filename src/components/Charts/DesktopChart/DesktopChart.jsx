@@ -16,12 +16,8 @@ function CustomTooltip({ active, payload}) {
   return null;
 };
 
-
 const DesktopChart = ({ data }) => {
   
-  console.log("data inside DesctopChart >>", data)
-
-  // const sortByValue = value => (prevValue, nextValue) => prevValue[value] < nextValue[value] ? 1 : -1;
   const sortedData = data.sort((prevValue, nextValue) => prevValue.value < nextValue.value ? 1 : -1)
 
   const renderCustomizedLabel = props => {
