@@ -1,22 +1,12 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { Wrapper, Text, Rectangle, List, Item, Title } from './Summary.styled';
 
-function Summary({ title, month, money }) {
+function Summary({ data, title="СВОДКА"}) {
   const transactions = useSelector(state => state.finance.summary);
+  const balance = transactions?.length > 0 ? transactions.map(({ month, year, sumIncome, sumExpense }) => ({ month, year, sumIncome, sumExpense })) : [];
 
-  const balance = transactions?.length > 0 ? transactions.map(({ month, sum }) => ({ month, sum })) : [];
-
-  // const income = transactions.find(
-  //   transaction => transaction.operation === 'income',
-  // ) !== undefined &&
-  //   transactions.find(transaction => transaction.operation === 'income')
-  //     .sum;
+  const formatter = new Intl.DateTimeFormat('ru', { month: 'long' });
   
-  console.log("transactions >>", transactions);
-  console.log("expense >>", balance);
-  // console.log("income >>", income);
-
   return (
     <Wrapper>
       <Rectangle>
@@ -24,12 +14,14 @@ function Summary({ title, month, money }) {
       </Rectangle>
       <List>
         {balance && balance.map(el => <Item>
-          
-          <Text>{el.month}</Text>
-          <Text>{el.sum} грн</Text>
+          <Text>{
+            (formatter.format(new Date(el.year, el.month - 1))).toUpperCase()
+          }
+          </Text>
+          {data === "expense"
+            ? <Text>{el.sumExpense}.00</Text>
+            : <Text>{el.sumIncome}.00</Text>}
           </Item>)}
-          {/* {balance && balance.map(el => <Text>{el.sum}</Text>)} */}
-        
       </List>
     </Wrapper>
   );
