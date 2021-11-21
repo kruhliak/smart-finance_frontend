@@ -17,17 +17,20 @@ function ReportCard({
   };
 
   return (
-    <Wrapper onClick={showSelectedCard}>
-      <Background selectedBg={selectedCard === index}></Background>
-      <Text>{sum}</Text>
-      <Icon
-        name={icon}
-        size="56px"
-        viewBox="0 0 63 57"
-        color={selectedCard === index ? '#FF751D' : '#071F41'}
-      ></Icon>
-      <Text>{name}</Text>
-    </Wrapper>
+    <>
+      <Wrapper onClick={showSelectedCard}>
+        <Background selectedBg={selectedCard === index}></Background>
+        <Text>{sum}</Text>
+        <Icon
+          name={icon}
+          size="56px"
+          viewBox="0 0 63 57"
+          color={selectedCard === index ? '#FF751D' : '#071F41'}
+          z-index={2}
+        ></Icon>
+        <Text>{name}</Text>
+      </Wrapper>
+    </>
   );
 }
 
