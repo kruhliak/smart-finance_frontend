@@ -47,14 +47,16 @@ export default function Balance() {
         <InputBox>
           <Input
             id="inputBalance"
-            type="text"
+            type="number"
             name="filter"
             onChange={handleChangeForm}
             value={value}
             pattern="\d+(\.\d{2})"
+            title="0.00"
             required
             autoComplete="off"
-            placeholder="00.00"
+            placeholder="0.00"
+            max="99999999.99"
           />
           <label htmlFor="inputBalance">UAH</label>
           <Button type="submit">ПОДТВЕРДИТЬ</Button>
