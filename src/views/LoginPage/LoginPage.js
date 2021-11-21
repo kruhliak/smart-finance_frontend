@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import {
@@ -9,6 +9,7 @@ import {
   Label,
   StarErr,
   ButtonWrapper,
+  LabelIconWrapper,
 } from './LoginPage.styled';
 import { LoginPageWrap } from 'views/RegisterPage/RegisterPage.styled';
 import GoogleRegister from 'components/FormElems/GoogleRegister/GoogleRegister';
@@ -23,6 +24,7 @@ import Title from 'components/Title';
 import TitleWrapper from 'components/TitleWrapper';
 import Subtitle from 'components/Subtitle';
 import Background from 'components/Background';
+import ShowPasswordBtn from 'components/FormElems/ShowPasswordBtn/ShowPasswordBtn';
 
 const LoginPage = () => {
   const {
@@ -38,6 +40,15 @@ const LoginPage = () => {
     console.log(data);
     dispatch(userLogin(data));
     reset();
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
   };
 
   return (
@@ -69,7 +80,6 @@ const LoginPage = () => {
               <Input
                 id="email"
                 placeholder="your@email.com"
-                placeholderTextColor="#A6ABB9"
                 {...register('email', {
                   required: 'это обязательное поле',
                   pattern: {
@@ -80,15 +90,21 @@ const LoginPage = () => {
                 })}
               />
               <ErrorMessage errors={errors.email} />
-              <Label htmlFor="password">
-                {errors.password && <StarErr>*</StarErr>}
-                Пароль:
-              </Label>
+              <LabelIconWrapper>
+                <Label htmlFor="password" password>
+                  {errors.password && <StarErr>*</StarErr>}
+                  Пароль:
+                </Label>
+                <ShowPasswordBtn
+                  onClick={handleClickShowPassword}
+                  mouseDown={handleMouseDownPassword}
+                  showPassword={showPassword}
+                />
+              </LabelIconWrapper>
               <Input
                 id="password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder="••••••••"
-                placeholderTextColor="#ffffff"
                 {...register('password', {
                   required: 'это обязательное поле',
                   minLength: {

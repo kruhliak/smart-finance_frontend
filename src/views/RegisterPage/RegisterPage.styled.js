@@ -48,6 +48,10 @@ export const Input = styled.input`
   padding: 17px 20px;
   border: none;
   margin-bottom: 4px;
+
+  &::placeholder {
+    color: #a6abb9;
+  }
 `;
 
 export const Label = styled.label`
@@ -55,7 +59,7 @@ export const Label = styled.label`
   line-height: 12px;
   letter-spacing: 0.04em;
   color: var(--black-text-color);
-  margin-bottom: 10px;
+  margin-bottom: ${props => (props.password ? 0 : '10px')};
   @media ${device.tablet} {
     font-size: 12px;
     line-height: 14px;
@@ -87,4 +91,11 @@ export const LoginPageWrap = styled.div`
     margin-top: 117px;
     margin-bottom: 142px;
   }
+`;
+
+export const LabelIconWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 `;
