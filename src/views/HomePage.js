@@ -11,8 +11,9 @@ import { useEffect } from 'react';
 import {
   getSummaryByYear,
   getAllOperationByMonth,
-  getCategoriesByMonth
+  getCategoriesByMonth,
 } from 'redux/operations/transaction-operation';
+// import SpeechBalloon from 'components/SpeechBalloon';
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -23,7 +24,6 @@ export default function HomePage() {
     dispatch(getSummaryByYear(year));
     dispatch(getAllOperationByMonth([year, month]));
     dispatch(getCategoriesByMonth(['expense', year, month]));
-
   }, [dispatch]);
 
   return (
