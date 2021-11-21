@@ -8,13 +8,13 @@ export const Wrapper = styled.div`
 
 export const Background = styled.div`
   position: absolute;
-  z-index: -1;
   width: 59px;
   height: 46px;
   margin-left: 16px;
   margin-top: 30px;
   border-radius: 20px;
   background-color: #f5f6fb;
+  opacity: 0.35;
   ${({ selectedBg }) =>
     selectedBg &&
     `

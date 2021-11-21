@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Wrapper, Container, Categories } from './ReportList.styled';
@@ -13,6 +13,20 @@ function ReportList({ setSelectedCard, selectedCard, category, setCategory }) {
     setSelectedCard('');
     setCategory(!category);
   };
+
+  useEffect(() => {
+    if (category === true && categories.length > 0) {
+      setSelectedCard(categories[0].category);
+    }
+    if (
+      category === false &&
+      operations.find(item => item.operation === 'income') !== undefined
+    ) {
+      setSelectedCard(
+        operations.find(item => item.operation === 'income').list[0].category,
+      );
+    }
+  }, [category]);
 
   return (
     <Container>

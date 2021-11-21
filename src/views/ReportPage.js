@@ -12,7 +12,7 @@ import Background from 'components/Background';
 import React, { useState } from 'react';
 
 export default function ReportPage() {
-  const [selectedCard, setSelectedCard] = useState('Алкоголь');
+  const [selectedCard, setSelectedCard] = useState('');
   const [category, setCategory] = useState(true);
 
   return (
