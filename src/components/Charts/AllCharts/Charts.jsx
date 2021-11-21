@@ -1,13 +1,10 @@
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'hooks/useMediaQuery';
+import { capitalizeFirstLetter } from 'hooks/capitalizeFirstLetter';
 
 import { Wrapper, Container} from './Charts.styled';
 import DesktopChart from '../DesktopChart/';
 import MobileChart from '../MobileChart';
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 const Charts = ({ data }) => {
   const categories = useSelector(state => state.finance.categories);
