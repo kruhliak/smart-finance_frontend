@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     max-width: 450px;
     width: 100%;
-    margin: 15px auto;
+    margin: 27px auto;
     box-shadow: 0px 8px 5px rgb(170 178 197 / 20%);
   }
 `;

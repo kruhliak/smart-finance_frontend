@@ -17,7 +17,9 @@ import {
 import 'react-tabs/style/react-tabs.css';
 import Summary from 'components/Summary/Summary';
 import { device } from 'components/options/device';
-import {WrapperContent} from'./UserTabs.styled'
+import { WrapperContent } from './UserTabs.styled'
+
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 
 const STabs = styled(Tabs)`
   -webkit-tap-highlight-color: transparent;
@@ -69,9 +71,11 @@ const STabPanel = styled(TabPanel)`
   
   @media ${device.tablet} {
     padding: 28px 30px 48px 30px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   }
   @media ${device.desktop} {
     padding: 33px 20px 61px 20px;
+    box-shadow: none;
   }
   &.--selected {
     display: block;
@@ -83,6 +87,7 @@ const UserTabs = ({ onClickModal }) => {
   const state = useSelector(state => state.finance.operations)
   const [income, setIncome] = useState();
   const [expense, setExpense] = useState();
+  const isMatches = useMediaQuery('(min-width: 1280px)');
 
 useEffect(() => {
   state.length > 0 && state.map(i => 
@@ -92,27 +97,45 @@ useEffect(() => {
 
   return (
     <STabs selectedTabClassName='--selected'
-    selectedTabPanelClassName='--selected'>
-    <STabList>
-      <STab>Расход</STab>
-      <STab>Доход</STab>
-    </STabList>
+           selectedTabPanelClassName='--selected'>
+      <STabList>
+        <STab>Расход</STab>
+        <STab>Доход</STab>
+      </STabList>
 
-    <STabPanel>
+      {isMatches ? (<><STabPanel>
+        <ExpenseIncomeForm list={expenseList} placeholder={expensePlaceholder} operationType={'expense'}/>
+          <WrapperContent>
+          <Table style={{borderRadius: '0px 30px 30px 30px'}} onClickModal={onClickModal} operation={expense} color={true}/>
+          <Summary data="expense"/>
+         </WrapperContent>
+      </STabPanel>
+
+      <STabPanel>
+       <ExpenseIncomeForm list={incomeList} placeholder={incomePlaceholder} operationType={'income'} />
+         <WrapperContent>
+           <Table onClickModal={onClickModal} operation={income} color={false} />
+          <Summary data="income"/>
+         </WrapperContent>
+      </STabPanel></>)
+      
+     : (<><STabPanel>
       <ExpenseIncomeForm list={expenseList} placeholder={expensePlaceholder} operationType={'expense'}/>
         <WrapperContent>
             <Table onClickModal={onClickModal} operation={expense} color={true}/>
-      <Summary data="expense"/>
       </WrapperContent>
-    </STabPanel>
+      <Summary data="expense"/>
+      </STabPanel>
+      
       <STabPanel>
        <ExpenseIncomeForm list={incomeList} placeholder={incomePlaceholder} operationType={'income'} />
         <WrapperContent>
         <Table onClickModal={onClickModal} operation={income} color={false} />
-      <Summary data="income"/>
          </WrapperContent>
-    </STabPanel>
-  </STabs>
+      <Summary data="income"/>
+      </STabPanel></>)}
+      
+    </STabs>
 )
 };
 
