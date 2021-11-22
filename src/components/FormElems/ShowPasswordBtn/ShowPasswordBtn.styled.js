@@ -7,7 +7,8 @@ export const IconButton = styled.button`
   background-color: transparent;
   margin-right: 20px;
   position: relative;
-  bottom: -42px;
+  position: relative;
+  top: 47px;
   &:hover,
   &:focus {
     color: var(--accent-color);

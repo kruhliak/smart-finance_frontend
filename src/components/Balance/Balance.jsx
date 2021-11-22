@@ -30,7 +30,9 @@ export default function Balance() {
   };
 
   const toggleNotification = () => {
-    setShowNotification(!showNotification);
+    if(state === 0) {
+      setShowNotification(!showNotification);
+    }
   }
   
   return (
