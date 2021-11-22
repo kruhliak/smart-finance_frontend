@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import {
   getSummaryByYear,
   getAllOperationByMonth,
-  getCategoriesByMonth
+  getCategoriesByMonth,
 } from 'redux/operations/transaction-operation';
 
 export default function HomePage() {
@@ -23,7 +23,6 @@ export default function HomePage() {
     dispatch(getSummaryByYear(year));
     dispatch(getAllOperationByMonth([year, month]));
     dispatch(getCategoriesByMonth(['expense', year, month]));
-
   }, [dispatch]);
 
   return (

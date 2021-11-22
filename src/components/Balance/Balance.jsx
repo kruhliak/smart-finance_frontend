@@ -4,13 +4,14 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-
+import SpeechBalloon from 'components/SpeechBalloon';
 import { userCreateBalance } from 'redux/operations/auth-operation';
 
 export default function Balance() {
   const width = document.documentElement.scrollWidth;
   const renderByWidth = width > 767;
   const [value, setValue] = useState(0);
+  const [showNotification, setShowNotification] = useState(false);
 
   const dispatch = useDispatch();
   const state = useSelector(state => state.auth.user.balance);
@@ -28,7 +29,12 @@ export default function Balance() {
     dispatch(userCreateBalance(value));
   };
 
+  const toggleNotification = () => {
+    setShowNotification(!showNotification);
+  }
+  
   return (
+    <>
     <Box>
       {!renderByWidth && (
         <NavLink className="balance-link" to="/report">
@@ -47,14 +53,17 @@ export default function Balance() {
         <InputBox>
           <Input
             id="inputBalance"
-            type="text"
+            type="number"
             name="filter"
             onChange={handleChangeForm}
+            onClick={toggleNotification}
             value={value}
             pattern="\d+(\.\d{2})"
+            title="0.00"
             required
             autoComplete="off"
-            placeholder="00.00"
+            placeholder="0.00"
+            max="99999999.99"
           />
           <label htmlFor="inputBalance">UAH</label>
           <Button type="submit">ПОДТВЕРДИТЬ</Button>
@@ -73,5 +82,7 @@ export default function Balance() {
         </NavLink>
       )}
     </Box>
+    {showNotification && (<SpeechBalloon/>)}
+    </>
   );
 }

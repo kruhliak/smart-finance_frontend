@@ -23,6 +23,7 @@ import Datepicker from 'components/ExpenseIncomeForm/Datepicker/Datepicker';
 import { getAllOperationByMonth } from 'redux/operations/transaction-operation';
 import { useDetectOutsideClick } from '../../hooks/useDetectOutsideClick ';
 import { useMediaQuery } from 'hooks/useMediaQuery';
+import { fetchUser } from 'redux/operations/auth-operation';
 
 const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
   const isMatches = useMediaQuery('(min-width: 768px)');
@@ -46,6 +47,7 @@ const ExpenseIncomeForm = ({ list, placeholder, operationType }) => {
     const year = dateNow.getFullYear();
     const month = dateNow.getMonth() + 1;
     dispatch(getAllOperationByMonth([year, month]));
+    dispatch(fetchUser());
   };
 
   return (

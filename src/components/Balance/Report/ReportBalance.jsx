@@ -32,7 +32,6 @@ export default function ReportBalance({ category, setSelectedCard }) {
 
   const dispatch = useDispatch();
   const state = useSelector(state => state.auth.user.balance);
-
   useEffect(() => {
     setValue(state);
   }, [state]);
@@ -132,14 +131,16 @@ export default function ReportBalance({ category, setSelectedCard }) {
           <ReportInputBox>
             <ReportInput
               id="inputBalance"
-              type="text"
+              type="number"
               name="filter"
               onChange={handleChangeForm}
               value={value}
               pattern="\d+(\.\d{2})"
+              title="0.00"
               required
               autoComplete="off"
-              placeholder="00.00"
+              placeholder="0.00"
+              max="99999999.99"
             />
             <label htmlFor="inputBalance">UAH</label>
           </ReportInputBox>
@@ -152,14 +153,16 @@ export default function ReportBalance({ category, setSelectedCard }) {
           <ReportInputBox>
             <ReportInput
               id="inputBalance"
-              type="text"
+              type="number"
               name="filter"
               onChange={handleChangeForm}
               value={value}
               pattern="\d+(\.\d{2})"
+              title="0.00"
               required
               autoComplete="off"
-              placeholder="00.00"
+              placeholder="0.00"
+              max="99999999.99"
             />
             <label htmlFor="inputBalance">UAH</label>{' '}
           </ReportInputBox>

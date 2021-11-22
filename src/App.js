@@ -4,6 +4,7 @@ import './index.css';
 import { useDispatch } from 'react-redux';
 
 import Loader from 'react-loader-spinner';
+import { Toaster } from 'react-hot-toast';
 import PrivateRoute from 'components/PrivateRoute';
 import PublicRoute from 'components/PublicRoute';
 import { fetchUser } from 'redux/operations/auth-operation';
@@ -72,6 +73,7 @@ export default function App() {
           </Route>
         </Switch>
       </Suspense>
+      <Toaster position="top-right" />
     </div>
   );
 }

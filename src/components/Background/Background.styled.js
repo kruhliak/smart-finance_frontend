@@ -15,12 +15,10 @@ export const BgLogin = styled.div`
   background-image: url(${bgLogin});
   background-repeat: no-repeat;
   z-index: -5;
-
   @media screen and (min-width: 1281px) {
     background-size: cover;
     min-height: 700px;
   }
-
   @media ${device.tablet} {
     top: 0;
   }
@@ -28,7 +26,6 @@ export const BgLogin = styled.div`
 
 export const BgHome = styled(BgLogin)`
   background-image: url(${bgHome});
-
   @media screen and (min-width: 1281px) {
     background-size: cover;
     min-height: 700px;
@@ -40,7 +37,6 @@ export const CabbageWrap = styled.div`
   top: 780px;
   left: 35px;
   z-index: -1;
-
   @media ${device.tablet} {
     top: 859px;
     left: 103px;
@@ -49,13 +45,11 @@ export const CabbageWrap = styled.div`
     top: 676px;
     left: 230px;
   }
-
   &:nth-of-type(3) {
     display: none;
     top: 834px;
     left: 197px;
     transform: scale(-1, 1);
-
     @media ${device.tablet} {
       display: block;
     }
@@ -74,7 +68,6 @@ export const EllipseWrap = styled.div`
     top: 968px;
     left: 108px;
     z-index: -1;
-
     @media ${device.desktop} {
       top: 785px;
       left: 235px;
@@ -83,7 +76,6 @@ export const EllipseWrap = styled.div`
   &:nth-of-type(5) {
     top: 943px;
     left: 208px;
-
     @media ${device.desktop} {
       top: 769px;
       left: 335px;
@@ -94,7 +86,6 @@ export const EllipseWrap = styled.div`
 export const BgWrapHome = styled.div`
   position: absolute;
   z-index: -1;
-
   @media ${device.tablet} {
     top: 1033px;
     right: 88px;
@@ -109,5 +100,6 @@ export const BgWrapHome = styled.div`
     width: 100%;
     height: 232px;
     background-image: url(${bgDesktopBottom});
+    background-repeat: repeat-x;
   }
 `;

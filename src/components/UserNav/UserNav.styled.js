@@ -24,6 +24,7 @@ export const LogoutBtn = styled.button`
   display: flex;
   border: none;
   background-color: transparent;
+  outline: none;
 
   &:focus,
   &:hover > svg {
