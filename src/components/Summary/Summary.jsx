@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useMediaQuery } from '../../hooks/useMediaQuery.js';
 import { Wrapper, Text, Rectangle, List, Item, Title } from './Summary.styled';
 
 function Summary({ data, title="СВОДКА"}) {
@@ -13,7 +14,7 @@ function Summary({ data, title="СВОДКА"}) {
         <Title>{title}</Title>
       </Rectangle>
       <List>
-        {balance && balance.map(el => <Item>
+        {balance.length > 0 ? balance.map(el => <Item>
           <Text>{
             (formatter.format(new Date(el.year, el.month - 1))).toUpperCase()
           }
@@ -21,7 +22,7 @@ function Summary({ data, title="СВОДКА"}) {
           {data === "expense"
             ? <Text>{el.sumExpense}.00</Text>
             : <Text>{el.sumIncome}.00</Text>}
-          </Item>)}
+          </Item>) : (<Item>Вы еще не внесли данные</Item>)}
       </List>
     </Wrapper>
   );
