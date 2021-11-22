@@ -2,14 +2,21 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   width: 230px;
-  @media (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: none;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    max-width: 450px;
+    width: 100%;
+    margin: 15px auto;
+    box-shadow: 0px 8px 5px rgb(170 178 197 / 20%);
   }
 `;
 
 export const Rectangle = styled.div`
   align-items: center;
-  width: 230px;
+  width: 100%;
   height: 38px;
   background: #f5f6fb;
   display: flex;
@@ -29,7 +36,7 @@ export const Item = styled.li`
   justify-content: space-between;
   padding: 0 20px;
   align-items: center;
-  width: 230px;
+  width: 100%;
   height: 38px;
   background: #f5f6fb;
   display: flex;
