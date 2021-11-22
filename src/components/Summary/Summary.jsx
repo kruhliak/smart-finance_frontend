@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import { useMediaQuery } from '../../hooks/useMediaQuery.js';
 import { Wrapper, Text, Rectangle, List, Item, Title } from './Summary.styled';
 
 function Summary({ data, title="СВОДКА"}) {

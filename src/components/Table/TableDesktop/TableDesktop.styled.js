@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
   border: none;
   overflow-x: hidden;
   margin: 0 auto;
+
+  @media ${device.tablet} and (max-width: 1279px) {
+    border-radius: 0px 30px 30px 30px;
+  }
+  
   @media ${device.desktop} {
     width: 760px;
     margin-right: 30px;
