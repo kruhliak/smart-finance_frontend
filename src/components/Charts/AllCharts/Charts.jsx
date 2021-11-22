@@ -30,7 +30,7 @@ const Charts = ({ data }) => {
       return acc;
     }, [])
   
-  const dataChart = newData?.length ? newData : [];
+  const dataChart = newData?.length ? newData : [{ description: 'Вы еще не внесли данные', value: 0 }];
   
   return (
     <Container>
