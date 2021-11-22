@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as userAPI from 'services/userAPI';
+import { toast } from 'react-hot-toast';
 // import { useLocation } from 'react-router';
 
 const token = {
@@ -19,7 +20,7 @@ export const userSignup = createAsyncThunk(
       const response = await userAPI.userSignup(user);
       return response;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(toast.error(`Register error ${error.message}`));
     }
   },
 );
@@ -32,7 +33,7 @@ export const userLogin = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(toast.error(`Login error ${error.message}`));
     }
   },
 );
@@ -45,7 +46,7 @@ export const userLogout = createAsyncThunk(
       token.unset();
       return response;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(toast.error(`Log out error ${error.message}`));
     }
   },
 );
@@ -77,7 +78,9 @@ export const setGoogleToken = createAsyncThunk(
     try {
       return token;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(
+        toast.error(`Google register error ${error.message}`),
+      );
     }
   },
 );
@@ -89,7 +92,7 @@ export const userCreateBalance = createAsyncThunk(
       await userAPI.userSetBalance(balance);
       return balance;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(toast.error(`Balance ${error.message}`));
     }
   },
 );
