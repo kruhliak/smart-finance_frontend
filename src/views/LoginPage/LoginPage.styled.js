@@ -42,6 +42,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
+  outline: none;
   width: 265px;
   height: 52px;
   background: #f6f7fb;
