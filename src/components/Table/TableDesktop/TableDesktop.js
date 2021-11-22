@@ -14,6 +14,7 @@ import {
   Nodate,
 } from './TableDesktop.styled';
 import { Icon } from 'hooks/Icon';
+import { capitalizeFirstLetter } from 'hooks/capitalizeFirstLetter';
 
 const TableDesktop = ({ operation, color, toggleModal, setId }) => {
   const handleDeleteClick = idToDel => {
@@ -24,10 +25,6 @@ const TableDesktop = ({ operation, color, toggleModal, setId }) => {
   const isZero = i => {
     return i.toString().length === 1 ? `0${i}` : i;
   };
-
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
 
   return (
     <Wrapper>
