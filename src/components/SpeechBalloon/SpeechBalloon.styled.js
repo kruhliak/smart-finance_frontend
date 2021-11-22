@@ -14,11 +14,10 @@ export const SpeechBubbleRect = styled.div`
 
   @media ${device.tablet} {
     top: 163px;
-    left: 160px;
+    left: 44%;
   }
   @media ${device.desktop} {
     top: 165px;
-    left: 550px;
   }
 
   &:after {
