@@ -73,7 +73,16 @@ export default function App() {
           </Route>
         </Switch>
       </Suspense>
-      <Toaster position="top-right" />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            color: '#713200',
+            fontSize: '16px',
+            border: '1px solid #713200',
+          },
+        }}
+      />
     </div>
   );
 }
