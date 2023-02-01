@@ -6,7 +6,7 @@ const GoogleRegister = () => {
   return (
     <>
       <Text>Вы можете авторизоваться с помощью Google Account:</Text>
-      <Link href="https://smart-finance-backend.herokuapp.com/api/users/google">
+      <Link href="https://smart-financebackend-production.up.railway.app/api/users/google">
         <FcGoogle size="18px" /> <LinkText>Google</LinkText>
       </Link>
     </>

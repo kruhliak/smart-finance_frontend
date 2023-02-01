@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://smart-finance-backend.herokuapp.com/api';
+axios.defaults.baseURL = 'https://smart-financebackend-production.up.railway.app/api';
 
 export async function userSignup(user) {
   const { data } = await axios.post(`/users/signup`, user);
